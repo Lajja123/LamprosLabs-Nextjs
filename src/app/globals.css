@@ -114,7 +114,7 @@ body {
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%
     ),
-    #0a11b5;
+    #0a11b5 !important;
   --sb-track-color: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.2) 0%,
@@ -123,8 +123,8 @@ body {
     #0a11b5;
   --sb-thumb-color: #a6ff35;
   --sb-size: 6px;
-  text-align: center;
-  font-family: "Josefin Sans";
+  text-align: center !important;
+  font-family: "Josefin Sans" !important;
   scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
 }
 body::-webkit-scrollbar {
@@ -143,4 +143,155 @@ body::-webkit-scrollbar-thumb {
 @font-face {
   font-family: "Josefin Sans";
   src: url("./JosefinSans-Regular.ttf") format("truetype");
+}
+.slick-list {
+  transform: none !important;
+  width: 60%;
+  margin: 0 auto !important;
+  overflow: visible !important;
+}
+.center-slider .slick-slide {
+  opacity: 0.5;
+}
+.slick-slider {
+  width: 100% !important;
+}
+.slick-slide {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+  transform: scale(0.8);
+}
+
+.slick-active {
+  opacity: 1;
+  transform: scale(1);
+}
+.slick-dots {
+  position: absolute;
+  bottom: -50px !important;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+.slick-dots li button:before {
+  font-family: "slick";
+  font-size: 10px !important;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: "•";
+  text-align: center;
+  opacity: 0.25;
+  color: #a6ff35 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.accordionIcon {
+  width: 90px;
+  height: 90px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.accordionIcon.expanded {
+  transform: rotate(180deg);
+}
+
+.accordionIcon.collapsed {
+  transform: rotate(0deg);
+}
+
+@media only screen and (max-width: 1024px) {
+  .Slxdj {
+    font-size: 2em !important;
+    width: 40px !important;
+    height: 50px !important;
+  }
+  .kXteup {
+    font-size: 2em !important;
+    width: 40px !important;
+    height: 50px !important;
+  }
+  .accordionIcon {
+    width: 70px;
+    height: 70px;
+    padding: 15px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .slick-dots {
+    bottom: -30px;
+  }
+  .accordionIcon {
+    width: 60px;
+    height: 50px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .slick-list {
+    width: 80%;
+  }
+  .accordionIcon {
+    width: 70px;
+    height: 60px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .rec.rec-arrow {
+    font-size: 1.5em !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    width: 50px !important;
+    height: 50px !important;
+    /* background-color: #07006A !important; */
+  }
+  .Slxdj {
+    font-size: 0.9em !important;
+    width: 26px !important;
+    height: 32px !important;
+  }
+  .kXteup {
+    font-size: 0.9em !important;
+    width: 26px !important;
+    height: 32px !important;
+    min-width: 0px !important;
+    min-width: 0px !important;
+    line-height: 0px !important;
+  }
+  .slick-list {
+    transform: none !important;
+    width: 100%;
+    margin: 0 auto !important;
+    overflow: visible !important;
+  }
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 8%;
+  }
+  .slick-dots {
+    bottom: -30px !important;
+  }
+  .homepageSecion3MainTemplate .rec-carousel {
+    width: 95% !important;
+    margin: 80px 0px 0px 0px;
+  }
+  .accordionIcon {
+    width: 40px;
+    height: 35px;
+    padding: 5px 8px;
+  }
 }

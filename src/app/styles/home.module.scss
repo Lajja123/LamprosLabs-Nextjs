@@ -1,0 +1,1302 @@
+.lmplabHomepageMainBg {
+  background: url("../assets/images/home-bg.webp");
+  max-width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.homepageSecion1Main {
+  width: 100%;
+  padding-top: 100px;
+}
+.section1BgImgMain {
+  width: 100%;
+  padding: 10px 0px;
+  min-width: 300px;
+  position: relative;
+}
+.section1BgImg {
+  width: 731px;
+  height: 600px;
+  transform: rotate(50deg);
+  /* Set animation properties */
+  animation: rotateAnimation 100s infinite linear;
+}
+@keyframes rotateAnimation {
+  /* Set the rotation angles */
+  0% {
+    transform: rotate(50deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.section1PositionMain {
+  margin: 0 auto;
+  width: 90%;
+  min-width: 900px;
+  position: absolute;
+  top: 25%;
+  right: 0;
+  height: 40vh;
+  left: 0px;
+}
+.section1Heading {
+  font-style: normal;
+  font-weight: 400;
+  //  font-family: "Josefin Sans";
+  font-size: 60px;
+  line-height: 174.52%;
+  margin: 0px;
+  text-align: center;
+  letter-spacing: 0.4em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.homeSubtitle {
+  color: #ffffff;
+  //  font-family: "Josefin Sans";
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin: 0 auto;
+  padding: 20px 150px;
+  line-height: 140%;
+}
+.colorChangeText {
+  color: #07006a;
+  background-color: #a6ff35;
+  padding-left: 20px;
+  font-weight: 400;
+  padding-top: 10px;
+  font-family: "Josefin Sans";
+}
+
+/* .............section2 css.................. */
+.homepageSecion2Main {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: space-between;
+}
+.section2Flex {
+  width: 100%;
+  margin: 0px 70px;
+  text-align: left;
+}
+.section2Img {
+  width: 500px;
+  height: 500px;
+  opacity: 0;
+  transform: scale(0.5); /* Initial zoom level */
+}
+.section2Img {
+  animation-timeline: view();
+  animation-name: fadeInAndZoom;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+@keyframes fadeInAndZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.section2Pera {
+  color: #fff;
+  //  font-family: "Josefin Sans";
+  font-size: 23px;
+  font-style: normal;
+  line-height: 130.023%; /* 36.965px */
+  letter-spacing: 1.8px;
+}
+
+.hideForWeb {
+  display: none !important;
+}
+.homeMlPera {
+  color: #fff;
+  //  font-family: "Josefin Sans";
+  font-size: 23px;
+
+  font-style: normal;
+  line-height: 130%; /* 36.965px */
+  letter-spacing: 1.8px;
+}
+.section2Button {
+  background-color: #a6ff35;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 154.02%;
+  letter-spacing: 0.56em;
+  color: #000000;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 48px;
+  text-shadow: 5px 2px 8px rgba(0, 0, 0, 0.73);
+  padding: 20px 30px;
+  border: none;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  //  font-family: "Josefin Sans";
+  text-transform: uppercase;
+  margin-top: 35px;
+  font-weight: 600;
+}
+#button7 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#button7 a {
+  position: relative;
+  left: 0;
+  transition: all 0.35s ease-Out;
+}
+#dubArrow {
+  width: 100%;
+  height: 100%;
+  background: #fcffff;
+  right: 235px;
+  position: absolute;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s ease-Out;
+  bottom: 0;
+}
+
+#button7 img {
+  width: 20px;
+  height: auto;
+}
+
+#button7:hover #dubArrow {
+  right: 0;
+}
+
+#button7:hover a {
+  right: 150px;
+}
+
+/* ..........section3 css............ */
+.homepageSecion3MainTemplate {
+  margin: 0 auto;
+  padding-top: 150px;
+  padding-bottom: 50px;
+  overflow: hidden;
+}
+.section3Card {
+  width: 645px !important;
+  padding: 50px;
+  height: 400px;
+  display: flex !important;
+  margin: 0 auto;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-shrink: 0;
+  border-radius: 45px;
+  background: linear-gradient(117deg, #fcffff 1.47%, #a3ffff 98.65%);
+  // box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.17);
+}
+
+.homepageSecion3MainTemplate .rec .rec-pagination {
+  box-sizing: border-box;
+  padding: 0px;
+  transition: all 250ms ease 0s;
+  border: none;
+  margin: 5px;
+  background-color: rgb(255 255 255) !important;
+  font-size: 1.3em;
+  content: "";
+  display: none !important;
+  height: 10px;
+  width: 10px;
+  box-shadow: rgb(0 6 255) 0px 0px 1px 3px !important;
+  border-radius: 50%;
+  outline: none;
+}
+.homepageSecion3MainTemplate .rec.rec-arrow {
+  background-color: #00ffff !important;
+}
+.rec.rec-arrow:hover {
+  background: none !important;
+}
+.hhomepageSecion3MainTemplate .rec-carousel {
+  width: 75% !important;
+  margin: 80px 0px 50px 0px;
+}
+.section3CardTitle {
+  color: #0a11b5;
+  text-align: center;
+  //  font-family: "Josefin Sans";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 174.523%; /* 62.828px */
+  letter-spacing: 0.9px;
+  // width: 409.922px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+.section3CardDesc {
+  color: #060028;
+  text-align: center;
+  //  font-family: "Josefin Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 168.023%;
+  letter-spacing: 1.36px;
+}
+.section3CardButton {
+  border-radius: 48px;
+  background: #0ff;
+  width: 200px;
+  height: 55px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  border: none;
+  color: #000;
+  text-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+  //  font-family: "Josefin Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 154.023%;
+  letter-spacing: 4.72px;
+}
+
+.homepageSecion4Main {
+  width: 100%;
+  padding: 150px 0px;
+}
+.sectio4Title {
+  color: #a6ff35;
+  //  font-family: "Josefin Sans";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 154.023%; /* 98.575px */
+  letter-spacing: 28.48px;
+}
+.accordionAns {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  background: #d9d9d9;
+  display: flex;
+  font-weight: 600;
+  padding: 0px 30px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  // margin: 20px auto;
+  // width: 80%;
+  //  font-family: "Josefin Sans";
+  align-items: center;
+  top: -35px;
+  //  font-family: "Josefin Sans";
+  line-height: 130.02%;
+  letter-spacing: 0.065em;
+  color: #1a0f5e;
+  text-align: left;
+}
+.accordionIcon {
+  width: 90px;
+  height: 90px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.accordionIcon.expanded {
+  transform: rotate(180deg);
+}
+
+.accordionIcon.collapsed {
+  transform: rotate(0deg);
+}
+.item {
+  padding: 20px 30px;
+  border-radius: 20px;
+  margin: 0 auto;
+  align-items: center;
+  width: 80%;
+}
+.faqQueMain {
+  background: #d9d9d9;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 0 auto;
+  font-weight: 600;
+  width: 80%;
+  //  font-family: "Josefin Sans";
+  align-items: center;
+  cursor: pointer;
+}
+.faqQueMain:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 20px;
+  border-left: 10px solid #1c08b7;
+}
+.faqQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.accordionQue {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  //  font-family: "Josefin Sans";
+  line-height: 130%;
+  padding: 10px;
+  letter-spacing: 0.065em;
+  color: #1a0f5e;
+  text-align: left;
+}
+
+/* .....................mobile responsive ..................... */
+
+@media only screen and (max-width: 1024px) {
+  .section1BgImgMain {
+    width: 100%;
+    padding: 0px;
+    min-width: 300px;
+    position: relative;
+  }
+  .homeSubtitle {
+    color: #ffffff;
+    font-family: "Josefin Sans";
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    margin: 0 auto;
+    padding: 20px 150px;
+    line-height: 140%;
+  }
+  #section1Button {
+    font-size: 17px;
+    line-height: 154.02%;
+    letter-spacing: 0.3em;
+    padding: 15px 20px;
+    margin-top: 30px;
+    width: 465px;
+    height: 60px;
+  }
+  .homepageSecion3MainTemplate {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 150px;
+  }
+
+  .homepageSecion3MainTemplate .rec-carousel {
+    width: 90% !important;
+    margin: 50px 0px 0px 0px;
+  }
+  .section3CardXcompute {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 154.02%;
+    letter-spacing: 3px;
+    color: #00ffd1;
+  }
+  .homepageSecion3MainTemplate {
+    width: 100%;
+    text-align: center;
+    margin-left: 0px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 120px;
+    justify-content: center;
+  }
+  .faqAccordionMain {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .section1BgImg {
+    width: 500px;
+    height: 425px;
+  }
+  .section1Heading {
+    font-size: 37px;
+    font-weight: 600;
+    letter-spacing: 15px;
+  }
+  .section1PositionMain {
+    margin: 0 auto;
+    height: 35vh;
+    top: 25%;
+    min-width: 800px;
+  }
+  .section2Img {
+    width: 433px;
+    height: 343px;
+    min-width: 330px;
+  }
+  .section2Button {
+    margin-top: 15px;
+  }
+
+  #section2Button {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    padding: 15px 30px;
+    margin-top: 20px;
+  }
+  .section2Pera {
+    font-size: 18px;
+    line-height: 3.5vh;
+    text-align: left;
+    letter-spacing: 1px;
+  }
+  .homepageSecion2Main {
+    margin: 100px 0px;
+  }
+  .section3Card {
+    padding: 40px 50px;
+    width: 600px !important;
+    height: 370px;
+  }
+  #carouselExampleControls {
+    width: 100% !important;
+  }
+  .section3CardTitle {
+    letter-spacing: 3px;
+    font-size: 30px;
+    font-weight: 400;
+  }
+  .section3CardDesc {
+    font-size: 18px;
+    padding: 10px 0px;
+    width: 80%;
+    line-height: 25px;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+
+  .section3CardButton {
+    font-size: 14px;
+    line-height: 157.02%;
+    letter-spacing: 0.2rem;
+    color: #1a0f5e;
+    width: 190px;
+    height: 55px;
+    padding: 15px 20px;
+  }
+
+  .Slxdj {
+    font-size: 2em !important;
+    width: 40px !important;
+    height: 50px !important;
+  }
+  .kXteup {
+    font-size: 2em !important;
+    width: 40px !important;
+    height: 50px !important;
+  }
+  .sectio4Title {
+    font-size: 3rem;
+    letter-spacing: 10px;
+    margin: 30px 0px;
+  }
+  .faqQueMain {
+    padding: 10px;
+    font-size: 1rem;
+    text-align: justify;
+    width: 100%;
+  }
+  .accordionIcon {
+    width: 70px;
+    height: 70px;
+    padding: 15px;
+  }
+  .accordionAns {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 130.02%;
+    letter-spacing: 0.06em;
+    color: #1a0f5e;
+    text-align: left;
+    width: 100%;
+    padding: 10px 20px;
+  }
+  .accordionQue {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 130.02%;
+    letter-spacing: 0.05em;
+    color: #1a0f5e;
+    text-align: left;
+  }
+  .homeMlPera {
+    font-size: 18px;
+    line-height: 3.5vh;
+    text-align: left;
+    letter-spacing: 1px;
+  }
+  .hideForWeb {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .section1PositionMain {
+    min-width: 500px;
+    padding-left: 0px !important;
+    height: 27vh;
+    top: 20%;
+  }
+  .homepageSecion2Main {
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    margin: 100px 0;
+    width: 100%;
+    flex-direction: row-reverse;
+    position: relative;
+  }
+  .section2Img {
+    width: 250px;
+    position: absolute;
+    left: 55%;
+    height: fit-content;
+    top: -10%;
+    min-width: 250px;
+  }
+  .homepageSecion1Main {
+    width: 100%;
+    padding-top: 70px;
+  }
+  .homeMlPera {
+    font-size: 17px;
+    line-height: 4vh;
+    text-align: left;
+    width: 100%;
+    margin: 10px 0px;
+    letter-spacing: 1px;
+  }
+  #section1Button {
+    font-size: 12px;
+    line-height: 154.02%;
+    letter-spacing: 0.3em;
+    padding: 15px 20px;
+    margin-top: 30px;
+    width: 343px;
+    height: 60px;
+  }
+  .section1BgImg {
+    width: 400px;
+    height: 340px;
+  }
+  .section1BgImgMain {
+    width: 100%;
+    min-width: 300px;
+    /* position: relative; */
+  }
+  .section1Heading {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 10px;
+    line-height: 7vh;
+  }
+  .section2Pera {
+    font-size: 17px;
+    line-height: 4vh;
+    width: 55%;
+    margin: 0px;
+    text-align: left;
+    letter-spacing: 1px;
+  }
+
+  .homepageSecion3MainTemplate {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+  }
+  .slick-dots {
+    bottom: -30px;
+  }
+  #section2Button {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    padding: 15px 40px;
+    margin-top: 20px;
+  }
+  .section2Flex {
+    width: 85%;
+    display: flex;
+    margin: 0px 50px;
+    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .faqAccordionMain {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .faqQueMain {
+    padding: 10px;
+    font-size: 15px;
+    text-align: justify;
+  }
+  .homepageSecion3MainTablet {
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    margin-top: 80px;
+  }
+  .homepageSecion3Main {
+    display: none;
+  }
+  .section3Card {
+    padding: 30px 30px;
+    width: 435px !important;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .sectio4Title {
+    font-size: 2rem;
+    letter-spacing: 10px;
+    margin: 30px 0px;
+  }
+  .section3CardTitle {
+    letter-spacing: 4px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .section2Button {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 130%;
+    padding: 20px 30px;
+    letter-spacing: 0.46em;
+  }
+  .section3CardDesc {
+    font-size: 15px;
+    padding: 6px 0px;
+    width: 100%;
+    line-height: 20px;
+    letter-spacing: 2px;
+  }
+  .section3CardButton {
+    font-size: 10px;
+    line-height: 150.02%;
+    letter-spacing: 0.2rem;
+    color: #1a0f5e;
+    padding: 15px 20px;
+    margin-top: 20px;
+    width: 165px;
+    height: 45px;
+  }
+  .iconPosition2 {
+    position: fixed;
+    bottom: 47% !important;
+    right: 25px;
+    z-index: 20;
+  }
+  .iconStyle {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    height: 20px !important;
+    width: 15px !important;
+    color: #fff;
+    cursor: pointer;
+  }
+  .iconPosition {
+    position: fixed;
+    bottom: 51% !important;
+    right: 25px;
+    z-index: 20;
+  }
+  .item {
+    padding: 20px 30px;
+    border-radius: 20px;
+    margin: 0 auto;
+    align-items: center;
+    width: 100%;
+  }
+  .accordionIcon {
+    width: 60px;
+    height: 50px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .homepageSecion3MainTemplate .rec-carousel {
+    width: 95% !important;
+    margin: 50px 0px 0px 0px;
+  }
+  .homepageSecion4Main {
+    width: 100%;
+    padding-top: 35px;
+  }
+
+  .colorChangeText {
+    color: #07006a;
+    background-color: #a6ff35;
+    padding-left: 1.8rem;
+    padding: 10px;
+    font-weight: 400;
+  }
+  .homeSubtitle {
+    color: #ffffff;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin: 0 auto;
+    padding: 20px 100px;
+    line-height: 150%;
+  }
+  .hideForWeb {
+    display: none !important;
+  }
+
+  .cursor {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .cursor {
+    display: none;
+  }
+  .section1Heading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 9px;
+    line-height: 6vh;
+  }
+  .homepageSecion1Main {
+    width: 100%;
+    padding-top: 55px;
+  }
+  .homepageSecion2Main {
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+    width: 100%;
+    flex-direction: row-reverse;
+    position: relative;
+  }
+  .item {
+    padding: 20px 30px;
+    border-radius: 20px;
+    margin: 0 auto;
+    align-items: center;
+    width: 100%;
+  }
+  .homeSubtitle {
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin: 0 auto;
+    padding: 15px 40px;
+    line-height: 150%;
+  }
+  .section1BgImg {
+    width: 320px;
+    height: 280px;
+  }
+  .colorChangeText {
+    color: #07006a;
+    background-color: #a6ff35;
+    padding-left: 1.8rem;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 20px;
+  }
+  .section2Flex {
+    width: 85%;
+    display: flex;
+    margin: 0px 50px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .section1PositionMain {
+    min-width: 400px;
+    padding-left: 0px !important;
+    height: 24vh;
+    top: 20%;
+  }
+  .section2Img {
+    width: 250px;
+    position: absolute;
+    left: 53%;
+
+    height: fit-content;
+    top: -8%;
+    min-width: 264px;
+  }
+  .section3Card {
+    padding: 30px 30px;
+    width: 300px !important;
+    height: 244px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .slick-list {
+    width: 80%;
+  }
+  .section2Img {
+    top: -3%;
+    min-width: 219px;
+    position: absolute;
+    left: 58%;
+    display: none;
+    rotate: -15deg;
+    /* transform: scaleX(-1); */
+    height: -moz-fit-content;
+    height: fit-content;
+    flex-shrink: 0;
+    width: 150px;
+    flex-shrink: 0;
+  }
+  .section2Pera1 {
+    font-size: 14px;
+    line-height: 130%;
+    width: 100%;
+    color: #fff;
+    text-align: justify;
+    letter-spacing: 1px;
+  }
+  .section2Pera {
+    font-size: 15px;
+    line-height: 3.8vh;
+    width: 55%;
+    // margin: 0px;
+    text-align: justify;
+    letter-spacing: 1px;
+  }
+  .homeMlPera1 {
+    font-size: 14px;
+    line-height: 130%;
+    width: 100%;
+    color: #fff;
+    text-align: justify;
+    letter-spacing: 1px;
+  }
+  .section3CardButton {
+    font-size: 10px;
+    line-height: 114.02%;
+    letter-spacing: 0.2rem;
+    color: #1a0f5e;
+    padding: 15px 20px;
+    margin-top: 20px;
+    width: 165px;
+    height: 39px;
+  }
+  .faqAccordionMain {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .accordionIcon {
+    width: 70px;
+    height: 60px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .item {
+    padding: 20px 30px;
+    border-radius: 20px;
+    margin: 0 auto;
+    align-items: center;
+    width: 100%;
+  }
+  .homepageSecion4Main {
+    width: 100%;
+    padding: 70px 0px;
+  }
+  .accordionQue {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 130.02%;
+    color: #1a0f5e;
+
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 1px;
+    letter-spacing: 0.065em;
+    color: #1a0f5e;
+    text-align: left;
+  }
+  .section1CardDesc {
+    font-size: 12px;
+    line-height: 130.023%;
+    letter-spacing: 1px;
+  }
+  .section1AboutUs {
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+  }
+  .faqQueMain {
+    padding: 15px;
+    font-size: 15px;
+    text-align: justify;
+  }
+  .accordionAns {
+    font-family: "Josefin Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125.02%;
+    letter-spacing: 0.065em;
+    color: rgb(26, 15, 94);
+    text-align: left;
+    padding: 10px 20px;
+  }
+  .hideForMobile {
+    display: none;
+  }
+  .hideForWeb {
+    display: block !important;
+  }
+  .section3CardDesc {
+    font-size: 10px;
+    padding: 6px 0px;
+    width: 100%;
+    letter-spacing: 1px;
+    line-height: 15px;
+  }
+  .section3CardTitle {
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: 600;
+    width: 100%;
+  }
+  .section3CardButton {
+    margin: 0px;
+  }
+
+  .cursor {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .cursor {
+    display: none;
+  }
+
+  .accordionQue {
+    font-family: Josefin Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 10px;
+    line-height: 154.023%;
+    letter-spacing: 0.65px;
+    letter-spacing: 0.065em;
+    color: #1a0f5e;
+    text-align: left;
+    padding: 10px 20px;
+  }
+  .hideForMobile {
+    display: none;
+  }
+  .hideForWeb {
+    display: block !important;
+    margin-top: 20px;
+  }
+  .homeSubtitle {
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 1px;
+    /* width: 200px; */
+    margin: 0 auto;
+    padding: 10px 20px;
+    line-height: 150%;
+  }
+  .homepageSecion1Main {
+    width: 100%;
+  }
+  .colorChangeText {
+    color: #07006a;
+    background-color: #a6ff35;
+    padding-left: 1.8rem;
+    padding: 7px;
+    font-weight: 400;
+    font-size: 15px;
+  }
+  .section1BgImgMain {
+    width: 100%;
+    min-width: 300px;
+  }
+  .section1Heading {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    line-height: 4.5vh;
+  }
+  #section1Button {
+    font-size: 10px;
+    line-height: 154.02%;
+    letter-spacing: 0.2em;
+    padding: 9px 10px;
+    margin-top: 10px;
+    width: 199px;
+    height: 35px;
+  }
+  .section1PositionMain {
+    min-width: 200px;
+    padding-left: 0px !important;
+    height: 26vh;
+    top: 22% !important;
+  }
+
+  .iconStyle {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    height: 10px !important;
+    width: 10px !important;
+    color: #fff;
+    cursor: pointer;
+  }
+  .iconPosition {
+    position: fixed;
+    bottom: 80% !important;
+    right: 12px !important;
+    z-index: 20;
+  }
+  .section2Img {
+    display: none;
+  }
+  .section2Pera1 {
+    font-size: 13px;
+    line-height: 3vh;
+    width: 100%;
+    color: #fff;
+    text-align: left;
+    letter-spacing: 1px;
+  }
+  .homeMlPera1 {
+    font-size: 13px;
+    line-height: 3vh;
+    text-align: left;
+    margin: 20px 0px;
+    width: 100%;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .iconPosition2 {
+    position: fixed;
+    bottom: 77% !important;
+    right: 12px !important;
+    z-index: 20;
+  }
+  .iconPosition3 {
+    position: fixed;
+    bottom: 74% !important;
+    right: 12px !important;
+    z-index: 20;
+  }
+  .section2Pera {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 22px;
+    text-align: center;
+    text-align: justify;
+  }
+  .section2Flex {
+    // width: 105%;
+    margin: 0px auto;
+    text-align: center;
+    margin: 0px 30px;
+  }
+  .homepageSecion2Main {
+    margin-top: 30px;
+    display: block;
+    margin: 40px 0px;
+  }
+  #section2Button {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #000;
+    text-shadow: 5px 2px 8px rgba(0, 0, 0, 0.3);
+    font-family: Josefin Sans;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 154.023%;
+    letter-spacing: 5.6px;
+    padding: 12px 30px;
+    margin-top: 20px;
+  }
+  .rec.rec-arrow {
+    font-size: 1.5em !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    width: 50px !important;
+    height: 50px !important;
+    /* background-color: #07006A !important; */
+  }
+  .Slxdj {
+    font-size: 0.9em !important;
+    width: 26px !important;
+    height: 32px !important;
+  }
+  .kXteup {
+    font-size: 0.9em !important;
+    width: 26px !important;
+    height: 32px !important;
+    min-width: 0px !important;
+    min-width: 0px !important;
+    line-height: 0px !important;
+  }
+
+  .section3CardDesc {
+    font-size: 10px;
+    text-align: center;
+    padding: 0px 0px;
+    width: 100%;
+    line-height: 15px;
+    letter-spacing: 1px;
+  }
+  .section3CardTitle {
+    letter-spacing: 1px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+    line-height: 20px;
+  }
+  .section3CardXcompute {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 154.02%;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #00ffd1;
+  }
+  .section3Card {
+    padding: 30px 30px;
+    width: 300px !important;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    // min-height: 40vh;
+    justify-content: space-evenly;
+  }
+  .slick-list {
+    transform: none !important;
+    width: 100%;
+    margin: 0 auto !important;
+    overflow: visible !important;
+  }
+  .section3CardButton {
+    font-size: 10px;
+    line-height: 100.02%;
+    letter-spacing: 3px;
+    color: #1a0f5e;
+    width: 150px;
+    height: 40px;
+    padding: 13px 15px;
+    margin-top: 12px;
+  }
+  .carousel-control-next,
+  .carousel-control-prev {
+    width: 8%;
+  }
+  .sectio4Title {
+    font-size: 2.5rem;
+    color: #a6ff35;
+    text-align: center;
+    font-family: Josefin Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 154.023%;
+    letter-spacing: 8.9px;
+    letter-spacing: 10px;
+    margin: 30px 0px;
+  }
+  .homepageSecion4Main {
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 0px;
+  }
+  .accordionIcon {
+    width: 40px;
+    height: 35px;
+    padding: 5px 8px;
+  }
+  .accordionAns {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 154.023%;
+    letter-spacing: 0.65px;
+
+    text-align: left;
+
+    /* width: 874px; */
+    /* height: 78px; */
+    color: #1a0f5e;
+  }
+  .faqQueMain {
+    padding: 10px;
+    font-size: 10px;
+    text-align: left;
+    width: 100%;
+  }
+  .item {
+    padding: 10px 20px;
+  }
+  .navbarLogoMain {
+    margin-bottom: 0;
+  }
+  .section1BgImg {
+    width: 300px;
+    height: 255px;
+  }
+  .homepageSecion3MainTemplateMobile {
+    width: 100%;
+    text-align: center;
+    margin-left: 0px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+  }
+  .homepageSecion3MainTemplate {
+    margin: 50px 0px;
+    padding: 40px 0px;
+  }
+  .slick-dots {
+    bottom: -30px !important;
+  }
+  .homepageSecion3MainTemplate .rec-carousel {
+    width: 95% !important;
+    margin: 80px 0px 0px 0px;
+  }
+  .cursor {
+    display: none;
+  }
+}
