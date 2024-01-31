@@ -1,0 +1,777 @@
+/* ...............section1 css.................. */
+.aboutUsMainBg {
+  background: url("../assets/images/about-bg.webp");
+  max-width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  z-index: -1;
+}
+.aboutImgMainDiv {
+  position: absolute;
+  display: flex;
+  z-index: 0;
+}
+.aboutUsDesc3 {
+  width: 95%;
+  margin: 0 auto;
+}
+.aboutUsSection1CardDesc {
+  color: #fff;
+  text-align: center;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150.023%;
+  letter-spacing: 1.8px;
+}
+.aboutImg {
+  width: 45%;
+  height: 45%;
+  position: relative;
+  right: 2.5rem;
+  transform: rotate(90deg);
+  animation: zoomInOut 4s infinite alternate;
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.aboutSec1Box {
+  border-radius: 172px;
+  border: 1px solid rgba(115, 88, 255, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 10, 255, 0.51) 0%,
+    rgba(14, 0, 99, 0.1) 100%,
+    rgba(14, 0, 99, 0.1) 100%
+  );
+  box-shadow: 0px 4px 178px 0px rgba(255, 255, 255, 0.09) inset;
+  backdrop-filter: blur(16px);
+  width: 90%;
+  flex-shrink: 0;
+  margin: 0 auto;
+  padding: 6rem;
+}
+
+/* ...................section2 css.................... */
+
+.section2AboutUs {
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.aboutsecPeraBox {
+  border-radius: 2rem;
+  background: linear-gradient(
+    94deg,
+    #1a0f5e 3.14%,
+    rgba(16, 0, 113, 0.69) 56.11%,
+    rgba(16, 0, 111, 0.51) 100%
+  );
+  box-shadow: 0px 4px 78px 0px rgba(0, 0, 0, 0.25) inset;
+  color: #fff;
+  margin-top: 2rem;
+  font-size: 17px;
+  padding: 3rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.sec2AboutPeraVision {
+  text-align: left;
+}
+
+.sec2AboutPeraMission {
+  text-align: right;
+}
+
+.aboutsecVision {
+  border-radius: 2rem;
+  border: 2px solid #00ffd1;
+  box-shadow: 0px 4px 78px 0px rgba(0, 0, 0, 0.25) inset;
+  color: #0ff;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 2rem;
+  letter-spacing: 7.04px;
+  text-transform: uppercase;
+  justify-content: center;
+}
+
+.aboutsecMission {
+  border-radius: 2rem;
+  border: 2px solid #00ffd1;
+  box-shadow: 0px 4px 78px 0px rgba(0, 0, 0, 0.25) inset;
+  color: #0ff;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 1.7rem;
+  letter-spacing: 7.04px;
+  text-transform: uppercase;
+  justify-content: center;
+}
+
+/* ..........section3.............. */
+
+.aboutsec3flex1 {
+  display: flex;
+  align-items: flex-start;
+  width: 60%;
+  justify-content: center;
+}
+
+.sec3AboutImg1div {
+  background: linear-gradient(180deg, #1a0f5e 0%, #000aec 100%);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100px;
+}
+
+.sec3AboutImg1 {
+  width: 100%;
+  padding: 15px;
+  height: auto;
+}
+.sec3Aboutblockflex {
+  margin: 0px 20px;
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.sec3Aboutheading {
+  color: #fff;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  text-align: left;
+  // width: 413px;
+  margin: 10px 0px;
+  line-height: 154.023%;
+  letter-spacing: 4.4px;
+  text-transform: uppercase;
+}
+.sec3Aboutpera {
+  color: #fff;
+  font-size: 18px;
+  font-style: normal;
+
+  font-weight: 400;
+  text-align: left;
+  line-height: 150%;
+  letter-spacing: 2px;
+}
+
+.sec3Imgheading {
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  text-shadow: 0px 4px 38px rgba(0, 0, 0, 0.48);
+  font-size: 64px;
+  font-weight: 700;
+  top: 17rem;
+  letter-spacing: 18px;
+  padding-left: 1rem;
+  text-transform: uppercase;
+}
+
+.aboutImg2 {
+  width: 650px;
+  transform: rotate(-30deg);
+  position: relative;
+  right: 125px;
+  height: auto;
+}
+.aboutImg2 {
+  animation-timeline: view();
+  animation-name: fadeInAndZoom;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+@keyframes fadeInAndZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ............section4........... */
+
+.aboutboxsec4 {
+  border-radius: 55px;
+  width: 313px;
+  height: 357px;
+  flex-shrink: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.15s ease-in-out;
+  padding: 3rem 2rem;
+  border: 1px solid rgba(0, 10, 236, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(4, 0, 29, 0.61) 0%,
+    rgba(13, 6, 57, 0.61) 49.48%,
+    rgba(6, 0, 40, 0.61) 100%
+  );
+}
+.aboutboxsec4:hover {
+  transform: scale(1.1);
+}
+.aboutsec4boxheading {
+  color: #0ff;
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: capitalize;
+}
+.aboutsec4boxpera {
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 149.523%; /* 22.428px */
+  letter-spacing: 2.625px;
+  text-transform: capitalize;
+}
+.aboutsec4mainboxflex {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  padding-top: 5rem;
+}
+.sec4-about-icon-flex {
+  position: absolute;
+}
+.sec4-svg {
+  width: 100%;
+  position: relative;
+}
+
+/* ,...........responsive design................ */
+
+@media only screen and (max-width: 1200px) {
+  .aboutImg2 {
+    width: 600px;
+  }
+
+  .sec3Aboutblockflex {
+    margin: 0px 20px;
+    display: flex;
+    width: 65%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aboutboxsec4 {
+    width: 22%;
+    padding: 2rem 1rem;
+    height: 300px;
+  }
+
+  .aboutsec4boxheading {
+    font-size: 1.2rem;
+  }
+
+  .sec3AboutImg1div {
+    height: 4rem;
+    width: 4rem;
+  }
+  .sec3AboutImg1 {
+    padding: 18px;
+  }
+  .sec3Imgheading {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    text-shadow: 0px 4px 38px rgba(0, 0, 0, 0.48);
+    font-size: 50px;
+    font-weight: 700;
+    top: 16rem;
+    letter-spacing: 18px;
+    padding-left: 1rem;
+    text-transform: uppercase;
+  }
+  .sec3Aboutpera {
+    font-size: 15px;
+  }
+
+  .sec3Aboutheading {
+    font-size: 18px;
+  }
+  .aboutsec4boxpera {
+    font-size: 14px;
+  }
+  .aboutUsSection1CardDesc {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  /* Section 1 */
+  .aboutImg {
+    width: 85%;
+    position: relative;
+    transform: rotate(-45deg);
+  }
+
+  /* Section 2 */
+
+  .section2-aboutUs {
+    padding-top: 5rem;
+    padding-bottom: 0rem;
+  }
+  .aboutsecVision {
+    background: url("../assets/images/Vision.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 65%;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    background-size: auto;
+    border-radius: 5rem;
+    z-index: 2;
+  }
+
+  .aboutsecVisionDiv {
+    display: flex;
+    justify-content: center;
+  }
+
+  .aboutsecPeraBox {
+    position: relative;
+    bottom: 10rem;
+    z-index: 0;
+    border-radius: 5rem;
+  }
+
+  .sec2AboutPeraVision {
+    text-align: center;
+    margin-top: 7rem;
+  }
+
+  .aboutsecMission {
+    background: url("../assets/images/Mission.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 65%;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    background-size: auto;
+    border-radius: 5rem;
+    z-index: 2;
+  }
+
+  .sec2AboutPeraMission {
+    text-align: center;
+    margin-top: 7rem;
+  }
+
+  /* Section 3 */
+
+  .sec3Imgheading {
+    position: static;
+  }
+
+  .aboutImg2 {
+    width: 25rem;
+    transform: rotate(-30deg);
+    position: absolute;
+    z-index: 0;
+    left: -180px;
+    top: -120px;
+  }
+
+  .aboutsec3flex1Res {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-bottom: 2rem;
+  }
+
+  .sec3Aboutblockflex {
+    border: 1px solid #a6ff35;
+    padding: 2rem;
+    border-radius: 4rem;
+    position: relative;
+    margin: 0;
+    backdrop-filter: blur(12px);
+  }
+
+  .sec3AboutImg1div {
+    position: absolute;
+    top: 34%;
+    left: -2.5rem; /* -7% */
+  }
+
+  .sec3Aboutheading {
+    color: #a6ff35;
+    padding-bottom: 1rem;
+  }
+
+  /* Section4 */
+
+  .aboutsec4mainboxflex {
+    display: block;
+    padding-top: 0rem;
+  }
+
+  .aboutboxsec4 {
+    width: 94%;
+    margin-bottom: 5rem;
+    background: transparent;
+    padding: 1rem 2rem;
+  }
+
+  .aboutsec4boxheading {
+    text-align: left;
+    font-size: 2rem;
+  }
+
+  .aboutsec4boxpera {
+    text-align: left;
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Section1 */
+
+  .aboutSec1Box {
+    padding: 4rem;
+    border-radius: 4rem;
+    width: 100%;
+    border-radius: 47px;
+    border: 1px solid rgba(115, 88, 255, 0);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 10, 255, 0.51) 0%,
+      rgba(14, 0, 99, 0.1) 100%,
+      rgba(14, 0, 99, 0.1) 100%
+    );
+    box-shadow: 0px 4px 178px 0px rgba(255, 255, 255, 0.09) inset;
+    backdrop-filter: blur(16px);
+  }
+
+  .aboutSec1Box {
+    padding: 3rem 2rem;
+  }
+  /* Section 2 */
+
+  .section2-aboutUs {
+    padding-top: 8rem;
+  }
+
+  .aboutsecVision {
+    width: 70%;
+    height: 12rem;
+    border-radius: 3rem;
+  }
+
+  .aboutsecMission {
+    width: 70%;
+    height: 12rem;
+    border-radius: 3rem;
+  }
+
+  .aboutsecPeraBox {
+    bottom: 5rem;
+    padding: 3rem;
+    border-radius: 3rem;
+  }
+
+  .sec2AboutPeraVision {
+    margin-top: 2rem;
+  }
+  .sec2AboutPeraMission {
+    margin-top: 2rem;
+  }
+  .sec3Aboutpera {
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: 2px;
+  }
+  /* Section 3 */
+  .sec3AboutImg1div {
+    top: 38%;
+  }
+
+  .sec3Imgheading {
+    letter-spacing: 15px;
+    font-size: 2.2rem;
+  }
+
+  /* Section 4 */
+
+  .aboutboxsec4 {
+    width: 85%;
+    margin-bottom: 3rem;
+    height: 160px;
+  }
+  .aboutImg {
+    width: 80%;
+    right: 0;
+    position: relative;
+    transform: rotate(-53.738deg);
+  }
+
+  .aboutsec4boxheading {
+    text-align: left;
+    font-size: 25px;
+    padding: 0;
+  }
+  .aboutsec4boxpera {
+    text-align: left;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  .aboutsec4boxheading {
+    letter-spacing: 2px;
+    padding-bottom: 5px;
+  }
+  .pb-sm-5 {
+    padding-bottom: 0rem !important;
+  }
+  .aboutUsSection1CardDesc {
+    font-size: 12px;
+    left: 1px;
+    line-height: 130%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  /* Section2 */
+  .section2-aboutUs {
+    padding-top: 2rem;
+  }
+
+  .aboutsecVision {
+    border-radius: 3rem;
+    font-size: 1.5rem;
+    width: 80%;
+    height: 10rem;
+  }
+
+  .aboutsecPeraBox {
+    border-radius: 3rem;
+    padding: 2rem;
+    font-size: 14px;
+  }
+
+  .aboutsecMission {
+    border-radius: 3rem;
+    font-size: 1.5rem;
+    width: 80%;
+    height: 10rem;
+  }
+
+  /* Section3 */
+
+  .sec3Imgheading {
+    letter-spacing: 10px;
+    font-size: 1.2rem;
+    position: relative;
+    top: 0;
+    z-index: 1;
+  }
+
+  .aboutImg2 {
+    width: 20rem;
+  }
+
+  .sec3Aboutblockflex {
+    width: 75%;
+    padding-right: 0rem;
+    letter-spacing: 2px;
+  }
+
+  .sec3Aboutheading {
+    font-size: 1.2rem;
+  }
+
+  .sec3Aboutpera {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  /* Section4 */
+
+  .aboutboxsec4 {
+    padding-right: 0rem;
+    margin-bottom: 2rem;
+  }
+
+  .aboutsec4boxheading {
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .aboutsec4boxpera {
+    font-size: 1rem;
+  }
+
+  .cursor {
+    display: none;
+  }
+  .blob6 {
+    background: linear-gradient(180deg, #00ffd1 60.4%, #00ffff 111.51%);
+    filter: blur(145px);
+    width: 300px;
+    height: 300px;
+    filter: blur(132px);
+    z-index: -1;
+    position: absolute;
+    left: 39%;
+    top: 68%;
+    animation: liquid-gradient 3s infinite alternate;
+    transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+  }
+
+  .blob5 {
+    animation: liquid-gradient 3s ease-in-out infinite;
+    background: linear-gradient(180deg, #00ffb2 54.17%, #0ff);
+    filter: blur(145.5px);
+    position: absolute;
+    right: 0px;
+    top: 0%;
+    width: 300px;
+    height: 300px;
+    z-index: -1;
+  }
+
+  .blob9 {
+    background: #1a0f5e;
+    filter: blur(200px);
+    position: absolute;
+    z-index: -1;
+    left: -62px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    animation: liquid-gradient 3s ease-in-out infinite;
+  }
+}
+
+@media only screen and (max-width: 515px) {
+  /* Section 4 */
+  .aboutsec4boxheading {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .aboutsec4boxpera {
+    letter-spacing: 1px;
+  }
+  .aboutsec4boxheading {
+    font-size: 22px;
+    padding-bottom: 0.5rem;
+  }
+  .aboutboxsec4 {
+    margin-bottom: 2rem;
+  }
+  .cursor {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .cursor {
+    display: none;
+  }
+  .aboutImg2 {
+    left: -140px;
+    width: 18rem;
+  }
+
+  .sec3Aboutheading {
+    font-size: 15px;
+    letter-spacing: 2.4px;
+  }
+  .aboutSec1Box {
+    padding: 3rem 2rem;
+  }
+  .aboutsecVision {
+    width: 75%;
+    height: 9rem;
+    border-radius: 3rem;
+  }
+  .sec3Aboutpera {
+    font-size: 1rem;
+    line-height: 120%;
+    letter-spacing: 1px;
+  }
+
+  .aboutboxsec4 {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    width: 100%;
+  }
+  .sec2AboutPeraVision {
+    margin-top: 2rem;
+    font-size: 14px;
+    line-height: 140%;
+  }
+  .sec2AboutPeraMission {
+    margin-top: 2rem;
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  .aboutsecMission {
+    width: 75%;
+    height: 9rem;
+    border-radius: 3rem;
+  }
+
+  .sec3Imgheading {
+    letter-spacing: 8px;
+    font-size: 1.2rem;
+    padding-left: 62px;
+    position: relative;
+    top: 0;
+  }
+
+  .py-5 {
+    padding-bottom: 2rem !important;
+  }
+
+  .aboutsec4boxheading {
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+  }
+  .aboutsec4boxpera {
+    padding: 0px 20px;
+    letter-spacing: 1px;
+    line-height: 130%;
+    font-size: 14px;
+  }
+  .aboutUsSection1CardDesc {
+    font-size: 13px;
+    line-height: 130%;
+  }
+}

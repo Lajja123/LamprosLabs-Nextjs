@@ -1,9 +1,13 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./styles/navbar.css";
+import "./styles/aboutUs.css";
 import "bootstrap/dist/css/bootstrap.css";
 import BootstrapClient from "@/app/components/BootstrapClient";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import "./styles/dao.css";
+import "./styles/hackathon.css";
 
 export const metadata = {
   title: "LamprosLabs",

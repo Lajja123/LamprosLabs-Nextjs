@@ -1,0 +1,170 @@
+.daorightImg1 {
+  position: absolute;
+  top: 12%;
+  right: 0;
+  width: 15%;
+  height: auto;
+}
+
+.design-31-2 {
+  top: 172.25rem;
+  left: 70.25rem;
+  width: 25.75rem;
+  height: 40.65rem;
+}
+.daorightImg1 {
+  animation-timeline: view();
+  animation-name: fadeInAndZoom;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+@keyframes fadeInAndZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.daorightImg2 {
+  position: absolute;
+  top: 42%;
+  right: 0;
+}
+.daorightImg2 {
+  animation-timeline: view();
+  animation-name: fadeInAndZoom;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+.daorightImg3 {
+  position: absolute;
+  top: 75%;
+  right: 0;
+  width: 17%;
+  height: auto;
+}
+.daorightImg3 {
+  animation-timeline: view();
+  animation-name: fadeInAndZoom;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+@keyframes fadeInAndZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.design311,
+.design-31-2 {
+  position: absolute;
+  object-fit: cover;
+}
+.design311 {
+  top: -7%;
+  left: -19px;
+  width: 20.03rem;
+  height: 20.92rem;
+}
+.design311 {
+  animation-timeline: view();
+  animation-name: fadeInAndZoom;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+@keyframes fadeInAndZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.design-32-1,
+.design-33-1 {
+  position: absolute;
+  object-fit: cover;
+}
+.design-32-1 {
+  top: 27.31rem;
+  left: -50px;
+  width: 29.83rem;
+  height: 58.06rem;
+}
+.design-32-1 {
+  animation-timeline: view();
+  animation-name: fadeInAndZoom;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+@keyframes fadeInAndZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/*...responsive... */
+
+@media only screen and (max-width: 1200px) {
+  .design-32-1 {
+    top: 30.31rem;
+    left: 0;
+    width: 25.83rem;
+    height: 45.06rem;
+  }
+  .design311 {
+    top: 0;
+    left: 0;
+    width: 23.03rem;
+    height: 26.92rem;
+  }
+}
+@media (max-width: 992px) {
+  .design311 {
+    top: -64px;
+    left: 0;
+    width: 20.03rem;
+    height: 20.92rem;
+  }
+  .design-32-1 {
+    top: 30.31rem;
+    left: 0;
+    width: 21.83rem;
+    height: 36.06rem;
+  }
+}
+@media (max-width: 768px) {
+  .design-32-1 {
+    top: 30.31rem;
+    left: 0;
+    width: 21.83rem;
+    height: 36.06rem;
+  }
+  .design-32-1 {
+    display: none !important;
+  }
+  .design311 {
+    top: -64px;
+    left: 0;
+    width: 20.03rem;
+    height: 20.92rem;
+  }
+  .design311 {
+    display: none;
+  }
+}
