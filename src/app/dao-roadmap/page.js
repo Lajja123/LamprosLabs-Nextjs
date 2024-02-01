@@ -13,6 +13,7 @@ import daoline from "../assets/images/daoline.png";
 import { Fade } from "react-reveal";
 import daoStyle from "../styles/dao.module.scss";
 import Image from "next/image";
+import ScrollBtn from "../components/scrollbarBtn";
 
 export default function daoPage() {
   const section1Ref = useRef(null);
@@ -39,6 +40,11 @@ export default function daoPage() {
 
   return (
     <div className={daoStyle.daomainbg}>
+      <ScrollBtn
+        section1Ref={section1Ref}
+        section2Ref={section2Ref}
+        section3Ref={section3Ref}
+      />
       <div className="dao-roadmap">
         <div
           className={`${daoStyle["daosec1main"]} d-none d-md-flex`}
@@ -254,21 +260,21 @@ export default function daoPage() {
 
             <div>
               <Image
-                className="daorightImg1 d-none d-md-block"
+                className={`${daoStyle["daorightImg1"]}  d-none d-md-block`}
                 alt=""
                 src={daoimg4}
               />
             </div>
             <div>
               <Image
-                className="daorightImg2 d-none d-md-block"
+                className={`${daoStyle["daorightImg2"]}  d-none d-md-block`}
                 alt=""
                 src={daoimg5}
               />
             </div>
             <div>
               <Image
-                className="daorightImg3 d-none d-md-block"
+                className={`${daoStyle["daorightImg3"]}  d-none d-md-block`}
                 alt=""
                 src={daoimg6}
               />

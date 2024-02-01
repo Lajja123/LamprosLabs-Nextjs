@@ -1,0 +1,51 @@
+.scrollmain {
+  display: flex;
+  flex-direction: column;
+  right: 20px;
+  position: fixed;
+  height: 8vh;
+  align-items: center;
+  justify-content: space-evenly;
+  top: 53%;
+  bottom: 50%;
+  flex-grow: 0.3;
+}
+
+/* ..................... */
+@media only screen and (max-width: 1024px) {
+  .scrollmain {
+    display: flex;
+    flex-direction: column;
+    right: 4px;
+    position: fixed;
+    height: 8vh;
+    align-items: center;
+    justify-content: space-evenly;
+    top: 40%;
+    bottom: 50%;
+    flex-grow: 0.3;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .scrollmain {
+    display: none;
+  }
+  .scrollmain {
+    align-items: center;
+    bottom: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0.3;
+    height: 8vh;
+    justify-content: space-evenly;
+    position: fixed;
+    right: 40px;
+    top: 48%;
+    display: none;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .scrollmain {
+    display: none;
+  }
+}

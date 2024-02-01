@@ -703,7 +703,65 @@
 .mobileImg7 {
   display: none;
 }
+.daorightImg1 {
+  position: absolute;
+  top: 12%;
+  right: 0;
+  width: 15%;
+  height: auto;
+}
+.daorightImg1 {
+  animation-timeline: view();
+  animation-name: fadeInAndZoom;
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+}
+.daorightImg2 {
+  position: absolute;
+  top: 42%;
+  right: 0;
+}
+.daorightImg2 {
+  animation-timeline: view();
+  animation-name: fadeInAndZoom;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+.daorightImg3 {
+  position: absolute;
+  top: 75%;
+  right: 0;
+  width: 17%;
+  height: auto;
+}
+.daorightImg3 {
+  animation-timeline: view();
+  animation-name: fadeInAndZoom;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
 
+@keyframes fadeInAndZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInAndZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 /* .........responsive css................... */
 
 @media only screen and (max-width: 1200px) {

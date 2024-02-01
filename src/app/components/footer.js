@@ -12,7 +12,6 @@ import footerStyles from "../styles/footer.module.scss"; // Updated import
 export default function Footer() {
   // Updated function name to start with a capital letter
   const navRef = useRef();
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

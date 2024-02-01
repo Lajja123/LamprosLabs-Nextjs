@@ -206,6 +206,10 @@ body::-webkit-scrollbar-thumb {
 .accordionIcon.collapsed {
   transform: rotate(0deg);
 }
+input[name="flexRadioNoLabel"] {
+  accent-color: #a6ff35;
+  border: none;
+}
 
 @media only screen and (max-width: 1024px) {
   .Slxdj {

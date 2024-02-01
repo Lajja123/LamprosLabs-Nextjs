@@ -1,67 +1,10 @@
-.daorightImg1 {
-  position: absolute;
-  top: 12%;
-  right: 0;
-  width: 15%;
-  height: auto;
-}
-
 .design-31-2 {
   top: 172.25rem;
   left: 70.25rem;
   width: 25.75rem;
   height: 40.65rem;
 }
-.daorightImg1 {
-  animation-timeline: view();
-  animation-name: fadeInAndZoom;
-  animation-fill-mode: both;
-  animation-duration: 1ms; /* Firefox requires this to apply the animation */
-}
-@keyframes fadeInAndZoom {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-.daorightImg2 {
-  position: absolute;
-  top: 42%;
-  right: 0;
-}
-.daorightImg2 {
-  animation-timeline: view();
-  animation-name: fadeInAndZoom;
-  animation-fill-mode: both;
-  animation-duration: 1ms; /* Firefox requires this to apply the animation */
-}
-.daorightImg3 {
-  position: absolute;
-  top: 75%;
-  right: 0;
-  width: 17%;
-  height: auto;
-}
-.daorightImg3 {
-  animation-timeline: view();
-  animation-name: fadeInAndZoom;
-  animation-fill-mode: both;
-  animation-duration: 1ms; /* Firefox requires this to apply the animation */
-}
-@keyframes fadeInAndZoom {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+
 .design311,
 .design-31-2 {
   position: absolute;
@@ -107,6 +50,7 @@
   animation-fill-mode: both;
   animation-duration: 1ms; /* Firefox requires this to apply the animation */
 }
+
 @keyframes fadeInAndZoom {
   0% {
     opacity: 0;
@@ -119,7 +63,6 @@
 }
 
 /*...responsive... */
-
 @media only screen and (max-width: 1200px) {
   .design-32-1 {
     top: 30.31rem;
