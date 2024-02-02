@@ -480,12 +480,12 @@ export const metadata = {
     siteName: "Next.js",
     images: [
       {
-        url: "https://www.kasandbox.org/programming-images/avatars/old-spice-man.png",
+        url: "https://app.optimism.io/og-image.png",
         width: 800,
         height: 600,
       },
       {
-        url: "https://www.kasandbox.org/programming-images/avatars/old-spice-man.png",
+        url: "https://app.optimism.io/og-image.png",
         width: 1800,
         height: 1600,
         alt: "My custom alt",
