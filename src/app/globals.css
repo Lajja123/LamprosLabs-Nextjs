@@ -124,7 +124,6 @@ body {
   --sb-thumb-color: #a6ff35;
   --sb-size: 6px;
   text-align: center !important;
-  font-family: "Josefin Sans" !important;
   scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
 }
 body::-webkit-scrollbar {
@@ -139,10 +138,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 10px;
-}
-@font-face {
-  font-family: "Josefin Sans";
-  src: url("./JosefinSans-Regular.ttf") format("truetype");
 }
 .slick-list {
   transform: none !important;

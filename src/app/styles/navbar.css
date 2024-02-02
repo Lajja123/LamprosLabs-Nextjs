@@ -47,6 +47,7 @@
 #navbarNavDropdown li {
   list-style-type: none;
   float: left;
+  padding: 0 10px;
 }
 #navbarNavDropdown ul li a {
   color: #fff;
@@ -77,7 +78,15 @@
   border-top-right-radius: 15px;
   margin-top: 10px;
 }
-
+.navbar-nav .nav-item.active > .nav-link {
+  color: #0a11b5 !important;
+  background-color: transparent;
+  transition: all 0.7s;
+  background-color: #a6ff35;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-top: 10px;
+}
 #navbarNavDropdown .dropdown:not(:only-child):after {
   display: none !important;
   position: absolute;
