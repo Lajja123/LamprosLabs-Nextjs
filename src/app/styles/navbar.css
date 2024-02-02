@@ -1,4 +1,3 @@
-/* ...navbar...... */
 .navbar-logo {
   padding: 10px 15px;
   color: #fff;
@@ -107,6 +106,7 @@
   height: 60px;
   position: relative;
   transition: 0.5s ease-in-out;
+  /* // left: -10px; */
 }
 
 .navbar-toggler,
@@ -133,6 +133,8 @@
   border-radius: 1px;
   opacity: 1;
   right: 30px;
+  /* // transform: rotate(0deg);
+  // transition: 0.25s ease-in-out; */
 }
 
 .middle-bar {
@@ -193,8 +195,6 @@
   padding: 0px;
 }
 
-/* ....Responsive.. */
-
 @media (min-width: 992px) {
   .navbar-expand-custom {
     -ms-flex-flow: row nowrap;
@@ -206,7 +206,9 @@
     -ms-flex-direction: row;
     flex-direction: row;
   }
-
+  /* // .navbar-expand-custom .navbar-toggler {
+  //   display: none;
+  // } */
   .navbar-expand-custom .navbar-collapse {
     display: -ms-flexbox !important;
     display: flex !important;

@@ -1,59 +1,36 @@
-"use client";
-import { useRef, useState, useEffect } from "react";
 import aboutImg from "../assets/images/aboutUsImg.webp";
 import vision from "../assets/images/Vision.jpg";
 import mission from "../assets/images/Mission.jpg";
 import blockchain from "../assets/images/blockchain.png";
 import blockchainImg from "../assets/images/blockchain-img.png";
 import idea from "../assets/images/idea.png";
+import React from "react";
 import technology from "../assets/images/technology.png";
 import website from "../assets/images/website.png";
 import aboutImg2 from "../assets/images/about-img2.webp";
 import journey from "../assets/images/journey-img.png";
 import journey1 from "../assets/images/journey1.png";
-import { Fade } from "react-reveal";
+// import { Fade } from "react-reveal";
 import aboutStyle from "../styles/aboutUs.module.scss";
 import Image from "next/image";
-import ScrollBtn from "../components/scrollbarBtn";
-import Head from "next/head";
+// import ScrollBtn from "../components/scrollbarBtn";
 
-export default function aboutPage() {
-  const section1Ref = useRef(null);
-  const section2Ref = useRef(null);
-  const section3Ref = useRef(null);
+function aboutPage() {
+  // const section1Ref = useRef(null);
+  // const section2Ref = useRef(null);
+  // const section3Ref = useRef(null);
 
   return (
     <div>
-      <Head>
-        <title>About page</title>
-        <meta name="description" content="This is a description of my page" />
-        <meta name="keywords" content="react, meta tags, seo" />
-        <meta name="author" content="Your Name" />
-        <meta property="og:title" content="My About title" />
-        <meta
-          property="og:description"
-          content="This is a description of my page"
-        />
-        <meta property="og:image" content="https://example.com/image.jpg" />
-        <meta property="og:url" content="https://example.com/my-page" />
-        <meta name="twitter:title" content="My Page Title" />
-        <meta
-          name="twitter:description"
-          content="This is a description of my page"
-        />
-        <meta name="twitter:image" content="https://example.com/image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-
       <div className={aboutStyle.aboutUsMainBg}>
-        <ScrollBtn
+        {/* <ScrollBtn
           section1Ref={section1Ref}
           section2Ref={section2Ref}
           section3Ref={section3Ref}
-        />
+        /> */}
         <div
           className={aboutStyle.aboutUsMain}
-          ref={section1Ref}
+          // ref={section1Ref}
           smooth={true}
           duration={600}
         >
@@ -61,50 +38,48 @@ export default function aboutPage() {
             <div className={aboutStyle.aboutImgMainDiv}>
               <Image src={aboutImg} alt="" className={aboutStyle.aboutImg} />
             </div>
-
             <div
               className={`${aboutStyle["aboutUsSection1Card"]} px-sm-5 px-3`}
             >
               <div className={`${aboutStyle["aboutUsTitle"]} pb-3`}>
                 About Us
               </div>
-
-              <Fade duration={1500} delay={100}>
-                <div className={aboutStyle.aboutSec1Box}>
-                  <p className={aboutStyle.aboutUsSection1CardDesc}>
-                    In the vibrant world of blockchain, Lampros Labs stands as a
-                    beacon, illuminating the path for innovators, dreamers, and
-                    builders. Founded with a profound vision to seamlessly merge
-                    blockchain technology with mainstream applications, we've
-                    steadily grown into a robust community hub.
-                  </p>
-                  <p className={aboutStyle.aboutUsSection1CardDesc}>
-                    Our ethos is rooted in fostering growth – both of the
-                    individual and the collective. With each project we support,
-                    every developer we guide, and each event we host, we inch
-                    closer to a future where blockchain isn't just a buzzword,
-                    but an integral part of our digital tapestry.
-                  </p>
-                  <p className={aboutStyle.aboutUsSection1CardDesc}>
-                    At Lampros Labs, it's not just about code and technology.
-                    It's about the humans behind it. We prioritize well-being,
-                    ensuring that our members thrive in an environment that
-                    values creativity, innovation, and collaboration.
-                  </p>
-                  <p className={aboutStyle.aboutUsSection1CardDesc}>
-                    Through the Lampros Labs Collective, we’re championing a
-                    unique movement. A movement where public goods take center
-                    stage, where developers receive unparalleled support, and
-                    where blockchain technology finds its rightful place in
-                    mainstream use.
-                  </p>
-                  <p className={aboutStyle.aboutUsSection1CardDesc}>
-                    Join us in this monumental journey as we reshape the
-                    contours of the digital realm, making Web3 more accessible,
-                    inclusive, and influential.
-                  </p>
-                </div>
-              </Fade>
+              {/* <Fade duration={1500} delay={100}> */}
+              <div className={aboutStyle.aboutSec1Box}>
+                <p className={aboutStyle.aboutUsSection1CardDesc}>
+                  In the vibrant world of blockchain, Lampros Labs stands as a
+                  beacon, illuminating the path for innovators, dreamers, and
+                  builders. Founded with a profound vision to seamlessly merge
+                  blockchain technology with mainstream applications, we've
+                  steadily grown into a robust community hub.
+                </p>
+                <p className={aboutStyle.aboutUsSection1CardDesc}>
+                  Our ethos is rooted in fostering growth – both of the
+                  individual and the collective. With each project we support,
+                  every developer we guide, and each event we host, we inch
+                  closer to a future where blockchain isn't just a buzzword, but
+                  an integral part of our digital tapestry.
+                </p>
+                <p className={aboutStyle.aboutUsSection1CardDesc}>
+                  At Lampros Labs, it's not just about code and technology. It's
+                  about the humans behind it. We prioritize well-being, ensuring
+                  that our members thrive in an environment that values
+                  creativity, innovation, and collaboration.
+                </p>
+                <p className={aboutStyle.aboutUsSection1CardDesc}>
+                  Through the Lampros Labs Collective, we’re championing a
+                  unique movement. A movement where public goods take center
+                  stage, where developers receive unparalleled support, and
+                  where blockchain technology finds its rightful place in
+                  mainstream use.
+                </p>
+                <p className={aboutStyle.aboutUsSection1CardDesc}>
+                  Join us in this monumental journey as we reshape the contours
+                  of the digital realm, making Web3 more accessible, inclusive,
+                  and influential.
+                </p>
+              </div>
+              {/* </Fade> */}
             </div>
           </section>
 
@@ -113,60 +88,60 @@ export default function aboutPage() {
               className={`${aboutStyle["aboutsecflexmain"]} justify-content-around py-lg-2 pb-lg-5`}
             >
               <div className="aboutsec-flex col-lg-5 col-10">
-                <Fade bottom duration={1000} distance="50px">
-                  <div className={aboutStyle.aboutsecVisionDiv}>
-                    <div className={aboutStyle.aboutsecVision}>Vision</div>
-                  </div>
-                  <div className={aboutStyle.aboutsecPeraBox}>
-                    <div className={aboutStyle.sec2AboutPeraVision}>
-                      To be the global nexus where blockchain technology
-                      seamlessly integrates into everyday life, creating a
-                      decentralized and empowered future for all.
-                    </div>
-                  </div>
-                </Fade>
-              </div>
-              <Fade bottom duration={1000} distance="50px">
-                <div
-                  className={`${aboutStyle["visionimg"]} col-5 d-none d-lg-block`}
-                >
-                  <Image src={vision}></Image>
+                {/* <Fade bottom duration={1000} distance="50px"> */}
+                <div className={aboutStyle.aboutsecVisionDiv}>
+                  <div className={aboutStyle.aboutsecVision}>Vision</div>
                 </div>
-              </Fade>
+                <div className={aboutStyle.aboutsecPeraBox}>
+                  <div className={aboutStyle.sec2AboutPeraVision}>
+                    To be the global nexus where blockchain technology
+                    seamlessly integrates into everyday life, creating a
+                    decentralized and empowered future for all.
+                  </div>
+                </div>
+                {/* </Fade> */}
+              </div>
+              {/* <Fade bottom duration={1000} distance="50px"> */}
+              <div
+                className={`${aboutStyle["visionimg"]} col-5 d-none d-lg-block`}
+              >
+                <Image src={vision}></Image>
+              </div>
+              {/* </Fade> */}
             </div>
 
             <div
               className={`${aboutStyle["aboutsecflexmain"]} justify-content-around py-lg-2`}
             >
-              <Fade bottom duration={1000} distance="50px">
-                <div
-                  className={`${aboutStyle["visionimg"]} col-5 d-none d-lg-block`}
-                >
-                  <Image src={mission}></Image>
-                </div>
-              </Fade>
+              {/* <Fade bottom duration={1000} distance="50px"> */}
+              <div
+                className={`${aboutStyle["visionimg"]} col-5 d-none d-lg-block`}
+              >
+                <Image src={mission}></Image>
+              </div>
+              {/* </Fade> */}
 
               <div className="aboutsec-flex col-lg-5 col-10">
-                <Fade bottom duration={1000} distance="50px">
-                  <div className={aboutStyle.aboutsecVisionDiv}>
-                    <div className={aboutStyle.aboutsecMission}>Mission</div>
+                {/* <Fade bottom duration={1000} distance="50px"> */}
+                <div className={aboutStyle.aboutsecVisionDiv}>
+                  <div className={aboutStyle.aboutsecMission}>Mission</div>
+                </div>
+                <div className={aboutStyle.aboutsecPeraBox}>
+                  <div className={aboutStyle.sec2AboutPeraMission}>
+                    Lampros Labs is dedicated to cultivating trailblazing web3
+                    leaders, amplifying open-source breakthroughs across
+                    multiple blockchain terrains, and building a community bound
+                    by shared growth and decentralized principles.
                   </div>
-                  <div className={aboutStyle.aboutsecPeraBox}>
-                    <div className={aboutStyle.sec2AboutPeraMission}>
-                      Lampros Labs is dedicated to cultivating trailblazing web3
-                      leaders, amplifying open-source breakthroughs across
-                      multiple blockchain terrains, and building a community
-                      bound by shared growth and decentralized principles.
-                    </div>
-                  </div>
-                </Fade>
+                </div>
+                {/* </Fade> */}
               </div>
             </div>
           </section>
 
           <section
             className={`${aboutStyle["section3AboutUs"]} pb-5 d-none d-lg-block`}
-            ref={section2Ref}
+            // ref={section2Ref}
             smooth={true}
             duration={600}
           >
@@ -284,13 +259,13 @@ export default function aboutPage() {
 
           <section
             className="section3-aboutUs pb-5 d-lg-none"
-            ref={section3Ref}
+            // ref={section3Ref}
             smooth={true}
             duration={600}
           >
-            <Fade bottom duration={2000} distance="20px">
-              <div className={aboutStyle.sec3Imgheading}>Our Ethos</div>
-            </Fade>
+            {/* <Fade bottom duration={2000} distance="20px"> */}
+            <div className={aboutStyle.sec3Imgheading}>Our Ethos</div>
+            {/* </Fade> */}
 
             <div style={{ position: "relative" }}>
               <Image src={aboutImg2} className={aboutStyle.aboutImg2}></Image>
@@ -415,15 +390,15 @@ export default function aboutPage() {
 
           <section
             className={`${aboutStyle["section4aboutUs"]} pb-sm-5`}
-            ref={section3Ref}
+            // ref={section3Ref}
             smooth={true}
             duration={600}
           >
-            <Fade bottom duration={2000} distance="20px">
-              <h1 className={`${aboutStyle["sec4aboutheading"]} pb-4`}>
-                Our Web3 Journey
-              </h1>
-            </Fade>
+            {/* <Fade bottom duration={2000} distance="20px"> */}
+            <h1 className={`${aboutStyle["sec4aboutheading"]} pb-4`}>
+              Our Web3 Journey
+            </h1>
+            {/* </Fade> */}
 
             <div className="d-flex d-lg-inline">
               <div className="d-none d-lg-inline">
@@ -440,50 +415,50 @@ export default function aboutPage() {
               </div>
 
               <div className={aboutStyle.aboutsec4mainboxflex}>
-                <Fade duration={1000} delay={500}>
-                  <div className={aboutStyle.aboutboxsec4}>
-                    <div className={aboutStyle.aboutsec4boxheading}>
-                      Hackathon Highlights
-                    </div>
-                    <div className={aboutStyle.aboutsec4boxpera}>
-                      Lampros Labs stands tall in global hackathons, leaving
-                      imprints across diverse blockchains.
-                    </div>
+                {/* <Fade duration={1000} delay={500}> */}
+                <div className={aboutStyle.aboutboxsec4}>
+                  <div className={aboutStyle.aboutsec4boxheading}>
+                    Hackathon Highlights
                   </div>
-                </Fade>
-                <Fade duration={1000} delay={600}>
-                  <div className={aboutStyle.aboutboxsec4}>
-                    <div className={aboutStyle.aboutsec4boxheading}>
-                      Journey from Web2 to Web3
-                    </div>
-                    <div className={aboutStyle.aboutsec4boxpera}>
-                      We've guided 30+ developers through the transformation,
-                      turning passion into web3 expertise.
-                    </div>
+                  <div className={aboutStyle.aboutsec4boxpera}>
+                    Lampros Labs stands tall in global hackathons, leaving
+                    imprints across diverse blockchains.
                   </div>
-                </Fade>
-                <Fade duration={1000} delay={700}>
-                  <div className={aboutStyle.aboutboxsec4}>
-                    <div className={aboutStyle.aboutsec4boxheading}>
-                      Opportunities at Lampros
-                    </div>
-                    <div className={aboutStyle.aboutsec4boxpera}>
-                      For the new and the curious, Lampros is a beacon. Learn
-                      and earn in the world of web3.
-                    </div>
+                </div>
+                {/* </Fade> */}
+                {/* <Fade duration={1000} delay={600}> */}
+                <div className={aboutStyle.aboutboxsec4}>
+                  <div className={aboutStyle.aboutsec4boxheading}>
+                    Journey from Web2 to Web3
                   </div>
-                </Fade>
-                <Fade duration={1000} delay={800}>
-                  <div className={aboutStyle.aboutboxsec4}>
-                    <div className={aboutStyle.aboutsec4boxheading}>
-                      Global Workshops
-                    </div>
-                    <div className={aboutStyle.aboutsec4boxpera}>
-                      Broaden your horizons. Our sessions offer both global
-                      exposure and skill refinement.
-                    </div>
+                  <div className={aboutStyle.aboutsec4boxpera}>
+                    We've guided 30+ developers through the transformation,
+                    turning passion into web3 expertise.
                   </div>
-                </Fade>
+                </div>
+                {/* </Fade> */}
+                {/* <Fade duration={1000} delay={700}> */}
+                <div className={aboutStyle.aboutboxsec4}>
+                  <div className={aboutStyle.aboutsec4boxheading}>
+                    Opportunities at Lampros
+                  </div>
+                  <div className={aboutStyle.aboutsec4boxpera}>
+                    For the new and the curious, Lampros is a beacon. Learn and
+                    earn in the world of web3.
+                  </div>
+                </div>
+                {/* </Fade> */}
+                {/* <Fade duration={1000} delay={800}> */}
+                <div className={aboutStyle.aboutboxsec4}>
+                  <div className={aboutStyle.aboutsec4boxheading}>
+                    Global Workshops
+                  </div>
+                  <div className={aboutStyle.aboutsec4boxpera}>
+                    Broaden your horizons. Our sessions offer both global
+                    exposure and skill refinement.
+                  </div>
+                </div>
+                {/* </Fade> */}
               </div>
             </div>
           </section>
@@ -492,28 +467,30 @@ export default function aboutPage() {
     </div>
   );
 }
-// export const metadata = {
-//   title: "About Page",
-//   description: "Home Page Description...",
-//   openGraph: {
-//     title: "Next.js Home Page",
-//     description: "The React Framework for the Web",
-//     url: "https://metatags-nextjs.vercel.app/home",
-//     type: "website",
-//     siteName: "Next.js",
-//     images: [
-//       {
-//         url: "https://www.kasandbox.org/programming-images/avatars/old-spice-man.png",
-//         width: 800,
-//         height: 600,
-//       },
-//       {
-//         url: "https://www.kasandbox.org/programming-images/avatars/old-spice-man.png",
-//         width: 1800,
-//         height: 1600,
-//         alt: "My custom alt",
-//       },
-//     ],
-//     locale: "en_US",
-//   },
-// };
+export default aboutPage;
+
+export const metadata = {
+  title: "About Page",
+  description: "About Page Description...",
+  openGraph: {
+    title: "Next.js About Page",
+    description: "The React Framework for the Web",
+    url: "http://localhost:3000/about-us",
+    type: "website",
+    siteName: "Next.js",
+    images: [
+      {
+        url: "https://www.kasandbox.org/programming-images/avatars/old-spice-man.png",
+        width: 800,
+        height: 600,
+      },
+      {
+        url: "https://www.kasandbox.org/programming-images/avatars/old-spice-man.png",
+        width: 1800,
+        height: 1600,
+        alt: "My custom alt",
+      },
+    ],
+    locale: "en_US",
+  },
+};
