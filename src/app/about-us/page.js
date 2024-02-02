@@ -475,7 +475,7 @@ export const metadata = {
   openGraph: {
     title: "Next.js About Page",
     description: "The React Framework for the Web",
-    url: `${"/about-us"}`,
+    url: "https://lampros-labs-nextjs-new.vercel.app/about-us",
     type: "website",
     siteName: "Next.js",
     images: [
