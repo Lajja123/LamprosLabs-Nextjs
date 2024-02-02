@@ -47,7 +47,7 @@ export default function daoPage() {
       <div className="dao-roadmap">
         <div
           className={`${daoStyle["daosec1main"]} d-none d-md-flex`}
-          ref={section1Ref}
+          // ref={section1Ref}
           smooth={true}
           duration={600}
         >
@@ -86,7 +86,7 @@ export default function daoPage() {
         <div
           className={`${daoStyle["lamproslabsroadmapcontainer"]} for-laptops d-none d-md-block`}
         >
-          <div ref={section2Ref} smooth={true} duration={200}>
+          <div smooth={true} duration={200}>
             Lampros Labs <span className={daoStyle.roadmap}>Roadmap</span>
           </div>
           <div>to Becoming a DAO</div>
@@ -131,7 +131,7 @@ export default function daoPage() {
 
         <div
           className={daoStyle.daosec2main}
-          ref={section3Ref}
+          // ref={section3Ref}
           smooth={true}
           duration={600}
         >
