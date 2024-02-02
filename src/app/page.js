@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import FAQ from "./components/faq/page";
-import { question } from "./components/faqApi/page";
+import { question } from "./components/faqApi/faqApi";
 import Head from "next/head";
 
 export default function Home() {
