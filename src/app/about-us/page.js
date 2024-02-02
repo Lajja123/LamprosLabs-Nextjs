@@ -475,7 +475,7 @@ export const metadata = {
   openGraph: {
     title: "Next.js About Page",
     description: "The React Framework for the Web",
-    url: "http://localhost:3000/about-us",
+    url: `${"/about-us"}`,
     type: "website",
     siteName: "Next.js",
     images: [
