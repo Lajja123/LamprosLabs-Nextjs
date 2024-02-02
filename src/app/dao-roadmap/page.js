@@ -1,5 +1,4 @@
-"use client";
-import { useRef, useEffect, useState } from "react";
+// import { useRef, useEffect, useState } from "react";
 import daoimg1 from "../assets/images/daoimg1.webp";
 import daoimg2 from "../assets/images/daoimg2.png";
 import daoimg3 from "../assets/images/daoimg3.png";
@@ -10,41 +9,41 @@ import daoimg7 from "../assets/images/daoimg7.png";
 import daoimg8 from "../assets/images/daoimg8.png";
 import daoFooterImg from "../assets/images/dao-page-footer-img.png";
 import daoline from "../assets/images/daoline.png";
-import { Fade } from "react-reveal";
+// import { Fade } from "react-reveal";
 import daoStyle from "../styles/dao.module.scss";
 import Image from "next/image";
-import ScrollBtn from "../components/scrollbarBtn";
+// import ScrollBtn from "../components/scrollbarBtn";
 
 export default function daoPage() {
-  const section1Ref = useRef(null);
-  const section2Ref = useRef(null);
-  const section3Ref = useRef(null);
-  const [opacity, setOpacity] = useState(1);
+  // const section1Ref = useRef(null);
+  // const section2Ref = useRef(null);
+  // const section3Ref = useRef(null);
+  // const [opacity, setOpacity] = useState(1);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const newOpacity = 1 - scrollPosition / 1000; // Adjust 500 based on when you want the opacity change to occur
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollPosition = window.scrollY;
+  //     const newOpacity = 1 - scrollPosition / 1000; // Adjust 500 based on when you want the opacity change to occur
 
-      if (newOpacity >= 0) {
-        setOpacity(newOpacity);
-      }
-    };
+  //     if (newOpacity >= 0) {
+  //       setOpacity(newOpacity);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div className={daoStyle.daomainbg}>
-      <ScrollBtn
+      {/* <ScrollBtn
         section1Ref={section1Ref}
         section2Ref={section2Ref}
         section3Ref={section3Ref}
-      />
+      /> */}
       <div className="dao-roadmap">
         <div
           className={`${daoStyle["daosec1main"]} d-none d-md-flex`}
@@ -52,21 +51,20 @@ export default function daoPage() {
           smooth={true}
           duration={600}
         >
-          <Fade bottom duration={1000} distance="20px">
-            <div className={daoStyle.daosec1flex1}>
-              <div className={daoStyle.daoroadmap2}>DAO Roadmap</div>
-              <div className={daoStyle.weEnvisionA}>
-                We envision a future where Lampros Labs transforms into a
-                decentralized autonomous organization (DAO), a nexus where
-                collective intelligence drives innovation and growth. Our
-                roadmap sketches the pathway to this transformation,
-                highlighting the pivotal milestones that will shape our
-                decentralized future. Here, we outline the structured phases
-                that will lead us to become a more collaborative, autonomous,
-                and community-driven entity.
-              </div>
+          {/* <Fade bottom duration={1000} distance="20px"> */}
+          <div className={daoStyle.daosec1flex1}>
+            <div className={daoStyle.daoroadmap2}>DAO Roadmap</div>
+            <div className={daoStyle.weEnvisionA}>
+              We envision a future where Lampros Labs transforms into a
+              decentralized autonomous organization (DAO), a nexus where
+              collective intelligence drives innovation and growth. Our roadmap
+              sketches the pathway to this transformation, highlighting the
+              pivotal milestones that will shape our decentralized future. Here,
+              we outline the structured phases that will lead us to become a
+              more collaborative, autonomous, and community-driven entity.
             </div>
-          </Fade>
+          </div>
+          {/* </Fade> */}
 
           <div className={daoStyle.daosec1flex2}>
             <Image
@@ -84,52 +82,51 @@ export default function daoPage() {
           </div>
         </div>
 
-        <Fade bottom duration={1000} distance="20px">
-          <div
-            className={`${daoStyle["lamproslabsroadmapcontainer"]} for-laptops d-none d-md-block`}
-          >
-            <div ref={section2Ref} smooth={true} duration={200}>
-              Lampros Labs <span className={daoStyle.roadmap}>Roadmap</span>
-            </div>
-            <div>to Becoming a DAO</div>
+        {/* <Fade bottom duration={1000} distance="20px"> */}
+        <div
+          className={`${daoStyle["lamproslabsroadmapcontainer"]} for-laptops d-none d-md-block`}
+        >
+          <div ref={section2Ref} smooth={true} duration={200}>
+            Lampros Labs <span className={daoStyle.roadmap}>Roadmap</span>
           </div>
-        </Fade>
+          <div>to Becoming a DAO</div>
+        </div>
+        {/* </Fade> */}
         <div className="d-md-none">
           <div className={daoStyle.daosec1flex1}>
-            <Fade bottom duration={1000} distance="20px">
-              <div className={daoStyle.daoroadmap2}>DAO Roadmap</div>
-              <div className={daoStyle.weEnvisionA}>
-                We envision a future where Lampros Labs transforms into a
-                decentralized autonomous organization (DAO), a nexus where
-                collective intelligence drives innovation and growth. Our
-                roadmap sketches the pathway to this transformation,
-                highlighting the pivotal milestones that will shape our
-                decentralized future. Here, we outline the structured phases
-                that will lead us to become a more collaborative, autonomous,
-                and community-driven entity.
-              </div>
-            </Fade>
+            {/* <Fade bottom duration={1000} distance="20px"> */}
+            <div className={daoStyle.daoroadmap2}>DAO Roadmap</div>
+            <div className={daoStyle.weEnvisionA}>
+              We envision a future where Lampros Labs transforms into a
+              decentralized autonomous organization (DAO), a nexus where
+              collective intelligence drives innovation and growth. Our roadmap
+              sketches the pathway to this transformation, highlighting the
+              pivotal milestones that will shape our decentralized future. Here,
+              we outline the structured phases that will lead us to become a
+              more collaborative, autonomous, and community-driven entity.
+            </div>
+            {/* </Fade> */}
             <Image className={daoStyle.mobiledaoImg} alt="" src={daoimg7} />
           </div>
         </div>
 
         <div className="for-mobiles d-md-none">
-          <Fade bottom duration={1000} distance="50px">
-            <div className={daoStyle.lamproslabsroadmapcontainer}>
-              <div>
-                Lampros Labs <br />
-                <span className={daoStyle.roadmap}>Roadmap</span> TO <br />
-                Becoming a dao
-              </div>
-              <div className="d-md-none">
-                <Image
-                  className={daoStyle.mobileheadingleftImage}
-                  alt=""
-                  src={daoimg8}
-                />
-              </div>
+          {/* <Fade bottom duration={1000} distance="50px"> */}
+          <div className={daoStyle.lamproslabsroadmapcontainer}>
+            <div>
+              Lampros Labs <br />
+              <span className={daoStyle.roadmap}>Roadmap</span> TO <br />
+              Becoming a dao
             </div>
-          </Fade>
+            <div className="d-md-none">
+              <Image
+                className={daoStyle.mobileheadingleftImage}
+                alt=""
+                src={daoimg8}
+              />
+            </div>
+          </div>
+          {/* </Fade> */}
         </div>
 
         <div
@@ -292,3 +289,28 @@ export default function daoPage() {
     </div>
   );
 }
+export const metadata = {
+  title: "Dao Page",
+  description: "Dao Page Description...",
+  openGraph: {
+    title: "Next.js About Page",
+    description: "The React Framework for the Web",
+    url: "https://lampros-labs-nextjs-new.vercel.app/dao-roadmap",
+    type: "website",
+    siteName: "Next.js",
+    images: [
+      {
+        url: "https://www.kresko.fi/apple-touch-icon.png",
+        width: 800,
+        height: 600,
+      },
+      {
+        url: "https://www.kresko.fi/apple-touch-icon.png",
+        width: 1800,
+        height: 1600,
+        alt: "My custom alt",
+      },
+    ],
+    locale: "en_US",
+  },
+};
