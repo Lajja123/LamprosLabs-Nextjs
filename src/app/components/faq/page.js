@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import plus from "../../assets/images/plus.png";
 import minus from "../../assets/images/minus.png";
