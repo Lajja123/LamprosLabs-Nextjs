@@ -71,13 +71,13 @@ export default function daoPage() {
               className={daoStyle.illustration141}
               alt=""
               src={daoimg1}
-              style={{ opacity }}
+              // style={{ opacity }}
             />
             <Image
               className={daoStyle.mobileImg7}
               alt=""
               src={daoimg7}
-              style={{ opacity }}
+              // style={{ opacity }}
             />
           </div>
         </div>
