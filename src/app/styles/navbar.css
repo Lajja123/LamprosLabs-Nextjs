@@ -78,6 +78,7 @@
   border-top-right-radius: 15px;
   margin-top: 10px;
 }
+
 .navbar-nav .nav-item.active > .nav-link {
   color: #0a11b5 !important;
   background-color: transparent;
