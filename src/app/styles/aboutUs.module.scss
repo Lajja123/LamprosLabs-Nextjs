@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   width: 100%;
   z-index: -1;
+  padding: 50px 0px;
 }
 .aboutImgMainDiv {
   position: absolute;
@@ -587,9 +588,9 @@
     padding: 3rem 2rem;
   }
   .aboutUsSection1Card {
-    font-size: 12px;
-    left: 1px;
-    line-height: 130%;
+    position: relative;
+    padding-top: 2rem;
+    z-index: 0;
   }
 
   /* Section 2 */
@@ -904,6 +905,7 @@
   .py-5 {
     padding-bottom: 2rem !important;
   }
+  
 
   .aboutsec4boxheading {
     font-size: 20px;
@@ -934,6 +936,7 @@
     letter-spacing: 5px;
     line-height: 150%;
     margin: 0 auto;
+    margin-bottom: 0px !important;
   }
   .union1 {
     height: 73%;

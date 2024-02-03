@@ -405,7 +405,7 @@ export default function aboutPage() {
 
             <div className="d-flex d-lg-inline">
               <div className="d-none d-lg-inline">
-                <Image className="hackathon union" src={journey}></Image>
+                <Image className={`${aboutStyle["union"]} hackathon`} src={journey}></Image>
               </div>
 
               <div

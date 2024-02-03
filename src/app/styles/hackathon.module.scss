@@ -4,6 +4,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
+  padding: 20px 0px;
 }
 .hacksection1 {
   display: flex;
@@ -820,7 +821,7 @@
     background-repeat: no-repeat;
     width: 100%;
   }
-  .hack-section1 {
+  .hacksection1 {
     display: flex;
     align-items: center;
     position: relative;
@@ -851,7 +852,7 @@
   }
 
   /* ............section 2................ */
-  .hack-sec2-flex {
+  .hacksec2flex {
     align-items: center;
     justify-content: space-around;
   }
@@ -963,7 +964,7 @@
     color: #fff;
     margin: 10px;
     text-align: center;
-    padding: 20px 40px;
+    padding: 13px 20px;
     align-items: center;
     justify-content: space-between;
   }
@@ -1008,7 +1009,7 @@
     text-transform: uppercase;
   }
   .hacksection3 {
-    margin: 10% 0px;
+    margin-top: 10% ;
   }
 
   /* ...............scetion4............. */
@@ -1196,10 +1197,10 @@
     text-transform: uppercase;
   }
   .hacksection2 {
-    margin-top: 25%;
+    margin-top: 35%;
   }
   .hacksection3 {
-    margin: 20% 0px;
+    margin-top: 20%;
   }
   .hack-section1 {
     margin-top: 15px;
@@ -1287,7 +1288,7 @@
     border-bottom-left-radius: 70px;
     border: 1px solid #a6ff35;
     background: rgba(0, 0, 0, 0.22);
-    padding: 40px;
+    padding: 40px 30px;
     margin: 0 auto;
     flex-shrink: 0;
   }
@@ -1366,7 +1367,7 @@
   .s4pera {
     color: #fff;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     width: 100%;
@@ -1579,7 +1580,7 @@
     text-transform: capitalize;
   }
   .hacksection4 {
-    padding: 0px !important;
+    padding: 30px 0px !important;
   }
   .sec3flex1 input {
     border-radius: 27px;
@@ -1609,7 +1610,7 @@
     text-transform: uppercase;
   }
   .hacksection3 {
-    margin: 10% 0px;
+    margin: 15% 0px;
   }
 
   /* ...............scetion4............. */
@@ -1649,7 +1650,7 @@
     color: #fff;
     text-align: center;
     // font-family: "Josefin Sans";
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: 134.523%;

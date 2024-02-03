@@ -4,10 +4,12 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
+  padding: 50px 0px;
+
 }
 .homepageSecion1Main {
   width: 100%;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 .section1BgImgMain {
   width: 100%;
@@ -276,7 +278,8 @@
 
 .homepageSecion4Main {
   width: 100%;
-  padding: 150px 0px;
+  padding: 60px 0px;
+  padding-top: 100px;
 }
 .sectio4Title {
   color: #a6ff35;
@@ -392,7 +395,7 @@
   .homepageSecion3MainTemplate {
     width: 100%;
     margin: 0 auto;
-    margin-top: 150px;
+    // margin-top: 150px;
   }
 
   .homepageSecion3MainTemplate .rec-carousel {
@@ -415,7 +418,7 @@
     padding-bottom: 20px;
     display: flex;
     flex-direction: row;
-    margin-top: 120px;
+    // margin-top: 120px;
     justify-content: center;
   }
   .faqAccordionMain {
@@ -622,7 +625,7 @@
   .homepageSecion3MainTemplate {
     padding-top: 50px;
     padding-bottom: 50px;
-    margin-top: 50px;
+    // margin-top: 50px;
   }
   .slick-dots {
     bottom: -30px;
@@ -745,7 +748,7 @@
   }
   .homepageSecion4Main {
     width: 100%;
-    padding-top: 35px;
+    padding: 35px 0px 60px 0px;
   }
 
   .colorChangeText {
@@ -784,7 +787,7 @@
   }
   .homepageSecion1Main {
     width: 100%;
-    padding-top: 55px;
+    padding-top: 0px;
   }
   .homepageSecion2Main {
     align-items: flex-start;
@@ -925,7 +928,7 @@
   }
   .homepageSecion4Main {
     width: 100%;
-    padding: 70px 0px;
+    padding: 40px 0px;
   }
   .accordionQue {
     font-style: normal;
@@ -993,6 +996,9 @@
 
   .cursor {
     display: none;
+  }
+  .lmplabHomepageMainBg{
+    padding: 50px 0px;
   }
 }
 
@@ -1286,7 +1292,7 @@
   }
   .homepageSecion3MainTemplate {
     margin: 50px 0px;
-    padding: 40px 0px;
+    padding: 10px 0px;
   }
   .slick-dots {
     bottom: -30px !important;
@@ -1297,5 +1303,8 @@
   }
   .cursor {
     display: none;
+  }
+  .lmplabHomepageMainBg{
+    padding: 50px 0px;
   }
 }
