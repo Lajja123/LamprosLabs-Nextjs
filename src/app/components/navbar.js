@@ -5,10 +5,13 @@ import "../styles/navbar.css";
 import logo from "../assets/images/logo.png";
 import Link from "next/link";
 import Image from "next/image";
-
+import { usePathname, useRouter } from "next/navigation";
 function Navbar() {
   const navbarRef = useRef(null);
-
+  const navBtnRef = useRef(null);
+  const router = useRouter();
+  const pathname = usePathname();
+  console.log(pathname);
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
@@ -26,7 +29,9 @@ function Navbar() {
       document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
-
+  const handleNavClick = () => {
+    navBtnRef.current.click();
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-lg " ref={navbarRef}>
@@ -35,6 +40,7 @@ function Navbar() {
         </a>
         <button
           className="navbar-toggler "
+          ref={navBtnRef}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown"
@@ -52,13 +58,27 @@ function Navbar() {
               <div className="left"></div>
               <div className="right"></div>
             </div>
-            <li className="nav-item three-d">
-              <Link className="nav-link" href="/">
+            <li
+              className={`nav-item three-d  ${pathname == "/" ? "active" : ""}`}
+            >
+              <Link
+                className="nav-link "
+                href="/"
+                onClick={() => handleNavClick()}
+              >
                 HOME
               </Link>
             </li>
-            <li className="nav-item three-d">
-              <Link className="nav-link" href="/about-us">
+            <li
+              className={`nav-item three-d  ${
+                pathname == "/about-us" ? "active" : ""
+              }`}
+            >
+              <Link
+                className="nav-link "
+                href="/about-us"
+                onClick={() => handleNavClick()}
+              >
                 ABOUT US
               </Link>
             </li>
@@ -75,15 +95,31 @@ function Navbar() {
                 PROGRAM
               </div>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li className="dropdown-list three-d">
-                  <Link className="dropdown-item" href="/programs/hackathon">
+                <li
+                  className={`dropdown-list three-d  ${
+                    pathname == "/programs/hackathon" ? "active" : ""
+                  }`}
+                >
+                  <Link
+                    className="dropdown-item"
+                    href="/programs/hackathon"
+                    onClick={() => handleNavClick()}
+                  >
                     HACKATHON
                   </Link>
                 </li>
               </ul>
             </li>
-            <li className="nav-item three-d">
-              <Link className="nav-link" href="/dao-roadmap">
+            <li
+              className={`nav-item three-d ${
+                pathname == "/dao-roadmap" ? "active" : ""
+              }`}
+            >
+              <Link
+                className="nav-link"
+                href="/dao-roadmap"
+                onClick={() => handleNavClick()}
+              >
                 DAO ROADMAP
               </Link>
             </li>
