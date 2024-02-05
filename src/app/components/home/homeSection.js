@@ -13,7 +13,6 @@ import "slick-carousel/slick/slick-theme.css";
 import FAQ from "../faq/faq";
 import { question } from "../faqApi/faqApi";
 import Slider from "react-slick";
-import { Head } from "next/head";
 
 function homeSection() {
   const section1Ref = useRef(null);

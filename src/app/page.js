@@ -5,13 +5,6 @@ import Head from "next/head";
 export default function Home() {
   return (
     <div>
-      <Head>
-        <meta property="og:image" content="<generated>" />
-        <meta property="og:image:type" content="<generated>" />
-        <meta name="twitter:image" content="<generated>" />
-        <meta name="twitter:image:type" content="<generated>" />
-      </Head>
-
       <div className={homeStyle.lmplabHomepageMainBg}>
         <HomeSection />
       </div>
@@ -27,19 +20,21 @@ export const metadata = {
     url: "https://lampros-labs-nextjs-new.vercel.app/",
     type: "website",
     siteName: "Next.js",
-    // images: [
-    //   {
-    //     url: "https://assets-global.website-files.com/63e140bbb85d2537a191962d/63e140bbb85d25def591973b_image-hero-finantech-x-webflow-template.svg",
-    //     width: 1200,
-    //     height: 630,
-    //   },
-    //   {
-    //     url: "https://assets-global.website-files.com/63e140bbb85d2537a191962d/63e140bbb85d25def591973b_image-hero-finantech-x-webflow-template.svg",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "My custom alt",
-    //   },
-    // ],
+
+    images: [
+      {
+        url: "https://app.optimism.io/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Custom alt text for the image",
+      },
+      {
+        url: "https://app.optimism.io/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Custom alt text for the image",
+      },
+    ],
     locale: "en_US",
   },
 };
