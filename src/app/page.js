@@ -18,23 +18,22 @@ export const metadata = {
     title: "Home Page",
     description: "Home Page Description...",
     url: "https://lampros-labs-nextjs-new.vercel.app/",
-    type: "website",
     siteName: "Next.js",
 
     images: [
       {
-        url: "https://app.optimism.io/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Custom alt text for the image",
+        url: "https://www.optimism.io/apps/all", // Must be an absolute URL
+        width: 800,
+        height: 600,
       },
       {
-        url: "https://app.optimism.io/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Custom alt text for the image",
+        url: "https://www.optimism.io/apps/all", // Must be an absolute URL
+        width: 1800,
+        height: 1600,
+        alt: "My custom alt",
       },
     ],
     locale: "en_US",
+    type: "website",
   },
 };
