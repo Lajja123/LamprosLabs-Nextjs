@@ -28,8 +28,8 @@ export const metadata = {
       },
       {
         url: "https://www.optimism.io/apps/all", // Must be an absolute URL
-        width: 1800,
-        height: 1600,
+        width: 800,
+        height: 600,
         alt: "My custom alt",
       },
     ],
