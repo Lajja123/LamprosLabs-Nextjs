@@ -6,6 +6,10 @@ import { NextSeo } from "next-seo";
 export default function Home() {
   return (
     <div>
+      <NextSeo
+        title="Home Page Title"
+        description="Home page description of the page"
+      />
       <div className={homeStyle.lmplabHomepageMainBg}>
         <HomeSection />
       </div>
