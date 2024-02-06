@@ -13,12 +13,12 @@ export const metadata = {
     siteName: "LamprosLabs",
     images: [
       {
-        url: "https://static.opensea.io/og-images/Metadata-Image.png",
+        url: "https://uniswap.org/images/twitter-card.jpg",
         width: 800,
         height: 600,
       },
       {
-        url: "https://static.opensea.io/og-images/Metadata-Image.png",
+        url: "https://uniswap.org/images/twitter-card.jpg",
         width: 1800,
         height: 1600,
         alt: "My custom alt",
