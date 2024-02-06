@@ -76,7 +76,11 @@ function homeSection() {
         duration={600}
         infinite
       >
-        <Image className={homeStyle.section2Img} src={section2Img}></Image>
+        <Image
+          className={homeStyle.section2Img}
+          src={section2Img}
+          alt=""
+        ></Image>
         <div className={homeStyle.section2Flex}>
           <div className={homeStyle.hideForMobile}>
             <Fade bottom duration={3000} distance="30px">
@@ -175,7 +179,7 @@ function homeSection() {
                   id={homeStyle.button7}
                 >
                   <div id={homeStyle.dubArrow}>
-                    <Image src={arrow} />
+                    <Image src={arrow} alt="" />
                   </div>
                   Join Us
                 </button>
@@ -199,7 +203,7 @@ function homeSection() {
                   id={homeStyle.button7}
                 >
                   <div id={homeStyle.dubArrow}>
-                    <Image src={arrow} />
+                    <Image src={arrow} alt="" />
                   </div>
                   Know more
                 </button>

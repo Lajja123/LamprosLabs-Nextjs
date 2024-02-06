@@ -26,7 +26,7 @@ function hackathonSection() {
           duration={600}
         >
           <div className={`${hackStyle["hacksec1bg"]}  col-8`}>
-            <Image src={sec1bg}></Image>
+            <Image src={sec1bg} alt=""></Image>
           </div>
 
           <Fade duration={1500} delay={100}>
@@ -157,7 +157,7 @@ function hackathonSection() {
                 <div>
                   <button id={hackStyle.button7} className={hackStyle.sec3btn}>
                     <div id={hackStyle.dubArrowRegister}>
-                      <Image src={arrow} />
+                      <Image src={arrow} alt="" />
                     </div>
                     Register Now!
                   </button>

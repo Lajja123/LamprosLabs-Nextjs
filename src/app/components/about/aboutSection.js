@@ -108,7 +108,7 @@ export default function aboutPage() {
                 <div
                   className={`${aboutStyle["visionimg"]} col-5 d-none d-lg-block`}
                 >
-                  <Image src={vision}></Image>
+                  <Image src={vision} alt=""></Image>
                 </div>
               </Fade>
             </div>
@@ -120,7 +120,7 @@ export default function aboutPage() {
                 <div
                   className={`${aboutStyle["visionimg"]} col-5 d-none d-lg-block`}
                 >
-                  <Image src={mission}></Image>
+                  <Image src={mission} alt=""></Image>
                 </div>
               </Fade>
 
@@ -153,6 +153,7 @@ export default function aboutPage() {
                 <Image
                   className={aboutStyle.sec3AboutImg1}
                   src={blockchain}
+                  alt=""
                 ></Image>
               </div>
 
@@ -172,7 +173,11 @@ export default function aboutPage() {
 
             <div className={`${aboutStyle["aboutimgflex"]} py-2`}>
               <div className={`${aboutStyle["aboutsec3hero"]} col-6`}>
-                <Image src={aboutImg2} className={aboutStyle.aboutImg2}></Image>
+                <Image
+                  src={aboutImg2}
+                  className={aboutStyle.aboutImg2}
+                  alt=""
+                ></Image>
                 <div className={aboutStyle.sec3Imgheading}>Our Ethos</div>
               </div>
               <div className="py-3">
@@ -181,6 +186,7 @@ export default function aboutPage() {
                     <Image
                       className={aboutStyle.sec3AboutImg1}
                       src={idea}
+                      alt=""
                     ></Image>
                   </div>
 
@@ -201,6 +207,7 @@ export default function aboutPage() {
                     <Image
                       className={aboutStyle.sec3AboutImg1}
                       src={blockchainImg}
+                      alt=""
                     ></Image>
                   </div>
                   <div className={aboutStyle.sec3Aboutblockflex}>
@@ -221,6 +228,7 @@ export default function aboutPage() {
                     <Image
                       className={aboutStyle.sec3AboutImg1}
                       src={technology}
+                      alt=""
                     ></Image>
                   </div>
                   <div className={aboutStyle.sec3Aboutblockflex}>
@@ -243,6 +251,7 @@ export default function aboutPage() {
                 <Image
                   className={aboutStyle.sec3AboutImg1}
                   src={website}
+                  alt=""
                 ></Image>
               </div>
               <div className={aboutStyle.sec3Aboutblockflex}>
@@ -271,7 +280,11 @@ export default function aboutPage() {
             </Fade>
 
             <div style={{ position: "relative" }}>
-              <Image src={aboutImg2} className={aboutStyle.aboutImg2}></Image>
+              <Image
+                src={aboutImg2}
+                className={aboutStyle.aboutImg2}
+                alt=""
+              ></Image>
             </div>
             <div className="py-5">
               <div className={aboutStyle.aboutsec3flex1Res}>
@@ -280,6 +293,7 @@ export default function aboutPage() {
                     <Image
                       className={aboutStyle.sec3AboutImg1}
                       src={blockchain}
+                      alt=""
                     ></Image>
                   </div>
 
@@ -304,6 +318,7 @@ export default function aboutPage() {
                     <Image
                       className={aboutStyle.sec3AboutImg1}
                       src={idea}
+                      alt=""
                     ></Image>
                   </div>
 
@@ -326,6 +341,7 @@ export default function aboutPage() {
                     <Image
                       className={aboutStyle.sec3AboutImg1}
                       src={blockchainImg}
+                      alt=""
                     ></Image>
                   </div>
 
@@ -349,6 +365,7 @@ export default function aboutPage() {
                     <Image
                       className={aboutStyle.sec3AboutImg1}
                       src={technology}
+                      alt=""
                     ></Image>
                   </div>
 
@@ -371,6 +388,7 @@ export default function aboutPage() {
                     <Image
                       className={aboutStyle.sec3AboutImg1}
                       src={website}
+                      alt=""
                     ></Image>
                   </div>
 
@@ -405,7 +423,11 @@ export default function aboutPage() {
 
             <div className="d-flex d-lg-inline">
               <div className="d-none d-lg-inline">
-                <Image className={`${aboutStyle["union"]} hackathon`} src={journey}></Image>
+                <Image
+                  className={`${aboutStyle["union"]} hackathon`}
+                  src={journey}
+                  alt=""
+                ></Image>
               </div>
 
               <div
@@ -414,6 +436,7 @@ export default function aboutPage() {
                 <Image
                   className={`${aboutStyle["union1"]} hackathon`}
                   src={journey1}
+                  alt=""
                 ></Image>
               </div>
 

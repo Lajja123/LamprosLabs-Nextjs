@@ -19,6 +19,7 @@ function FAQ({ question, answer }) {
           <Image
             src={expanded ? minus : plus}
             className={`accordionIcon ${expanded ? "expanded" : "collapsed"}`}
+            alt=""
           />
           <div className={homeStyle.accordionQue}>{question}</div>
         </div>

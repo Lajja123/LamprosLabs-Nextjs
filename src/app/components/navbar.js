@@ -6,12 +6,14 @@ import logo from "../assets/images/logo.png";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+
 function Navbar() {
   const navbarRef = useRef(null);
   const navBtnRef = useRef(null);
   const router = useRouter();
   const pathname = usePathname();
   console.log(pathname);
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
@@ -29,14 +31,17 @@ function Navbar() {
       document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
+
   const handleNavClick = () => {
-    navBtnRef.current.click();
+    if (window.innerWidth < 1024) {
+      navBtnRef.current.click();
+    }
   };
   return (
     <div>
       <nav className="navbar navbar-expand-lg " ref={navbarRef}>
         <a className="navbar-brand navbar-logo" href="/">
-          <Image src={logo} className="logo-img" />
+          <Image src={logo} className="logo-img" alt="" />
         </a>
         <button
           className="navbar-toggler "

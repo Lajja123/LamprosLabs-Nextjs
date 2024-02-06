@@ -10,6 +10,7 @@ import telegram from "../assets/images/telegram.png";
 import footerStyles from "../styles/footer.module.scss"; // Updated import
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   // Updated function name to start with a capital letter
   const navRef = useRef();
   const scrollToTop = () => {
@@ -28,6 +29,7 @@ export default function Footer() {
               src={logo}
               className={footerStyles.footerLogo}
               onClick={scrollToTop}
+              alt=""
             ></Image>
           </Link>
         </div>
@@ -61,23 +63,42 @@ export default function Footer() {
       {/* <div className={footerStyles.footer-border}></div> */}
       <div className={footerStyles.footerIconMain}>
         <Link href="https://twitter.com/lamproslabsdao" target="_blank">
-          <Image src={twitter} className={footerStyles.footerIcon}></Image>
+          <Image
+            src={twitter}
+            className={footerStyles.footerIcon}
+            alt=""
+          ></Image>
         </Link>
 
         <Link href="https://discord.gg/5jxNq8bDt2" target="_blank">
-          <Image src={discord} className={footerStyles.footerIcon}></Image>
+          <Image
+            src={discord}
+            className={footerStyles.footerIcon}
+            alt=""
+          ></Image>
         </Link>
 
         <Link href="https://t.me/lamproslabsdao" target="_blank">
-          <Image src={telegram} className={footerStyles.footerIcon}></Image>
+          <Image
+            src={telegram}
+            className={footerStyles.footerIcon}
+            alt=""
+          ></Image>
         </Link>
 
-        <Link href="">
-          <Image src={mirror} className={footerStyles.footerIcon}></Image>
+        <Link
+          href="https://mirror.xyz/0xF362eaCAf0a28651d6f6218e5fD0Faf360fa779F"
+          target="_blank"
+        >
+          <Image
+            src={mirror}
+            className={footerStyles.footerIcon}
+            alt=""
+          ></Image>
         </Link>
       </div>
       <p className={footerStyles.footerCopyright}>
-        Copyright © 2024 Lampros labs | All rights reserved
+        Copyright © {currentYear} Lampros labs | All rights reserved
       </p>
     </div>
   );

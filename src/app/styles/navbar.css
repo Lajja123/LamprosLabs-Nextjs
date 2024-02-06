@@ -55,7 +55,9 @@
   font-size: 15px;
   display: block;
   padding: 15px 30px;
-  transition-duration: 0.6s;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: relative;
   margin-top: 10px;
@@ -72,7 +74,7 @@
 .nav-item.active a {
   color: #0a11b5 !important;
   background-color: transparent;
-  transition: all 0.7s;
+  transition: 0.7s;
   background-color: #a6ff35;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
