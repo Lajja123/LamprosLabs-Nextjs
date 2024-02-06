@@ -13,12 +13,12 @@ export const metadata = {
     siteName: "LamprosLabs",
     images: [
       {
-        url: "https://assets-global.website-files.com/63e140bbb85d2537a191962d/63e140bbb85d25def591973b_image-hero-finantech-x-webflow-template.svg",
+        url: "https://ethglobal.com/og.png",
         width: 800,
         height: 600,
       },
       {
-        url: "https://assets-global.website-files.com/63e140bbb85d2537a191962d/63e140bbb85d25def591973b_image-hero-finantech-x-webflow-template.svg",
+        url: "https://ethglobal.com/og.png",
         width: 1800,
         height: 1600,
         alt: "My custom alt",
