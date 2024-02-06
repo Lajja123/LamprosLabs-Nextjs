@@ -10,8 +10,7 @@ export const metadata = {
     title: "Hackathon Page",
     description: "Hackathon Description",
     url: "https://lampros-labs-nextjs-new.vercel.app/programs/hackathon",
-    type: "website",
-    siteName: "Next.js",
+    siteName: "LamprosLabs",
     images: [
       {
         url: "https://portals.fi/static/media/api-img.d39ce11886c98599d337590e074f9c69.svg",
@@ -26,5 +25,6 @@ export const metadata = {
       },
     ],
     locale: "en_US",
+    type: "website",
   },
 };

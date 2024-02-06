@@ -13,19 +13,22 @@ export const metadata = {
   openGraph: {
     title: "About Page",
     description: "About Page Description...",
-    url: "https://metatags-nextjs.vercel.app/home",
-    type: "website",
-    siteName: "Next.js",
-    image:
-      "https://www.kasandbox.org/programming-images/avatars/old-spice-man.png",
+    url: "https://lampros-labs-nextjs-new.vercel.app/about-us",
+    siteName: "LamprosLabs",
     images: [
       {
-        url: "https://www.kasandbox.org/programming-images/avatars/old-spice-man.png",
+        url: "https://uniswap.org/images/twitter-card.jpg",
+        width: 800,
+        height: 600,
       },
       {
-        url: "https://www.kasandbox.org/programming-images/avatars/old-spice-man.png",
+        url: "https://uniswap.org/images/twitter-card.jpg",
+        width: 1800,
+        height: 1600,
+        alt: "My custom alt",
       },
     ],
     locale: "en_US",
+    type: "website",
   },
 };

@@ -1,7 +1,5 @@
 import homeStyle from "./styles/home.module.scss";
 import HomeSection from "./components/home/homeSection";
-import Head from "next/head";
-import { NextSeo } from "next-seo";
 
 export default function Home() {
   return (
@@ -19,8 +17,7 @@ export const metadata = {
     title: "Home Page",
     description: "Home Page Description...",
     url: "https://lampros-labs-nextjs-new.vercel.app/",
-    siteName: "Next.js",
-
+    siteName: "LamprosLabs",
     images: [
       {
         url: "https://app.optimism.io/og-image.png", // Must be an absolute URL
