@@ -13,12 +13,12 @@ export const metadata = {
     siteName: "LamprosLabs",
     images: [
       {
-        url: "https://devfolio.co/static/og-image-3.png",
+        url: "https://i.ibb.co/DG8RrJY/SCR-20230420-vh7.jpg",
         width: 800,
         height: 600,
       },
       {
-        url: "https://devfolio.co/static/og-image-3.png",
+        url: "https://i.ibb.co/DG8RrJY/SCR-20230420-vh7.jpg",
         width: 1800,
         height: 1600,
         alt: "My custom alt",
