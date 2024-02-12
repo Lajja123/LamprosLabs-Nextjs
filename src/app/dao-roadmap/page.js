@@ -5,25 +5,25 @@ export default function daoPage() {
 }
 export const metadata = {
   title: "Dao Page",
-  description: "Dao Page Description...",
+  // description: "Dao Page Description...",
   openGraph: {
     title: "Dao Page",
-    description: "Dao Page Description...",
+    // description: "Dao Page Description...",
     url: "https://lampros-labs-nextjs-new.vercel.app/dao-roadmap",
     siteName: "LamprosLabs",
-    images: [
-      {
-        url: "https://uniswap.org/images/twitter-card.jpg",
-        width: 800,
-        height: 600,
-      },
-      {
-        url: "https://uniswap.org/images/twitter-card.jpg",
-        width: 1800,
-        height: 1600,
-        alt: "My custom alt",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "https://uniswap.org/images/twitter-card.jpg",
+    //     width: 800,
+    //     height: 600,
+    //   },
+    //   {
+    //     url: "https://uniswap.org/images/twitter-card.jpg",
+    //     width: 1800,
+    //     height: 1600,
+    //     alt: "My custom alt",
+    //   },
+    // ],
     locale: "en_US",
     type: "website",
   },

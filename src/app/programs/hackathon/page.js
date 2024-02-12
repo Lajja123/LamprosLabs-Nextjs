@@ -5,25 +5,25 @@ export default function hackathon() {
 }
 export const metadata = {
   title: "Hackathon Page",
-  description: "Hackathon Page Description...",
+  // description: "Hackathon Page Description...",
   openGraph: {
     title: "Hackathon Page",
-    description: "Hackathon Description",
+    // description: "Hackathon Description",
     url: "https://lampros-labs-nextjs-new.vercel.app/programs/hackathon",
     siteName: "LamprosLabs",
-    images: [
-      {
-        url: "https://uniswap.org/images/twitter-card.jpg",
-        width: 800,
-        height: 600,
-      },
-      {
-        url: "https://uniswap.org/images/twitter-card.jpg",
-        width: 1800,
-        height: 1600,
-        alt: "My custom alt",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "https://uniswap.org/images/twitter-card.jpg",
+    //     width: 800,
+    //     height: 600,
+    //   },
+    //   {
+    //     url: "https://uniswap.org/images/twitter-card.jpg",
+    //     width: 1800,
+    //     height: 1600,
+    //     alt: "My custom alt",
+    //   },
+    // ],
     locale: "en_US",
     type: "website",
   },
