@@ -15,6 +15,11 @@ import { Fade } from "react-reveal";
 import aboutStyle from "../../styles/aboutUs.module.scss";
 import Image from "next/image";
 import ScrollBtn from "../scrollbarBtn";
+import hack from "../../assets/images/hackathon.png";
+import idea1 from "../../assets/images/idea1.png";
+import meet from "../../assets/images/meeting.png";
+import web from "../../assets/images/web.png";
+import union from "../../assets/images/Union.png";
 
 export default function aboutPage() {
   const section1Ref = useRef(null);
@@ -430,6 +435,31 @@ export default function aboutPage() {
                 ></Image>
               </div>
 
+              {/* <div className={aboutStyle.container}>
+                <Image src={union} alt=""></Image>
+                <div className={aboutStyle.iconMain}>
+                  <Image
+                    className={`${aboutStyle["movingIcon"]} ${aboutStyle["icon1"]}`}
+                    src={hack}
+                    alt="Icon 1"
+                  />
+                  <Image
+                    className={`${aboutStyle["movingIcon"]} ${aboutStyle["icon2"]}`}
+                    src={idea1}
+                    alt="Icon 2"
+                  />
+                  <Image
+                    className={`${aboutStyle["movingIcon"]} ${aboutStyle["icon3"]}`}
+                    src={web}
+                    alt="Icon 3"
+                  />
+                  <Image
+                    className={`${aboutStyle["movingIcon"]} ${aboutStyle["icon4"]}`}
+                    src={meet}
+                    alt="Icon 4"
+                  />
+                </div>
+              </div> */}
               <div
                 className={`${aboutStyle["journeyimagediv"]} col-2 d-lg-none`}
               >
