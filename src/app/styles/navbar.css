@@ -164,23 +164,23 @@
 /* when navigation is clicked */
 
 .navbar-toggler .top-bar {
-  margin-top: 10px;
-  transform: rotate(0deg);
+  margin-top: 0px;
+  transform: rotate(135deg);
 }
 
 .navbar-toggler .middle-bar {
-  opacity: 1;
+  opacity: 0;
   filter: alpha(opacity=0);
 }
 
 .navbar-toggler .bottom-bar {
-  margin-top: -10px;
-  transform: rotate(0deg);
+  margin-top: 0px;
+  transform: rotate(-135deg);
 }
 /* State when the navbar is collapsed */
 
 .navbar-toggler.collapsed .top-bar {
-  margin-top: -10px;
+  margin-top: -12px;
   transform: rotate(0deg);
 }
 
@@ -190,7 +190,7 @@
 }
 
 .navbar-toggler.collapsed .bottom-bar {
-  margin-top: 10px;
+  margin-top: 12px;
   transform: rotate(0deg);
 }
 

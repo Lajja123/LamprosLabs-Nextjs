@@ -44,7 +44,7 @@ function Navbar() {
           <Image src={logo} className="logo-img" alt="" />
         </a>
         <button
-          className="navbar-toggler "
+          className="navbar-toggler collapsed "
           ref={navBtnRef}
           type="button"
           data-bs-toggle="collapse"
