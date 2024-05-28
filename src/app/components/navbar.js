@@ -87,6 +87,20 @@ function Navbar() {
                 ABOUT US
               </Link>
             </li>
+            <li
+              className={`nav-item three-d  ${
+                pathname == "/about-us" ? "active" : ""
+              }`}
+            >
+              <Link
+                className="nav-link "
+                href="https://lamproslabsdao.notion.site/a2d67afc0ed84377918b536341374f0e?v=6e84b9a6c7b648bd86dc9b20a4804124&pvs=4"
+                onClick={() => handleNavClick()}
+                target="blank"
+              >
+                CONTRIBUTION
+              </Link>
+            </li>
 
             <li className="nav-item dropdown three-d">
               <div
