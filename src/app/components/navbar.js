@@ -98,7 +98,7 @@ function Navbar() {
                 onClick={() => handleNavClick()}
                 target="blank"
               >
-                CONTRIBUTION
+                CONTRIBUTIONS
               </Link>
             </li>
 
