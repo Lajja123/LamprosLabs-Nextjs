@@ -4,10 +4,10 @@ export default function daoPage() {
   return <DaoSection />;
 }
 export const metadata = {
-  title: "Dao Page",
+  title: "Dao Roadmap",
   // description: "Dao Page Description...",
   openGraph: {
-    title: "Dao Page",
+    title: "Dao Roadmap",
     // description: "Dao Page Description...",
     url: "https://lampros-labs-nextjs-new.vercel.app/dao-roadmap",
     siteName: "LamprosLabs",

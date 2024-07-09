@@ -11,6 +11,7 @@ function hackathonSection() {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
+  const currentYear = new Date().getFullYear();
   return (
     <div>
       <div className={hackStyle.inherimainbg}>
@@ -138,10 +139,10 @@ function hackathonSection() {
             </Fade>
           </div>
 
-          <div style={{ margin: "50px 0px" }}>
+          <div className={hackStyle.sec3Hackmain}>
             <div className={`${hackStyle["sec3box1"]} col-10`}>
               <div className={hackStyle.sec3boxheading}>
-                Lampros Web3 Vision 2023
+                Lampros Web3 Vision {currentYear}
               </div>
             </div>
             <div className={`${hackStyle["sec3box2"]} col-10`}>
