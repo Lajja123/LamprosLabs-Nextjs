@@ -11,10 +11,10 @@ export default function Home() {
   );
 }
 export const metadata = {
-  title: "Home Page",
+  title: "Home",
   // description: "Home Page Description...",
   openGraph: {
-    title: "Home Page",
+    title: "Home",
     // description: "Home Page Description...",
     url: "https://lampros-labs-nextjs-new.vercel.app/",
     siteName: "LamprosLabs",

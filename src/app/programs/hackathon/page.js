@@ -4,10 +4,10 @@ export default function hackathon() {
   return <HackathonSection />;
 }
 export const metadata = {
-  title: "Hackathon Page",
+  title: "Upcoming Hackathons",
   // description: "Hackathon Page Description...",
   openGraph: {
-    title: "Hackathon Page",
+    title: "Upcoming Hackathons",
     // description: "Hackathon Description",
     url: "https://lampros-labs-nextjs-new.vercel.app/programs/hackathon",
     siteName: "LamprosLabs",

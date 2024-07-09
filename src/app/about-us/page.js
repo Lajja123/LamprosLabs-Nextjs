@@ -8,10 +8,10 @@ export default function aboutPage() {
   );
 }
 export const metadata = {
-  title: "About Page",
+  title: "About Us",
   // description: "About Page Description...",
   openGraph: {
-    title: "About Page",
+    title: "About Us",
     // description: "About Page Description...",
     url: "https://lampros-labs-nextjs-new.vercel.app/about-us",
     siteName: "LamprosLabs",
