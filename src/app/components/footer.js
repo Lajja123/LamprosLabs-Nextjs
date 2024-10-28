@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation"
 import { useRef } from "react";
 import Image from "next/image";
 import logo from "../assets/images/logo.png";
@@ -7,17 +8,22 @@ import discord from "../assets/images/discord.png";
 import twitter from "../assets/images/twitter.png";
 import mirror from "../assets/images/mirror.png";
 import telegram from "../assets/images/telegram.png";
-import footerStyles from "../styles/footer.module.scss"; // Updated import
+import footerStyles from "../styles/footer.module.scss";
 
 export default function Footer() {
+  const router = useRouter();
   const currentYear = new Date().getFullYear();
-  // Updated function name to start with a capital letter
   const navRef = useRef();
+  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // You can use "auto" for an instant scroll
+      behavior: "smooth",
     });
+  };
+
+  const handleTermsClick = () => {
+    router.push("/terms-of-use"); // Programmatically navigate to the Terms of Use page
   };
 
   return (
@@ -29,77 +35,44 @@ export default function Footer() {
               src={logo}
               className={footerStyles.footerLogo}
               onClick={scrollToTop}
-              alt=""
-            ></Image>
+              alt="Logo"
+            />
           </Link>
         </div>
         <footer ref={navRef} className={footerStyles.footerNavbar}>
-          <Link
-            href="/about-us"
-            activeClassName={footerStyles.active}
-            onClick={scrollToTop}
-            className={footerStyles.footerLink}
-          >
+          <Link href="/about-us" className={footerStyles.footerLink} onClick={scrollToTop}>
             <span>About Us</span>
           </Link>
-          <Link
-            href="/programs/hackathon"
-            activeClassName={footerStyles.active}
-            onClick={scrollToTop}
-            className={footerStyles.footerLink}
-          >
+          <Link href="/programs/hackathon" className={footerStyles.footerLink} onClick={scrollToTop}>
             Hackathon
           </Link>
-          <Link
-            href="/dao-roadmap"
-            activeClassName={footerStyles.active}
-            onClick={scrollToTop}
-            className={footerStyles.footerLink}
-          >
+          <Link href="/dao-roadmap" className={footerStyles.footerLink} onClick={scrollToTop}>
             DAO Roadmap
           </Link>
         </footer>
       </div>
-      {/* <div className={footerStyles.footer-border}></div> */}
+
       <div className={footerStyles.footerIconMain}>
         <Link href="https://twitter.com/lamproslabsdao" target="_blank">
-          <Image
-            src={twitter}
-            className={footerStyles.footerIcon}
-            alt=""
-          ></Image>
+          <Image src={twitter} className={footerStyles.footerIcon} alt="Twitter" />
         </Link>
-
         <Link href="https://discord.gg/5jxNq8bDt2" target="_blank">
-          <Image
-            src={discord}
-            className={footerStyles.footerIcon}
-            alt=""
-          ></Image>
+          <Image src={discord} className={footerStyles.footerIcon} alt="Discord" />
         </Link>
-
         <Link href="https://t.me/lamproslabsdao" target="_blank">
-          <Image
-            src={telegram}
-            className={footerStyles.footerIcon}
-            alt=""
-          ></Image>
+          <Image src={telegram} className={footerStyles.footerIcon} alt="Telegram" />
         </Link>
-
-        <Link
-          href="https://mirror.xyz/0xF362eaCAf0a28651d6f6218e5fD0Faf360fa779F"
-          target="_blank"
-        >
-          <Image
-            src={mirror}
-            className={footerStyles.footerIcon}
-            alt=""
-          ></Image>
+        <Link href="https://mirror.xyz/0xF362eaCAf0a28651d6f6218e5fD0Faf360fa779F" target="_blank">
+          <Image src={mirror} className={footerStyles.footerIcon} alt="Mirror" />
         </Link>
       </div>
+      
       <p className={footerStyles.footerCopyright}>
-        Copyright © {currentYear} Lampros labs | All rights reserved
-      </p>
+  Copyright © {currentYear} Lumos Fintech Ltd | 
+  <Link href="/terms-of-use"  target="_blank" style={{ cursor: "pointer", marginLeft: "5px", textDecoration:"none", color:"white" }}>
+    Terms of Use
+  </Link>
+</p>
     </div>
   );
 }
