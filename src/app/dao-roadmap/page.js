@@ -10,7 +10,7 @@ export const metadata = {
     title: "Dao Roadmap",
     // description: "Dao Page Description...",
     url: "https://lampros-labs-nextjs-new.vercel.app/dao-roadmap",
-    siteName: "LamprosLabs",
+    siteName: "LamprosDAO",
     // images: [
     //   {
     //     url: "https://uniswap.org/images/twitter-card.jpg",

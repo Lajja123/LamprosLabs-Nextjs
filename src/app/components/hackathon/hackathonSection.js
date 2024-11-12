@@ -36,7 +36,7 @@ function hackathonSection() {
                 Unleash Your Blockchain Potential
               </div>
               <div className={hackStyle.sec1boxpera}>
-                Dive into the realm of blockchain innovation with Lampros Labs’
+                Dive into the realm of blockchain innovation with Lampros DAO's
                 exclusive hackathons! These events are meticulously crafted to
                 offer participants a platform to ideate, innovate, and showcase
                 their groundbreaking solutions. Whether you're a seasoned
@@ -54,7 +54,7 @@ function hackathonSection() {
             <div
               className={`${hackStyle["sec1boxml"]} ${hackStyle["sec1boxpera"]}`}
             >
-              Dive into the realm of blockchain innovation with Lampros Labs’
+              Dive into the realm of blockchain innovation with Lampros DAO's
               exclusive hackathons! These events are meticulously crafted to
               offer participants a platform to ideate, innovate, and showcase
               their groundbreaking solutions. Whether you're a seasoned

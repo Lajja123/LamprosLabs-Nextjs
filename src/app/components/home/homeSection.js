@@ -85,14 +85,14 @@ function homeSection() {
           <div className={homeStyle.hideForMobile}>
             <Fade bottom duration={3000} distance="30px">
               <p className={homeStyle.section2Pera}>
-                In the vibrant world of blockchain, Lampros Labs stands as a
+                In the vibrant world of blockchain, Lampros DAO stands as a
                 beacon, illuminating the path for innovators, dreamers, and
                 builders. Founded with a profound vision to seamlessly merge
                 blockchain technology with mainstream applications, we've
                 steadily grown into a robust community hub.
               </p>
               <p className={homeStyle.homeMlPera}>
-                Our ethos is rooted in fostering growth – both of the individual
+                Our ethos is rooted in fostering growth - both of the individual
                 and the collective. With each project we support, every
                 developer we guide, and each event we host, we inch closer to a
                 future where blockchain isn't just a buzzword, but an integral
@@ -103,14 +103,14 @@ function homeSection() {
           <div className={homeStyle.hideForWeb}>
             <Fade bottom duration={3000} distance="30px">
               <p className={homeStyle.section2Pera1}>
-                In the vibrant world of blockchain, Lampros Labs stands as a
+                In the vibrant world of blockchain, Lampros DAO stands as a
                 beacon, illuminating the path for innovators, dreamers, and
                 builders. Founded with a profound vision to seamlessly merge
                 blockchain technology with mainstream applications, we've
                 steadily grown into a robust community hub.
               </p>
               <p className={homeStyle.homeMlPera1}>
-                Our ethos is rooted in fostering growth – both of the individual
+                Our ethos is rooted in fostering growth - both of the individual
                 and the collective. With each project we support, every
                 developer we guide, and each event we host, we inch closer to a
                 future where blockchain isn't just a buzzword, but an integral
@@ -148,7 +148,7 @@ function homeSection() {
 
               <p className={homeStyle.section3CardDesc}>
                 Sharpen your skills with us. From high-octane hackathons to
-                intensive bootcamps and enlightening cohorts, Lampros Labs is
+                intensive bootcamps and enlightening cohorts, Lampros DAO is
                 your ticket to deepening your web3 proficiency.
               </p>
               <Link href="/programs/hackathon">

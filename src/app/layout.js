@@ -10,7 +10,7 @@ import "./styles/dao.css";
 const josefin = Josefin_Sans({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "LamprosLabs",
+  title: "LamprosDAO",
   description:
     "Driving Mainstream Adoption, Empowering Developers,and Cultivating the Future of Web3",
 };

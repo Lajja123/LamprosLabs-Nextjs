@@ -55,7 +55,8 @@
   justify-content: space-around;
 }
 .footerNavbar {
-  width: 50%;
+  // width: 50%;
+  gap: 50px;
   text-align: end;
   display: flex;
   align-items: center;
@@ -83,7 +84,7 @@
     align-items: center;
   }
   .footerNavbar {
-    width: 51%;
+    // width: 51%;
     text-align: center;
     margin-left: 0px;
     padding-bottom: 0px;
@@ -147,9 +148,9 @@
     justify-content: space-around;
   }
   .footerNavbar {
-    width: 100%;
+    // width: 100%;
     text-align: center;
-    margin-left: 0px;
+    // margin-left: 0px;
     padding-bottom: 0px;
     display: flex;
     flex-direction: row;
@@ -204,14 +205,6 @@
     padding: 10px 0px;
     flex-direction: row;
     justify-content: space-around;
-  }
-  .footerNavbar {
-    width: 100%;
-    text-align: center;
-    margin-left: 0px;
-    padding-bottom: 10px;
-    display: flex;
-    flex-direction: row;
   }
   .footerLogo {
     width: 200px;

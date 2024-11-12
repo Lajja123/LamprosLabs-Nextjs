@@ -8,6 +8,7 @@ import discord from "../assets/images/discord.png";
 import twitter from "../assets/images/twitter.png";
 import mirror from "../assets/images/mirror.png";
 import telegram from "../assets/images/telegram.png";
+import farcaster from "../assets/images/farcaster.png";
 import footerStyles from "../styles/footer.module.scss";
 
 export default function Footer() {
@@ -46,9 +47,9 @@ export default function Footer() {
           <Link href="/programs/hackathon" className={footerStyles.footerLink} onClick={scrollToTop}>
             Hackathon
           </Link>
-          <Link href="/dao-roadmap" className={footerStyles.footerLink} onClick={scrollToTop}>
+          {/* <Link href="/dao-roadmap" className={footerStyles.footerLink} onClick={scrollToTop}>
             DAO Roadmap
-          </Link>
+          </Link> */}
         </footer>
       </div>
 
@@ -64,6 +65,9 @@ export default function Footer() {
         </Link>
         <Link href="https://mirror.xyz/0xF362eaCAf0a28651d6f6218e5fD0Faf360fa779F" target="_blank">
           <Image src={mirror} className={footerStyles.footerIcon} alt="Mirror" />
+        </Link>
+        <Link href="https://warpcast.com/lamproslabsdao" target="_blank">
+          <Image src={farcaster} className={footerStyles.footerIcon} alt="Farcaster" />
         </Link>
       </div>
       

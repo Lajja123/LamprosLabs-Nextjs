@@ -55,27 +55,27 @@ export default function aboutPage() {
               <Fade duration={1500} delay={100}>
                 <div className={aboutStyle.aboutSec1Box}>
                   <p className={aboutStyle.aboutUsSection1CardDesc}>
-                    In the vibrant world of blockchain, Lampros Labs stands as a
+                    In the vibrant world of blockchain, Lampros DAO stands as a
                     beacon, illuminating the path for innovators, dreamers, and
                     builders. Founded with a profound vision to seamlessly merge
                     blockchain technology with mainstream applications, we've
                     steadily grown into a robust community hub.
                   </p>
                   <p className={aboutStyle.aboutUsSection1CardDesc}>
-                    Our ethos is rooted in fostering growth – both of the
+                    Our ethos is rooted in fostering growth - both of the
                     individual and the collective. With each project we support,
                     every developer we guide, and each event we host, we inch
                     closer to a future where blockchain isn't just a buzzword,
                     but an integral part of our digital tapestry.
                   </p>
                   <p className={aboutStyle.aboutUsSection1CardDesc}>
-                    At Lampros Labs, it's not just about code and technology.
+                    At Lampros DAO, it's not just about code and technology.
                     It's about the humans behind it. We prioritize well-being,
                     ensuring that our members thrive in an environment that
                     values creativity, innovation, and collaboration.
                   </p>
                   <p className={aboutStyle.aboutUsSection1CardDesc}>
-                    Through the Lampros Labs Collective, we’re championing a
+                    Through the Lampros DAO Collective, we're championing a
                     unique movement. A movement where public goods take center
                     stage, where developers receive unparalleled support, and
                     where blockchain technology finds its rightful place in
@@ -136,7 +136,7 @@ export default function aboutPage() {
                   </div>
                   <div className={aboutStyle.aboutsecPeraBox}>
                     <div className={aboutStyle.sec2AboutPeraMission}>
-                      Lampros Labs is dedicated to cultivating trailblazing web3
+                      Lampros DAO is dedicated to cultivating trailblazing web3
                       leaders, amplifying open-source breakthroughs across
                       multiple blockchain terrains, and building a community
                       bound by shared growth and decentralized principles.
@@ -167,7 +167,7 @@ export default function aboutPage() {
                   The Blockchain Mainstream Movement
                 </p>
                 <p className={aboutStyle.sec3Aboutpera}>
-                  Lampros Labs stands at the frontier of innovation. Our
+                  Lampros DAO stands at the frontier of innovation. Our
                   mission? To propel all projects harnessing blockchain
                   technology to mainstream consciousness. When we talk about
                   blockchain, we're talking about the future, and we're here to
@@ -241,7 +241,7 @@ export default function aboutPage() {
                       Sustainability Meets Innovation
                     </div>
                     <p className={aboutStyle.sec3Aboutpera}>
-                      Novel ideas need nurturing. Lampros Labs recognizes this
+                      Novel ideas need nurturing. Lampros DAO recognizes this
                       and is committed to pooling the necessary resources,
                       ensuring groundbreaking projects aren't just dreams, but
                       tangible realities.
@@ -307,7 +307,7 @@ export default function aboutPage() {
                       The Blockchain Mainstream Movement
                     </div>
                     <div className={aboutStyle.sec3Aboutpera}>
-                      Lampros Labs stands at the frontier of innovation. Our
+                      Lampros DAO stands at the frontier of innovation. Our
                       mission? To propel all projects harnessing blockchain
                       technology to mainstream consciousness. When we talk about
                       blockchain, we're talking about the future, and we're here
@@ -379,7 +379,7 @@ export default function aboutPage() {
                       Sustainability Meets Innovation
                     </div>
                     <div className={aboutStyle.sec3Aboutpera}>
-                      Novel ideas need nurturing. Lampros Labs recognizes this
+                      Novel ideas need nurturing. Lampros DAO recognizes this
                       and is committed to pooling the necessary resources,
                       ensuring groundbreaking projects aren't just dreams, but
                       tangible realities.
@@ -477,7 +477,7 @@ export default function aboutPage() {
                       Hackathon Highlights
                     </div>
                     <div className={aboutStyle.aboutsec4boxpera}>
-                      Lampros Labs stands tall in global hackathons, leaving
+                      Lampros DAO stands tall in global hackathons, leaving
                       imprints across diverse blockchains.
                     </div>
                   </div>

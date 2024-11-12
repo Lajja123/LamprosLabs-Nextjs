@@ -1,15 +1,18 @@
-import HackathonSection from "@/app/components/hackathon/hackathonSection";
+import Governancesection from "../components/governance/governancesection";
 
-export default function hackathon() {
-  return <HackathonSection />;
+export default function governancePage() {
+  return (
+    <div>
+      <p>hgfdfg</p>
+      <Governancesection />
+    </div>
+  );
 }
 export const metadata = {
-  title: "Upcoming Hackathons",
-  // description: "Hackathon Page Description...",
+  title: "Governance",
   openGraph: {
-    title: "Upcoming Hackathons",
-    // description: "Hackathon Description",
-    url: "https://lampros-labs-nextjs-new.vercel.app/programs/hackathon",
+    title: "Governance",
+    url: "https://lampros-labs-nextjs-new.vercel.app/governance",
     siteName: "LamprosDAO",
     // images: [
     //   {
