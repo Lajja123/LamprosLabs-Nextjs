@@ -55,7 +55,7 @@ function daoSection() {
             <div className={daoStyle.daosec1flex1}>
               <div className={daoStyle.daoroadmap2}>DAO Roadmap</div>
               <div className={daoStyle.weEnvisionA}>
-                We envision a future where Lampros Labs transforms into a
+                We envision a future where Lampros DAO transforms into a
                 decentralized autonomous organization (DAO), a nexus where
                 collective intelligence drives innovation and growth. Our
                 roadmap sketches the pathway to this transformation,
@@ -88,7 +88,7 @@ function daoSection() {
             className={`${daoStyle["lamproslabsroadmapcontainer"]} for-laptops d-none d-md-block`}
           >
             <div ref={section2Ref} smooth={true} duration={200}>
-              Lampros Labs <span className={daoStyle.roadmap}>Roadmap</span>
+              Lampros DAO <span className={daoStyle.roadmap}>Roadmap</span>
             </div>
             <div>to Becoming a DAO</div>
           </div>
@@ -98,7 +98,7 @@ function daoSection() {
             <Fade bottom duration={1000} distance="20px">
               <div className={daoStyle.daoroadmap2}>DAO Roadmap</div>
               <div className={daoStyle.weEnvisionA}>
-                We envision a future where Lampros Labs transforms into a
+                We envision a future where Lampros DAO transforms into a
                 decentralized autonomous organization (DAO), a nexus where
                 collective intelligence drives innovation and growth. Our
                 roadmap sketches the pathway to this transformation,
@@ -116,7 +116,7 @@ function daoSection() {
           <Fade bottom duration={1000} distance="50px">
             <div className={daoStyle.lamproslabsroadmapcontainer}>
               <div>
-                Lampros Labs <br />
+                Lampros DAO <br />
                 <span className={daoStyle.roadmap}>Roadmap</span> TO <br />
                 Becoming a dao
               </div>

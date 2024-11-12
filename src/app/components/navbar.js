@@ -127,6 +127,20 @@ function Navbar() {
             </li>
             <li
               className={`nav-item three-d ${
+                pathname == "/governance" ? "active" : ""
+              }`}
+            >
+              <Link
+                className="nav-link"
+                href="/governance"
+                onClick={() => handleNavClick()}
+              >
+                GOVERNANCE
+              </Link>
+            </li>
+         
+            {/* <li
+              className={`nav-item three-d ${
                 pathname == "/dao-roadmap" ? "active" : ""
               }`}
             >
@@ -137,7 +151,7 @@ function Navbar() {
               >
                 DAO ROADMAP
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

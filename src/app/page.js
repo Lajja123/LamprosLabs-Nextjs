@@ -17,7 +17,7 @@ export const metadata = {
     title: "Home",
     // description: "Home Page Description...",
     url: "https://lampros-labs-nextjs-new.vercel.app/",
-    siteName: "LamprosLabs",
+    siteName: "LamprosDAO",
     // images: [
     //   {
     //     url: "https://app.optimism.io/og-image.png", // Must be an absolute URL
