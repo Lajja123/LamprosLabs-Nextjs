@@ -2,37 +2,60 @@ import React from "react";
 import governance from "@/app/assets/images/governance.png";
 import styles from "../../styles/governance.module.scss";
 import Image from "next/image";
+import { FaFire } from "react-icons/fa";
+import { FaShapes } from "react-icons/fa6";
+import { TbChecklist } from "react-icons/tb";
+import VoteSection from "./VoteSection";
 
-function governanceSection() {
+function GovernanceSection() {
   return (
-    <div className={styles.aboutUsMainBg}>
-      <div
-        className={styles.aboutUsMain}
-        // ref={section1Ref}
-        smooth={true}
-        duration={600}
-      >
-        <section className={`${styles.section1AboutUs} py-sm-5 py-3`}>
-          <div className={styles.aboutImgMainDiv}>
-            <Image src={governance} alt="" className={styles.aboutImg} />
-          </div>
-
-          <div className={`${styles["aboutUsSection1Card"]} px-sm-5 px-3`}>
-            <div className={`${styles["aboutUsTitle"]} pb-3`}>
-              {" "}
-              governanceSection
-            </div>
-
-            {/* <Fade duration={1500} delay={100}> */}
-            <div className={styles.aboutSec1Box}>
-              <p className={styles.aboutUsSection1CardDesc}>hello</p>
-            </div>
-            {/* </Fade> */}
-          </div>
-        </section>
+    <div className={styles.mainsection}>
+      <div className={styles.bgimage}>
+        <Image src={governance} alt="ring" className={styles.img}></Image>
       </div>
+      <div className={styles.maindiv}>
+        <h1 className={styles.mainheading}>GOVERNANCE</h1>
+        <p className={styles.info}>
+          Lampros DAO is a leading force in decentralized governance, making
+          informed decisions that foster sustainable growth and development
+          within web3 communities.
+        </p>
+        <div className={styles.cards}>
+          <div className={styles.card}>
+            <p className={styles.icon}>
+              <FaFire />
+            </p>
+            <div className={styles.sideDiv}>
+              <h3 className={styles.heading2}>$1,000,000+</h3>
+              <h4 className={styles.subheading}>Voting power value</h4>
+            </div>
+          </div>
+
+          <div className={styles.card}>
+            <p className={styles.icon}>
+              <FaShapes />
+            </p>
+            <div className={styles.sideDiv}>
+              <h3 className={styles.heading2}>10</h3>
+              <h4 className={styles.subheading}>Protocols engaged</h4>
+            </div>
+          </div>
+
+          <div className={styles.card}>
+            <p className={styles.icon}>
+              <TbChecklist />
+            </p>
+            <div className={styles.sideDiv}>
+              <h3 className={styles.heading2}>350+</h3>
+              <h4 className={styles.subheading}>Voted proposals</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <VoteSection />
     </div>
   );
 }
 
-export default governanceSection;
+export default GovernanceSection;
