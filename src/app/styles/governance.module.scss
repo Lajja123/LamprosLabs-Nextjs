@@ -11,6 +11,7 @@
   top: 0;
   z-index: 1;
   width: 40%;
+  max-width: 580px;
   height: max-content;
 }
 
@@ -23,7 +24,7 @@
   position: relative;
   z-index: 40;
   width: 75%;
-  margin: 60px auto 60px 0px;
+  margin: 60px auto 60px;
   padding: 50px 80px;
   color: white;
   border-radius: 100px;

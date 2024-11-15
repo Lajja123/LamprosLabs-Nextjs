@@ -24,6 +24,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  z-index: 100;
 }
 
 .protocolButton{
@@ -121,12 +122,22 @@
   font-size: 10px;
 }
 
-.arrow {
+.arrowwhite {
   padding: 10px;
   border-radius: 100%;
   border: 1px solid white;
   color: white;
   background: transparent;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.arrowyellow{
+  padding: 10px;
+  border-radius: 100%;
+  border: 1px solid white;
+  color: white;
+  background: #A6FF35;
   font-size: 18px;
   font-weight: 900;
 }
@@ -176,4 +187,5 @@
 .comment {
   font-size: 14px;
   text-align: justify;
+  margin-top: 15px;
 }
