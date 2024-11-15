@@ -18,17 +18,14 @@ function governanceSection() {
           </div>
 
           <div className={`${styles["aboutUsSection1Card"]} px-sm-5 px-3`}>
-            <div className={`${styles["aboutUsTitle"]} pb-3`}>About Us</div>
+            <div className={`${styles["aboutUsTitle"]} pb-3`}>
+              {" "}
+              governanceSection
+            </div>
 
             {/* <Fade duration={1500} delay={100}> */}
             <div className={styles.aboutSec1Box}>
-              <p className={styles.aboutUsSection1CardDesc}>
-                In the vibrant world of blockchain, Lampros DAO stands as a
-                beacon, illuminating the path for innovators, dreamers, and
-                builders. Founded with a profound vision to seamlessly merge
-                blockchain technology with mainstream applications, we've
-                steadily grown into a robust community hub.
-              </p>
+              <p className={styles.aboutUsSection1CardDesc}>hello</p>
             </div>
             {/* </Fade> */}
           </div>
