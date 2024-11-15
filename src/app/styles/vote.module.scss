@@ -1,0 +1,179 @@
+.outerdiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  padding: 60px auto;
+}
+
+.upperpart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.heading {
+  color: #00ffd1;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.filter{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.protocolButton{
+  background: none;
+  border: none;
+  outline: none;
+  opacity: 70%;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.active{
+  opacity: 100%;
+}
+
+.votelist {
+  border-radius: 20px;
+  background: linear-gradient(
+    94deg,
+    #1a0f5e 3.14%,
+    rgba(16, 0, 113, 0.69) 56.11%,
+    rgba(16, 0, 111, 0.51)
+  );
+  box-shadow: inset 0 4px 78px 0 rgba(0, 0, 0, 0.25);
+  color: white;
+}
+
+.votes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  cursor: pointer;
+  height: max-content;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 40%;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contentTitle {
+  margin: 0;
+  text-wrap: nowrap;
+  font-size: 1.1rem;
+}
+
+.contentTag {
+  padding: 4px 12px;
+  font-size: 11px;
+  background-color: #a6ff35;
+  color: #1a0f5e;
+  border-radius: 15px;
+  margin: 8px 0px 0px 0px;
+}
+
+.right {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 1px solid white;
+  padding: 15px;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.r1 {
+  margin: 0;
+}
+
+.r2 {
+  margin: 0;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #1a0f5e;
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.arrow {
+  padding: 10px;
+  border-radius: 100%;
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.belowdiv {
+  padding: 10px;
+}
+
+.voter {
+  border-radius: 20px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.057);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profileicon {
+  font-size: 2rem;
+}
+
+.profilecontent {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dateline {
+  color: rgba(255, 255, 255, 0.445);
+}
+
+.for {
+  color: white;
+  border: 1px solid white;
+  border-radius: 7px;
+  padding: 3px 8px;
+  font-weight: 300;
+}
+
+.comment {
+  font-size: 14px;
+  text-align: justify;
+}
