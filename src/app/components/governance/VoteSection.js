@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { MdExpandMore, MdExpandLess } from "react-icons/md";
+import { MdExpandMore, MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
 import styles from "../../styles/vote.module.scss";
 import Image from "next/image";
 
@@ -166,9 +166,9 @@ const VoteSection = () => {
                 <span className={styles.r2}>{proposal.result}</span>
               </div>
               {expandedItem === index ? (
-                <MdExpandLess className={styles.arrow} />
+                <MdExpandLess className={styles.arrowyellow} />
               ) : (
-                <MdExpandMore className={styles.arrow} />
+                <MdOutlineExpandMore className={styles.arrowwhite} />
               )}
             </div>
           </div>
