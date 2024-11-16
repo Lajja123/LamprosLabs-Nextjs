@@ -2,7 +2,8 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import "../styles/navbar.css";
-import logo from "../assets/images/logo.png";
+// import logo from "../assets/images/logo.png";
+import logo from "../../../public/mainLogo.png";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
