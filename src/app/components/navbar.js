@@ -91,7 +91,7 @@ function Navbar() {
             <li className={`nav-item three-d `}>
               <Link
                 className="nav-link "
-                href="https://lamproslabsdao.notion.site/a2d67afc0ed84377918b536341374f0e?v=6e84b9a6c7b648bd86dc9b20a4804124&pvs=4"
+                href="https://lamprosdao.notion.site/a2d67afc0ed84377918b536341374f0e?v=6e84b9a6c7b648bd86dc9b20a4804124"
                 onClick={() => handleNavClick()}
                 target="blank"
               >
@@ -126,7 +126,7 @@ function Navbar() {
                 </li>
               </ul>
             </li>
-            <li
+            {/* <li
               className={`nav-item three-d ${
                 pathname == "/governance" ? "active" : ""
               }`}
@@ -138,7 +138,7 @@ function Navbar() {
               >
                 GOVERNANCE
               </Link>
-            </li>
+            </li> */}
          
             {/* <li
               className={`nav-item three-d ${

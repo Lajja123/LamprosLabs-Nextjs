@@ -48,6 +48,6 @@ export const question = [
     id: 8,
     question: " How can I become a part of Lampros DAO?",
     answer:
-      "We're always eager to welcome enthusiasts! Whether you're a seasoned developer or a curious newbie, there's a place for you at Lampros Labs. Reach out to us through our contact page or join one of our community events to get started.",
+      "We're always eager to welcome enthusiasts! Whether you're a seasoned developer or a curious newbie, there's a place for you at Lampros DAO. Reach out to us through our contact page or join one of our community events to get started.",
   },
 ];
