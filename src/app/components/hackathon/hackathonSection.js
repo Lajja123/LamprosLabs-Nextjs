@@ -11,7 +11,7 @@ function hackathonSection() {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear() + 1;
   return (
     <div>
       <div className={hackStyle.inherimainbg}>

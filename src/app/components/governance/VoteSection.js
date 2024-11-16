@@ -12,7 +12,7 @@ const VoteSection = () => {
   //   const fetchNotionData = async () => {
   //     try {
   //       const response = await fetch('/api/notion-proposals', {
-  //         method: 'POST',
+  //         // method: 'POST',
   //         headers: {
   //           'Content-Type': 'application/json',
   //         },
@@ -38,6 +38,33 @@ const VoteSection = () => {
 
   //   fetchNotionData();
   // }, []);
+
+  const fetchNotionData = async () => {
+    try {
+      const response = await fetch('/api/notion-proposals');
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch Notion data');
+      }
+  
+      const data = await response.json();
+      console.log("Notion page data:", data);
+      
+      // Now you can process the blocks to extract the information you need
+      const blocks = data.blocks;
+      
+      // Example of processing blocks:
+      blocks.forEach(block => {
+        if (block.type === 'heading_1') {
+          console.log('Heading:', block.heading_1.rich_text[0].plain_text);
+        }
+        // Add more conditions based on the block types you want to process
+      });
+      
+    } catch (error) {
+      console.error('Error fetching Notion data:', error);
+    }
+  };
 
 
   const protocols = [
