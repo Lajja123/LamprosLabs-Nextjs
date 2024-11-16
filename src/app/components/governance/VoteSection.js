@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdExpandMore, MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
 import styles from "../../styles/vote.module.scss";
 import Image from "next/image";
@@ -7,6 +7,38 @@ import Image from "next/image";
 const VoteSection = () => {
   const [expandedItem, setExpandedItem] = useState(0);
   const [selectedProtocol, setSelectedProtocol] = useState(null);
+
+  // useEffect(() => {
+  //   const fetchNotionData = async () => {
+  //     try {
+  //       const response = await fetch('/api/notion-proposals', {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //         body: JSON.stringify({
+  //           database_id: process.env.NEXT_PUBLIC_NOTION_PAGE_ID,
+  //         }),
+  //       });
+
+  //       if (!response.ok) {
+  //         throw new Error('Failed to fetch Notion data');
+  //       }
+
+  //       const data = await response.json();
+  //       console.log("dataaaaaaa", data)
+  //       // const parsedProposals = parseNotionData(data);
+  //       // setProposals(parsedProposals);
+  //       // setLoading(false);
+  //     } catch (error) {
+  //       console.error('Error fetching Notion data:', error);
+  //       // setLoading(false);
+  //     }
+  //   };
+
+  //   fetchNotionData();
+  // }, []);
+
 
   const protocols = [
     {

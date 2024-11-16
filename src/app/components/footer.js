@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation"
 import { useRef } from "react";
 import Image from "next/image";
-import logo from "../assets/images/logo.png";
+// import logo from "../assets/images/logo.png";
+import logo from "../../../public/mainLogo.png";
 import discord from "../assets/images/discord.png";
 import twitter from "../assets/images/twitter.png";
 import mirror from "../assets/images/mirror.png";

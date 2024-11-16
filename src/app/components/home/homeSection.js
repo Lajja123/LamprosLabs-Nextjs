@@ -166,7 +166,7 @@ function homeSection() {
           </div>
           <div className={activeIndex === 1 ? "slick-active" : ""}>
             <div className={homeStyle.section3Card}>
-              <h1 className={homeStyle.section3CardTitle}>From Labs to DAO</h1>
+              <h1 className={homeStyle.section3CardTitle}>DAO</h1>
 
               <p className={homeStyle.section3CardDesc}>
                 The Lampros vision isn't just here and now. We're laying the
