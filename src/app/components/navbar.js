@@ -126,7 +126,7 @@ function Navbar() {
                 </li>
               </ul>
             </li>
-            {/* <li
+            <li
               className={`nav-item three-d ${
                 pathname == "/governance" ? "active" : ""
               }`}
@@ -138,7 +138,7 @@ function Navbar() {
               >
                 GOVERNANCE
               </Link>
-            </li> */}
+            </li>
          
             {/* <li
               className={`nav-item three-d ${
