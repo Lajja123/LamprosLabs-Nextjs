@@ -16,9 +16,7 @@ function GovernanceSection() {
       <div className={styles.maindiv}>
         <h1 className={styles.mainheading}>GOVERNANCE</h1>
         <p className={styles.info}>
-          Lampros DAO is a leading force in decentralized governance, making
-          informed decisions that foster sustainable growth and development
-          within web3 communities.
+        Lampros DAO is an open community of builders and governance enthusiasts committed to transparency, decentralization, and inclusivity. Through active participation in governance and collaborative efforts, we strive to create a more transparent, inclusive, and resilient web3 landscape
         </p>
         <div className={styles.cards}>
           <div className={styles.card}>
