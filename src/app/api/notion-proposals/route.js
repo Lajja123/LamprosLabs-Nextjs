@@ -4,13 +4,11 @@ const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-// Helper function to extract only text from cell content
 function extractCellContent(cell) {
   if (!cell || cell.length === 0) return '';
   return cell[0].plain_text || '';
 }
 
-// Helper function to extract table data from blocks
 async function extractTableData(blocks) {
   const monthTables = [];
   
@@ -33,7 +31,6 @@ async function extractTableData(blocks) {
             block_id: tableBlock.id
           });
           
-          // Get header row to use as keys
           let headers = [];
           if (rows.results.length > 0) {
             headers = rows.results[0].table_row.cells.map(cell => 
@@ -41,13 +38,11 @@ async function extractTableData(blocks) {
             );
           }
           
-          // Process data rows
           for (let i = 1; i < rows.results.length; i++) {
             const row = rows.results[i];
             if (row.type === 'table_row') {
               const rowData = {};
               
-              // Process each cell in the row
               row.table_row.cells.forEach((cell, index) => {
                 const headerKey = headers[index] || `column${index}`;
                 rowData[headerKey] = extractCellContent(cell);
@@ -66,7 +61,6 @@ async function extractTableData(blocks) {
   return monthTables;
 }
 
-// Get All Block Contents Recursively
 async function getAllBlocksRecursively(blockId) {
   const blocks = [];
   let cursor;
@@ -94,7 +88,66 @@ async function getAllBlocksRecursively(blockId) {
   return blocks;
 }
 
-// Main API Handler
+// Helper function to combine and sort monthly data
+function combineAndSortMonthlyData(monthlyData1, monthlyData2) {
+  // Create a map to store combined proposals by month/year
+  const monthMap = new Map();
+
+  // Helper function to parse date string in DD/MM/YYYY format
+  const parseDate = (dateStr) => {
+    if (!dateStr) return null;
+    const [day, month, year] = dateStr.split('/');
+    // Create date in YYYY-MM-DD format for reliable parsing
+    return new Date(`${year}-${month}-${day}`);
+  };
+
+  // Process all data from both arrays
+  [...monthlyData1, ...monthlyData2].forEach(monthData => {
+    const key = `${monthData.year}-${monthData.month}`;
+    if (!monthMap.has(key)) {
+      monthMap.set(key, {
+        month: monthData.month,
+        year: monthData.year,
+        proposals: []
+      });
+    }
+    // Add proposals to the existing month entry
+    monthMap.get(key).proposals.push(...monthData.proposals);
+  });
+
+  // Convert map back to array
+  const combinedData = Array.from(monthMap.values());
+
+  // Sort months in descending order
+  combinedData.sort((a, b) => {
+    const dateA = new Date(`${a.month} 1, ${a.year}`);
+    const dateB = new Date(`${b.month} 1, ${b.year}`);
+    return dateB - dateA;
+  });
+
+  // Sort proposals within each month by Start Date
+  combinedData.forEach(monthData => {
+    monthData.proposals.sort((a, b) => {
+      const dateA = parseDate(a['Start Date']);
+      const dateB = parseDate(b['Start Date']);
+      
+      // Handle cases where dates are invalid or missing
+      if (!dateA && !dateB) return 0;
+      if (!dateA) return 1;  // Push items without dates to the end
+      if (!dateB) return -1;
+      
+      return dateB - dateA;  // Descending order
+    });
+
+    // Filter out empty proposals
+    monthData.proposals = monthData.proposals.filter(proposal => 
+      Object.values(proposal).some(value => value !== '')
+    );
+  });
+
+  return combinedData;
+}
+
 export async function GET() {
   if (!process.env.NOTION_API_KEY) {
     return new Response(
@@ -104,29 +157,35 @@ export async function GET() {
   }
 
   try {
-    const page_id = process.env.NEXT_PUBLIC_NOTION_PAGE_ID?.replace(/-/g, "");
+    const page_id1 = process.env.NEXT_PUBLIC_NOTION_PAGE_ID?.replace(/-/g, "");
+    const page_id2 = process.env.NEXT_PUBLIC_NOTION_PAGE_ID2?.replace(/-/g, "");
 
-    if (!page_id) {
+    if (!page_id1 || !page_id2) {
       return new Response(
-        JSON.stringify({ error: "Page ID or Database ID is not configured" }),
+        JSON.stringify({ error: "One or both Page IDs are not configured" }),
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
 
-    const blocks = await getAllBlocksRecursively(page_id);
-    const monthlyData = await extractTableData(blocks);
+    // Fetch data from both pages in parallel
+    const [blocks1, blocks2] = await Promise.all([
+      getAllBlocksRecursively(page_id1),
+      getAllBlocksRecursively(page_id2)
+    ]);
 
-    // Sort by date (newest first)
-    monthlyData.sort((a, b) => {
-      const dateA = new Date(`${a.month} 1, ${a.year}`);
-      const dateB = new Date(`${b.month} 1, ${b.year}`);
-      return dateB - dateA;
-    });
+    // Process both sets of data in parallel
+    const [monthlyData1, monthlyData2] = await Promise.all([
+      extractTableData(blocks1),
+      extractTableData(blocks2)
+    ]);
+
+    // Combine and sort the data from both pages
+    const combinedSortedData = combineAndSortMonthlyData(monthlyData1, monthlyData2);
 
     return new Response(
       JSON.stringify({
         success: true,
-        data: monthlyData
+        data: combinedSortedData
       }),
       { headers: { "Content-Type": "application/json" } }
     );
