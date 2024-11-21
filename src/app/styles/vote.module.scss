@@ -15,13 +15,13 @@
 
 /* Skeleton Animation */
 @keyframes skeleton-loading {
-  0%, 100% {
-    background-color: rgba(255, 255, 255, 0.040);
+  0%,
+  100% {
+    background-color: rgba(255, 255, 255, 0.04);
   }
   50% {
     background-color: rgba(255, 255, 255, 0.066);
   }
-
 }
 
 .outerdiv {
@@ -32,9 +32,66 @@
   color: white;
 }
 
+.delegationsSection {
+  margin: 20px auto 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: full;
+}
+
+.delegationsHeading {
+  font-size: 1.8rem;
+  text-align: left;
+  color: aqua;
+  margin-bottom: 20px;
+}
+
+.delegationsContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+  width: 100%;
+  border: 2px solid rgba(0, 255, 255, 0.215);
+  padding: 60px;
+  border-radius: 15px;
+}
+
+.delegationCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 208, 0.3),
+    rgba(0, 255, 208, 0.1)
+  );
+  border-radius: 15px;
+  padding: 20px 10px;
+  width: 260px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 255, 208, 0.3);
+}
+
+.delegationCard p {
+  margin: 0px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.delegationCard:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 255, 208, 0.6);
+}
+
 .quotedText {
   background-color: #f0f0f0;
-  border-left: 7px solid #4169E1; /* Royal Blue */
+  border-left: 7px solid #4169e1; /* Royal Blue */
   padding: 15px;
   margin: 15px 0;
   font-style: italic;
@@ -145,7 +202,6 @@
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
   border-left: 6px solid white;
 }
-
 
 .votes {
   display: flex;
@@ -266,7 +322,6 @@
   }
 }
 
-
 .voter {
   border-radius: 20px;
   padding: 20px;
@@ -309,4 +364,62 @@
   font-size: 14px;
   text-align: justify;
   margin-top: 15px;
+}
+
+.delegateNow {
+  border-radius: 110px;
+  border: 1px solid #a6ff35;
+  background: linear-gradient(
+    91deg,
+    rgba(22, 14, 71, 0.85) 12.27%,
+    #0008ce 96.93%
+  );
+  margin: 100px auto 40px;
+  box-shadow: 0px 4px 201px 0px rgba(13, 6, 57, 0.75) inset;
+  padding: 40px 80px;
+  flex-shrink: 0;
+  width: 80%;
+}
+
+.delegateNowHeading {
+  color: #a6ff35;
+  text-align: center;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 151.023%;
+  letter-spacing: 4.4px;
+  text-transform: uppercase;
+  margin: 40px auto;
+}
+
+.delegateNowPara {
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150.023%;
+  letter-spacing: 1px;
+}
+
+.delegateNowButton {
+  border-radius: 71px;
+  background: #a6ff35;
+  flex-shrink: 0;
+  margin: 40px auto;
+  padding: 20px 30px;
+  border: none;
+  width: 40%;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 174.523%;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.delegateNowButton:hover {
+  background: #8fdc2c; 
+  transform: scale(1.01); 
+  color: #1a0f5e; 
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); 
 }

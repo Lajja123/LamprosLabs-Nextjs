@@ -2,10 +2,12 @@ import React from "react";
 import governance from "@/app/assets/images/governance.png";
 import styles from "../../styles/governance.module.scss";
 import Image from "next/image";
-import { FaFire } from "react-icons/fa";
-import { FaShapes } from "react-icons/fa6";
-import { TbChecklist } from "react-icons/tb";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import VoteSection from "./VoteSection";
+import profile1 from "../../../../public/governance/euphoria.webp";
+import profile2 from "../../../../public/governance/chain_l.webp";
+import profile3 from "../../../../public/governance/hirangi.webp";
+import Link from "next/link";
 
 function GovernanceSection() {
   return (
@@ -16,36 +18,71 @@ function GovernanceSection() {
       <div className={styles.maindiv}>
         <h1 className={styles.mainheading}>GOVERNANCE</h1>
         <p className={styles.info}>
-        Lampros DAO is an open community of builders and governance enthusiasts committed to transparency, decentralization, and inclusivity. Through active participation in governance and collaborative efforts, we strive to create a more transparent, inclusive, and resilient web3 landscape
+          Lampros DAO is an open community of builders and governance
+          enthusiasts committed to transparency, decentralization, and
+          inclusivity. Through active participation in governance and
+          collaborative efforts, we strive to create a more transparent,
+          inclusive, and resilient web3 landscape
         </p>
         <div className={styles.cards}>
           <div className={styles.card}>
-            <p className={styles.icon}>
-              <FaFire />
-            </p>
+            <div className={styles.icon}>
+              {/* <FaFire /> */}
+              <Image src={profile1} alt="" width={40} height={40}></Image>
+            </div>
             <div className={styles.sideDiv}>
-              <h3 className={styles.heading2}>$1,000,000+</h3>
-              <h4 className={styles.subheading}>Voting power value</h4>
+              <h3 className={styles.heading2}>EUPHORIA</h3>
+              <h4 className={styles.subheading}>
+                <Link
+                  href="https://x.com/Euphoria_0077"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.link}
+
+                >
+                  Check Twitter Profile <FaLongArrowAltRight />
+                </Link>
+              </h4>
             </div>
           </div>
 
           <div className={styles.card}>
             <p className={styles.icon}>
-              <FaShapes />
+              <Image src={profile2} alt="" width={40} height={40}></Image>
             </p>
             <div className={styles.sideDiv}>
-              <h3 className={styles.heading2}>10</h3>
-              <h4 className={styles.subheading}>Protocols engaged</h4>
+              <h3 className={styles.heading2}>CHAIN_L</h3>
+              <h4 className={styles.subheading}>
+                <Link
+                  href="https://x.com/chain_haya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.link}
+
+                >
+                  Check Twitter Profile <FaLongArrowAltRight />
+                </Link>
+              </h4>
             </div>
           </div>
 
           <div className={styles.card}>
             <p className={styles.icon}>
-              <TbChecklist />
+              <Image src={profile3} alt="" width={40} height={40}></Image>
             </p>
             <div className={styles.sideDiv}>
-              <h3 className={styles.heading2}>350+</h3>
-              <h4 className={styles.subheading}>Voted proposals</h4>
+              <h3 className={styles.heading2}>HIRANGI</h3>
+              <h4 className={styles.subheading}>
+                <Link
+                  href="https://x.com/HirangiPandya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.link}
+
+                >
+                  Check Twitter Profile <FaLongArrowAltRight />
+                </Link>
+              </h4>
             </div>
           </div>
         </div>
