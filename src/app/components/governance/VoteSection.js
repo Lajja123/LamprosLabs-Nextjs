@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
 import styles from "../../styles/vote.module.scss";
 import Image from "next/image";
@@ -85,37 +85,27 @@ const VoteSection = () => {
     return `/governance/${protocol}.svg`;
   };
 
-  useEffect(() => {
-    const fetchProposals = async () => {
-      try {
-        const response = await fetch("/api/notion-proposals");
-        const data = await response.json();
+  const fetchProposals = useCallback(async () => {
+    try {
+      const response = await fetch("/api/notion-proposals");
+      const data = await response.json();
 
-        console.log("Raw API Response:", data);
+      if (data.success && data.data) {
+        // Flatten proposals from all months and limit to 5
+        const allProposals = data.data.reduce((acc, monthData) => {
+          if (monthData && Array.isArray(monthData.proposals)) {
+            return [...acc, ...monthData.proposals];
+          }
+          return acc;
+        }, []);
 
-        if (data.success && data.data) {
-          const allMonthlyData = [
-            ...(data.data.page1 || []),
-            ...(data.data.page2 || []),
-          ];
-
-          const allProposals = allMonthlyData.reduce((acc, monthData) => {
-            if (monthData && Array.isArray(monthData.proposals)) {
-              return [...acc, ...monthData.proposals];
-            }
-            return acc;
-          }, []);
-
-          console.log("Extracted all proposals:", allProposals);
-
-          const transformedProposals = await Promise.allSettled(
-            allProposals.map(async (proposal, index) => {
-              console.log("Processing proposal:", proposal);
-              console.log(
-                `Proposal ${index + 1} Comment Link:`,
-                proposal["Our Comments Link"]
-              );
-
+        const transformedProposals = await Promise.allSettled(
+          allProposals
+            .filter(
+              (proposal) =>
+                proposal["Our Comments Link"] && proposal["Commented By"]
+            ) // Strict filtering
+            .map(async (proposal, index) => {
               const protocol = determineProtocol(
                 proposal["Forum Post Link"] || "",
                 proposal["Proposal Name"] || ""
@@ -127,15 +117,26 @@ const VoteSection = () => {
                 date = new Date(year, month - 1, day);
               }
 
+              // Process forum content
               let forumContent = null;
               if (proposal["Our Comments Link"]) {
                 try {
-                  forumContent = await fetchForumPost(
+                  const rawContent = await fetchForumPost(
                     proposal["Our Comments Link"]
                   );
+                  forumContent = processForumContent(rawContent);
                 } catch (error) {
                   console.error("Failed to fetch forum content:", error);
                 }
+              }
+
+              let snapshotLink = null;
+              let tallyLink = null;
+              if (proposal["Snapshot Link"]) {
+                snapshotLink = `snapshot - offchain`;
+              }
+              if (proposal["Tally Link"]) {
+                tallyLink = `tally - onchain`;
               }
 
               return {
@@ -162,30 +163,56 @@ const VoteSection = () => {
                 },
               };
             })
-          );
+            // .slice(0, 5)
+        );
 
-          const successfulProposals = transformedProposals
-            .filter((result) => result.status === "fulfilled")
-            .map((result) => result.value);
+        const successfulProposals = transformedProposals
+          .filter((result) => result.status === "fulfilled")
+          .map((result) => result.value);
 
-          console.log("Final transformed proposals:", successfulProposals);
-
-          if (successfulProposals.length > 0) {
-            setProposals(successfulProposals);
-          } else {
-            console.warn("No proposals were transformed");
-          }
-        } else {
-          console.error("Invalid data structure:", data);
-          throw new Error("Invalid data structure received from API");
-        }
-      } catch (error) {
-        console.error("Failed to fetch proposals:", error);
-      } finally {
-        setLoading(false);
+        setProposals(successfulProposals);
+      } else {
+        console.error("Invalid data structure:", data);
+        throw new Error("Invalid data structure received from API");
       }
-    };
+    } catch (error) {
+      console.error("Failed to fetch proposals:", error);
+    } finally {
+      setLoading(false);
+    }
+  }, []); // Empty dependency array for memoization
 
+  // Content processing function
+  const processForumContent = (content) => {
+    const baseUrl = "https://forum.arbitrum.foundation";
+
+    // Replace relative URLs with absolute URLs
+    const updatedContent = content.replace(
+      /href="\/(?!\/)/g, // Match hrefs that start with a single "/"
+      `href="${baseUrl}/`
+    );
+
+    // Ensure all anchor tags open in a new tab with security attributes
+    const updatedLinks = updatedContent.replace(
+      /<a\b([^>]*?)>/g, // Match all anchor tags
+      '<a target="_blank" rel="noopener noreferrer" $1>'
+    );
+
+    // Remove HTML tags for images
+    const contentWithoutImages = updatedLinks.replace(/<img[^>]*>/g, "");
+
+    // Wrap blockquotes with a special class
+    const processedContent = contentWithoutImages
+      .replace(
+        /<blockquote>/g,
+        `<div class="${styles.quotedText}"><blockquote>`
+      )
+      .replace(/<\/blockquote>/g, "</blockquote></div>");
+
+    return processedContent;
+  };
+
+  useEffect(() => {
     fetchProposals();
   }, []);
 
@@ -268,7 +295,7 @@ const VoteSection = () => {
             </div>
             <div className={styles.right}>
               <div className={styles.result}>
-                <span className={styles.r1}>Vote</span>
+                <span className={styles.r1}>Voted</span>
                 <span className={styles.r2}>{proposal.result}</span>
               </div>
               {expandedItem === index ? (
@@ -314,6 +341,17 @@ const VoteSection = () => {
           )}
         </div>
       ))}
+
+      <div className={styles.btnGovernanceDiv}>
+        <a
+          href="https://lamprosdao.notion.site/governance"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.btnGovernance}
+        >
+          See more
+        </a>
+      </div>
     </div>
   );
 };
