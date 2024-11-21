@@ -15,13 +15,13 @@
 
 /* Skeleton Animation */
 @keyframes skeleton-loading {
-  0%, 100% {
-    background-color: rgba(255, 255, 255, 0.040);
+  0%,
+  100% {
+    background-color: rgba(255, 255, 255, 0.04);
   }
   50% {
     background-color: rgba(255, 255, 255, 0.066);
   }
-
 }
 
 .outerdiv {
@@ -34,7 +34,7 @@
 
 .quotedText {
   background-color: #f0f0f0;
-  border-left: 7px solid #4169E1; /* Royal Blue */
+  border-left: 7px solid #4169e1; /* Royal Blue */
   padding: 15px;
   margin: 15px 0;
   font-style: italic;
@@ -69,6 +69,56 @@
 .btnGovernance:active {
   transform: translateY(0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.r2 {
+  // display: inline-block;
+  padding: 5px 8px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.for {
+  background-color: #11cf56; /* Green background */
+  border: 2px solid #00b894; /* Green border */
+  box-shadow: 4px 6px 20px rgba(0, 184, 148, 0.3); /* Green shadow */
+  color: #ffffff; /* White text */
+}
+
+.against {
+  background-color: #d63031; /* Red background */
+  border: 2px solid #d63031; /* Red border */
+  box-shadow: 0 4px 6px rgba(214, 48, 49, 0.3); /* Red shadow */
+  color: #ffffff; /* White text */
+}
+
+.abstain {
+  background-color: #636e72; /* Grey background */
+  border: 2px solid #636e72; /* Grey border */
+  box-shadow: 0 4px 6px rgba(99, 110, 114, 0.3); /* Grey shadow */
+  color: #ffffff; /* White text */
+}
+
+.default {
+  background-color: #2d3436; /* Default dark grey background */
+  border: 2px solid #2d3436; /* Default dark grey border */
+  box-shadow: 0 4px 6px rgba(45, 52, 54, 0.3); /* Default shadow */
+  color: #ffffff; /* White text */
+}
+
+.rationaleDiv {
+  margin-bottom: 1rem;
+}
+
+.rationale {
+  padding: 8px 12px;
+  background-color: aquamarine;
+  color: black;
+  border: 2px solid white;
+  border-radius: 15px;
+  font-size: 11px;
+  margin-bottom: 1rem;
 }
 
 .upperpart {
@@ -146,7 +196,6 @@
   border-left: 6px solid white;
 }
 
-
 .votes {
   display: flex;
   align-items: center;
@@ -179,7 +228,8 @@
 .contentTitle {
   margin: 0;
   text-wrap: nowrap;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .contentTag {
@@ -221,15 +271,6 @@
   margin: 0;
 }
 
-.r2 {
-  margin: 0;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #1a0f5e;
-  padding: 4px 8px;
-  font-size: 10px;
-}
-
 .arrowwhite {
   padding: 10px;
   border-radius: 100%;
@@ -266,7 +307,6 @@
   }
 }
 
-
 .voter {
   border-radius: 20px;
   padding: 20px;
@@ -295,14 +335,6 @@
 
 .dateline {
   color: rgba(255, 255, 255, 0.445);
-}
-
-.for {
-  color: white;
-  border: 1px solid white;
-  border-radius: 7px;
-  padding: 3px 8px;
-  font-weight: 300;
 }
 
 .comment {

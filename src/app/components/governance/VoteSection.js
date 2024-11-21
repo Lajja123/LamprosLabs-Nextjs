@@ -46,21 +46,25 @@ const VoteSection = () => {
     }
   };
 
-  // Update the fetchForumPost function
   const fetchForumPost = async (url) => {
     try {
+      // Parse the forum URL to extract relevant details
       const parsed = parseForumUrl(url);
       if (!parsed) return null;
 
       const { postId, postNumber } = parsed;
 
-      // Use the new route handler
+      // Call the API route handler on your server
       const response = await fetch(
         `/api/fetch-forum-post?postId=${postId}&postNumber=${postNumber}`
       );
       const data = await response.json();
-      // Return the content of the specific post
-      return data?.cooked || null;
+
+      // Return both cooked content and created_at
+      return {
+        content: data?.cooked || null,
+        createdAt: data?.created_at || null,
+      };
     } catch (error) {
       console.error("Error fetching forum post:", error);
       return null;
@@ -119,25 +123,21 @@ const VoteSection = () => {
 
               // Process forum content
               let forumContent = null;
+              let forumCreatedAt = null;
               if (proposal["Our Comments Link"]) {
                 try {
                   const rawContent = await fetchForumPost(
                     proposal["Our Comments Link"]
                   );
-                  forumContent = processForumContent(rawContent);
+                  forumContent = processForumContent(rawContent.content);
+                  forumCreatedAt = rawContent?.createdAt || null;
                 } catch (error) {
                   console.error("Failed to fetch forum content:", error);
                 }
               }
 
-              let snapshotLink = null;
-              let tallyLink = null;
-              if (proposal["Snapshot Link"]) {
-                snapshotLink = `snapshot - offchain`;
-              }
-              if (proposal["Tally Link"]) {
-                tallyLink = `tally - onchain`;
-              }
+              const isOffchain = proposal["Snapshot Link"];
+              const isOnchain = proposal["Tally Link"];
 
               return {
                 id: index + 1,
@@ -145,13 +145,11 @@ const VoteSection = () => {
                 icon: getProtocolIcon(protocol),
                 title: proposal["Proposal Name"] || "Untitled Proposal",
                 tag: "Governance",
-                result:
-                  proposal["Voting Done (Yes/No)"]?.toLowerCase?.() === "yes"
-                    ? "For"
-                    : "Against",
+                result: proposal["Voted"],
                 content: proposal["Comment Draft"] || "",
                 commentLink: proposal["Our Comments Link"] || "",
                 forumContent: forumContent,
+                forumCreatedAt: forumCreatedAt,
                 voter: {
                   icon: "🌐",
                   name: proposal["Commented By"] || "helloo",
@@ -161,9 +159,10 @@ const VoteSection = () => {
                     year: "numeric",
                   })}`,
                 },
+                type: isOnchain ? "Onchain" : isOffchain ? "Offchain" : null,
               };
             })
-            // .slice(0, 5)
+            .slice(0, 5)
         );
 
         const successfulProposals = transformedProposals
@@ -287,16 +286,32 @@ const VoteSection = () => {
               <div className={styles.content}>
                 <h3 className={styles.contentTitle}>{proposal.title}</h3>
                 <p>
-                  <span className={styles.contentTag}>onchain-tally</span>
-                  <span className={styles.contentTag}>offchain-snapshot</span>
+                  {proposal.type === "Onchain" && (
+                    <span className={styles.contentTag}>onchain-tally</span>
+                  )}
+                  {proposal.type === "Offchain" && (
+                    <span className={styles.contentTag}>offchain-snapshot</span>
+                  )}
                 </p>
-                <span className={styles.arbitrumTag}>Arbitrum</span>
+                <span className={styles.arbitrumTag}>{proposal.protocol}</span>
               </div>
             </div>
             <div className={styles.right}>
               <div className={styles.result}>
                 <span className={styles.r1}>Voted</span>
-                <span className={styles.r2}>{proposal.result}</span>
+                <span
+                  className={`${styles.r2} ${
+                    proposal.result === "For"
+                      ? styles.for
+                      : proposal.result === "Against"
+                      ? styles.against
+                      : proposal.result === "Abstain"
+                      ? styles.abstain
+                      : styles.for
+                  }`}
+                >
+                  {proposal.result}
+                </span>
               </div>
               {expandedItem === index ? (
                 <MdExpandLess className={styles.arrowyellow} />
@@ -318,13 +333,37 @@ const VoteSection = () => {
                       <div>{proposal.voter.name}</div>
                       <div className={styles.dateline}>
                         Vote{" "}
-                        <span className={styles.for}>{proposal.result}</span> on{" "}
-                        {proposal.voter.date}
+                        <span
+                          className={`${styles.r2} ${
+                            proposal.result === "For"
+                              ? styles.for
+                              : proposal.result === "Against"
+                              ? styles.against
+                              : proposal.result === "Abstain"
+                              ? styles.abstain
+                              : styles.for
+                          }`}
+                        >
+                          {proposal.result}
+                        </span>{" "}
+                        on{" "}
+                        {proposal.forumCreatedAt && (
+                          <span>
+                            {new Date(
+                              proposal.forumCreatedAt
+                            ).toLocaleDateString("en-US", {
+                              month: "short",
+                              day: "numeric",
+                              year: "numeric",
+                            })}
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
 
                   <div className={styles.comment}>
+                    <div className={styles.rationaleDiv}><span className={styles.rationale}>Rationale</span></div>
                     {proposal.forumContent ? (
                       <div
                         dangerouslySetInnerHTML={{
