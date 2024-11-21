@@ -3,6 +3,7 @@ import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
 import styles from "../../styles/vote.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 const VoteSection = () => {
   const [expandedItem, setExpandedItem] = useState(0);
@@ -229,16 +230,38 @@ const VoteSection = () => {
     );
   };
 
-  if (loading) {
-    return (
-      <div className={styles.outerdiv}>
-        <SkeletonLoader />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className={styles.outerdiv}>
+  //       <SkeletonLoader />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className={styles.outerdiv}>
+      {/* Our Delegations Section */}
+      <div className={styles.delegationsSection}>
+        <h2 className={styles.delegationsHeading}>Our Delegations</h2>
+        <div className={styles.delegationsContainer}>
+          {protocols.map((protocol, index) => (
+            <div
+              key={index}
+              className={styles.delegationCard}
+              onClick={() => setSelectedProtocol(protocol.name)}
+            >
+              <Image
+                src={protocol.icon}
+                alt={`${protocol.name} Icon`}
+                width={50}
+                height={50}
+              />
+              <p>{protocol.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className={styles.upperpart}>
         <h1 className={styles.heading}>Recent Voted</h1>
         <div className={styles.filter}>
@@ -266,40 +289,43 @@ const VoteSection = () => {
         </div>
       </div>
 
-      {filteredProposals.map((proposal, index) => (
-        <div key={proposal.id} className={styles.votelist}>
-          <div
-            className={styles.votes}
-            onClick={() =>
-              setExpandedItem(expandedItem === index ? null : index)
-            }
-          >
-            <div className={styles.left}>
-              <span className={styles.icon}>
-                <Image
-                  src={proposal.icon}
-                  alt={`Proposal ${proposal.id} icon`}
-                  width={40}
-                  height={40}
-                />
-              </span>
-              <div className={styles.content}>
-                <h3 className={styles.contentTitle}>{proposal.title}</h3>
-                <p>
-                  {proposal.type === "Onchain" && (
+      {loading ? (
+        <SkeletonLoader /> // Render SkeletonLoader while loading is true
+      ) : (
+        filteredProposals.map((proposal, index) => (
+          <div key={proposal.id} className={styles.votelist}>
+            <div
+              className={styles.votes}
+              onClick={() =>
+                setExpandedItem(expandedItem === index ? null : index)
+              }
+            >
+              <div className={styles.left}>
+                <span className={styles.icon}>
+                  <Image
+                    src={proposal.icon}
+                    alt={`Proposal ${proposal.id} icon`}
+                    width={40}
+                    height={40}
+                  />
+                </span>
+                <div className={styles.content}>
+                  <h3 className={styles.contentTitle}>{proposal.title}</h3>
+                  <p>
+                    {proposal.type === "Onchain" && (
                     <span className={styles.contentTag}>onchain-tally</span>
-                  )}
+                    )}
                   {proposal.type === "Offchain" && (
                     <span className={styles.contentTag}>offchain-snapshot</span>
-                  )}
+                    )}
                 </p>
-                <span className={styles.arbitrumTag}>{proposal.protocol}</span>
+                  <span className={styles.arbitrumTag}>{proposal.protocol}</span>
+                </div>
               </div>
-            </div>
-            <div className={styles.right}>
-              <div className={styles.result}>
-                <span className={styles.r1}>Voted</span>
-                <span
+              <div className={styles.right}>
+                <div className={styles.result}>
+                  <span className={styles.r1}>Voted</span>
+                  <span
                   className={`${styles.r2} ${
                     proposal.result === "For"
                       ? styles.for
@@ -312,14 +338,14 @@ const VoteSection = () => {
                 >
                   {proposal.result}
                 </span>
+                </div>
+                {expandedItem === index ? (
+                  <MdExpandLess className={styles.arrowyellow} />
+                ) : (
+                  <MdOutlineExpandMore className={styles.arrowwhite} />
+                )}
               </div>
-              {expandedItem === index ? (
-                <MdExpandLess className={styles.arrowyellow} />
-              ) : (
-                <MdOutlineExpandMore className={styles.arrowwhite} />
-              )}
             </div>
-          </div>
 
           {expandedItem === index && (
             <div className={styles.belowdiv}>
@@ -379,7 +405,7 @@ const VoteSection = () => {
             </div>
           )}
         </div>
-      ))}
+      )))}
 
       <div className={styles.btnGovernanceDiv}>
         <a
@@ -390,6 +416,28 @@ const VoteSection = () => {
         >
           See more
         </a>
+      </div>
+
+      <div className={styles.delegateNow}>
+        <h1 className={styles.delegateNowHeading}>Delegate to Lampros DAO</h1>
+        <p className={styles.delegateNowPara}>
+          Your delegation matters. By delegating your tokens to our team, you
+          enable us to represent your interests and drive meaningful governance
+          decisions. With a focus on transparency, accountability, and
+          innovation, we work to ensure every vote contributes to a thriving,
+          decentralized ecosystem. Empower effective governance in Web3.
+          Delegate your tokens to our team and become a part of shaping the
+          future of decentralized ecosystems.
+        </p>
+        <Link
+          href="https://app.chora.club/arbitrum/0xa2d590fee197c0b614fe7c3e10303327f38c0dc3?active=info"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className={styles.delegateNowButton}>
+            Delegate
+          </button>
+        </Link>
       </div>
     </div>
   );
