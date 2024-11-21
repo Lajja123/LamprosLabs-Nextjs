@@ -12,34 +12,72 @@ const VoteSection = () => {
 
   const protocols = [
     {
-      name: "arbitrum",
+      name: "Arbitrum",
       icon: "/governance/arbitrum.svg",
     },
     {
-      name: "optimism",
+      name: "Optimism",
       icon: "/governance/optimism.svg",
     },
     {
-      name: "uniswap",
+      name: "Uniswap",
       icon: "/governance/uniswap.svg",
     },
     {
-      name: "gnosis",
-      icon: "/governance/gnosis.svg",
+      name: "ENS",
+      icon: "/governance/ens.svg",
     },
   ];
+
+  // Function to parse forum URL and extract post ID and post number
+  const parseForumUrl = (url) => {
+    try {
+      const urlWithoutQuery = url.split("?")[0];
+      const matches = urlWithoutQuery.match(/\/(\d+)\/(\d+)$/);
+      if (!matches) return null;
+
+      return {
+        postId: matches[1],
+        postNumber: matches[2],
+      };
+    } catch (error) {
+      console.error("Error parsing forum URL:", error);
+      return null;
+    }
+  };
+
+  // Update the fetchForumPost function
+  const fetchForumPost = async (url) => {
+    try {
+      const parsed = parseForumUrl(url);
+      if (!parsed) return null;
+
+      const { postId, postNumber } = parsed;
+
+      // Use the new route handler
+      const response = await fetch(
+        `/api/fetch-forum-post?postId=${postId}&postNumber=${postNumber}`
+      );
+      const data = await response.json();
+      // Return the content of the specific post
+      return data?.cooked || null;
+    } catch (error) {
+      console.error("Error fetching forum post:", error);
+      return null;
+    }
+  };
 
   const determineProtocol = (forumLink, proposalName) => {
     const link = forumLink.toLowerCase();
     const name = proposalName.toLowerCase();
 
     if (link.includes("arbitrum") || name.includes("arbitrum"))
-      return "arbitrum";
+      return "Arbitrum";
     if (link.includes("optimism") || name.includes("optimism"))
-      return "optimism";
-    if (link.includes("uniswap") || name.includes("uniswap")) return "uniswap";
-    if (link.includes("gnosis") || name.includes("gnosis")) return "gnosis";
-    return "arbitrum"; // default fallback
+      return "Optimism";
+    if (link.includes("uniswap") || name.includes("uniswap")) return "Uniswap";
+    if (link.includes("ens") || name.includes("gnosis")) return "ENS";
+    return "Arbitrum"; // default fallback
   };
 
   // Function to determine icon based on protocol
@@ -53,45 +91,93 @@ const VoteSection = () => {
         const response = await fetch("/api/notion-proposals");
         const data = await response.json();
 
-        if (data.success) {
-          const transformedProposals = await Promise.all(
-            data.data.flatMap((monthData) =>
-              monthData.proposals.map(async (proposal, index) => {
-                const protocol = determineProtocol(
-                  proposal["Forum Post Link"],
-                  proposal["Proposal Name"]
-                );
+        console.log("Raw API Response:", data);
 
-                const [day, month, year] = proposal["End Date"].split("/");
-                const date = new Date(year, month - 1, day); // month is 0-indexed in JavaScript
-                console.log("comment", proposal["Our Comment's Link"]);
-                return {
-                  id: index + 1,
-                  protocol: protocol,
-                  icon: getProtocolIcon(protocol),
-                  title: proposal["Proposal Name"],
-                  tag: "Governance", // You might want to extract this from the proposal data
-                  result:
-                    proposal["Voting Done (Yes/No)"] === "Yes"
-                      ? "For"
-                      : "Against",
-                  content: proposal["Comment Draft"],
-                  commentLink: proposal["Our Comment's Link"], // Using escaped apostrophe
-                  voter: {
-                    icon: "🌐",
-                    name: `${proposal["Commented By"]}` || "helloo",
-                    date: `On ${date.toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}`,
-                  },
-                };
-              })
-            )
+        if (data.success && data.data) {
+          const allMonthlyData = [
+            ...(data.data.page1 || []),
+            ...(data.data.page2 || []),
+          ];
+
+          const allProposals = allMonthlyData.reduce((acc, monthData) => {
+            if (monthData && Array.isArray(monthData.proposals)) {
+              return [...acc, ...monthData.proposals];
+            }
+            return acc;
+          }, []);
+
+          console.log("Extracted all proposals:", allProposals);
+
+          const transformedProposals = await Promise.allSettled(
+            allProposals.map(async (proposal, index) => {
+              console.log("Processing proposal:", proposal);
+              console.log(
+                `Proposal ${index + 1} Comment Link:`,
+                proposal["Our Comments Link"]
+              );
+
+              const protocol = determineProtocol(
+                proposal["Forum Post Link"] || "",
+                proposal["Proposal Name"] || ""
+              );
+
+              let date = new Date();
+              if (proposal["Start Date"]) {
+                const [day, month, year] = proposal["Start Date"].split("/");
+                date = new Date(year, month - 1, day);
+              }
+
+              let forumContent = null;
+              if (proposal["Our Comments Link"]) {
+                try {
+                  forumContent = await fetchForumPost(
+                    proposal["Our Comments Link"]
+                  );
+                } catch (error) {
+                  console.error("Failed to fetch forum content:", error);
+                }
+              }
+
+              return {
+                id: index + 1,
+                protocol: protocol,
+                icon: getProtocolIcon(protocol),
+                title: proposal["Proposal Name"] || "Untitled Proposal",
+                tag: "Governance",
+                result:
+                  proposal["Voting Done (Yes/No)"]?.toLowerCase?.() === "yes"
+                    ? "For"
+                    : "Against",
+                content: proposal["Comment Draft"] || "",
+                commentLink: proposal["Our Comments Link"] || "",
+                forumContent: forumContent,
+                voter: {
+                  icon: "🌐",
+                  name: proposal["Commented By"] || "helloo",
+                  date: `On ${date.toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}`,
+                },
+              };
+            })
           );
 
-          setProposals(transformedProposals);
+          const successfulProposals = transformedProposals
+            .filter((result) => result.status === "fulfilled")
+            .map((result) => result.value);
+
+          console.log("Final transformed proposals:", successfulProposals);
+
+          if (successfulProposals.length > 0) {
+            setProposals(successfulProposals);
+          } else {
+            console.warn("No proposals were transformed");
+          }
+        } else {
+          console.error("Invalid data structure:", data);
+          throw new Error("Invalid data structure received from API");
         }
       } catch (error) {
         console.error("Failed to fetch proposals:", error);
@@ -103,92 +189,26 @@ const VoteSection = () => {
     fetchProposals();
   }, []);
 
-  // const proposals = [
-  //   {
-  //     id: 1,
-  //     protocol: "arbitrum",
-  //     icon: "/governance/arbitrum.svg",
-  //     title: "ARB Staking: Unlock ARB Utility and Align Governance",
-  //     tag: "Grants",
-  //     result: "For",
-  //     content:
-  //       "We vote 'yes' to support activating the additional bps fee tiers as a time-bound experiment. By implementing these for a defined period, we can gather valuable data on their impact on trading volume, revenue, and market share. If successful, this experiment could inform future strategies not just on Base, but potentially on other chains as well. However, our support for this snapshot does not automatically extend to an on-chain vote. We expect to see more comprehensive research conducted and clear answers about the plan and details of community remaining questions.",
-  //     voter: {
-  //       icon: "🌐",
-  //       name: "Curia - curia-delegate.eth",
-  //       date: "On Aug 9, 2024",
-  //     },
-  //   },
-  //   {
-  //     id: 2,
-  //     protocol: "optimism",
-  //     icon: "/governance/optimism.svg",
-  //     title: "Upgrade Proposal #10: Granite Network Upgrade",
-  //     tag: "Network Upgrade",
-  //     result: "For",
-  //     content:
-  //       "We vote 'yes' to support activating the additional bps fee tiers as a time-bound experiment. By implementing these for a defined period, we can gather valuable data on their impact on trading volume, revenue, and market share. If successful, this experiment could inform future strategies not just on Base, but potentially on other chains as well. However, our support for this snapshot does not automatically extend to an on-chain vote. We expect to see more comprehensive research conducted and clear answers about the plan and details of community remaining questions.",
-  //     voter: {
-  //       icon: "🌐",
-  //       name: "Curia - curia-delegate.eth",
-  //       date: "On Aug 23, 2024",
-  //     },
-  //   },
-  //   {
-  //     id: 3,
-  //     protocol: "uniswap",
-  //     icon: "/governance/uniswap.svg",
-  //     title:
-  //       "[Temp Check] Activate 2, 3, 4 bps fee tiers on Uniswap v3 on Base",
-  //     tag: "Protocol Upgrade",
-  //     result: "For",
-  //     content:
-  //       "We vote 'yes' to support activating the additional bps fee tiers as a time-bound experiment. By implementing these for a defined period, we can gather valuable data on their impact on trading volume, revenue, and market share. If successful, this experiment could inform future strategies not just on Base, but potentially on other chains as well. However, our support for this snapshot does not automatically extend to an on-chain vote. We expect to see more comprehensive research conducted and clear answers about the plan and details of community remaining questions.",
-  //     voter: {
-  //       icon: "🌐",
-  //       name: "Curia - curia-delegate.eth",
-  //       date: "On Aug 19, 2024",
-  //     },
-  //   },
-  //   {
-  //     id: 4,
-  //     protocol: "gnosis",
-  //     icon: "/governance/gnosis.svg",
-  //     title:
-  //       "GIP-110: Should the Gnosis DAO create and fund a Gnosis Pay rewards program with 10k GNO?",
-  //     tag: "Grant",
-  //     result: "For",
-  //     content:
-  //       "We vote 'yes' to support activating the additional bps fee tiers as a time-bound experiment. By implementing these for a defined period, we can gather valuable data on their impact on trading volume, revenue, and market share. If successful, this experiment could inform future strategies not just on Base, but potentially on other chains as well. However, our support for this snapshot does not automatically extend to an on-chain vote. We expect to see more comprehensive research conducted and clear answers about the plan and details of community remaining questions.",
-  //     voter: {
-  //       icon: "🌐",
-  //       name: "Curia - curia-delegate.eth",
-  //       date: "On Aug 9, 2024",
-  //     },
-  //   },
-  //   {
-  //     id: 5,
-  //     protocol: "arbitrum",
-  //     icon: "/governance/arbitrum.svg",
-  //     title: "Should the DAO Create COI & Self Voting Policies?",
-  //     tag: "Policy Update",
-  //     result: "For",
-  //     content:
-  //       "We vote 'yes' to support activating the additional bps fee tiers as a time-bound experiment. By implementing these for a defined period, we can gather valuable data on their impact on trading volume, revenue, and market share. If successful, this experiment could inform future strategies not just on Base, but potentially on other chains as well. However, our support for this snapshot does not automatically extend to an on-chain vote. We expect to see more comprehensive research conducted and clear answers about the plan and details of community remaining questions.",
-  //     voter: {
-  //       icon: "🌐",
-  //       name: "Curia - curia-delegate.eth",
-  //       date: "On Aug 16, 2024",
-  //     },
-  //   },
-  // ];
-
   const filteredProposals = selectedProtocol
     ? proposals.filter((proposal) => proposal.protocol === selectedProtocol)
     : proposals;
 
+  const SkeletonLoader = () => {
+    return (
+      <div className={styles.skeletonList}>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div key={index} className={styles.skeletonItem}></div>
+        ))}
+      </div>
+    );
+  };
+
   if (loading) {
-    return <div className={styles.outerdiv}>Loading...</div>;
+    return (
+      <div className={styles.outerdiv}>
+        <SkeletonLoader />
+      </div>
+    );
   }
 
   return (
@@ -211,9 +231,10 @@ const VoteSection = () => {
               <Image
                 src={protocol.icon}
                 alt={`${protocol.name} icon`}
-                width={30}
-                height={30}
+                width={24}
+                height={24}
               />
+              <p>{protocol.name}</p>
             </button>
           ))}
         </div>
@@ -238,12 +259,16 @@ const VoteSection = () => {
               </span>
               <div className={styles.content}>
                 <h3 className={styles.contentTitle}>{proposal.title}</h3>
-                <span className={styles.contentTag}>{proposal.tag}</span>
+                <p>
+                  <span className={styles.contentTag}>onchain-tally</span>
+                  <span className={styles.contentTag}>offchain-snapshot</span>
+                </p>
+                <span className={styles.arbitrumTag}>Arbitrum</span>
               </div>
             </div>
             <div className={styles.right}>
               <div className={styles.result}>
-                <span className={styles.r1}>Result</span>
+                <span className={styles.r1}>Vote</span>
                 <span className={styles.r2}>{proposal.result}</span>
               </div>
               {expandedItem === index ? (
@@ -254,7 +279,7 @@ const VoteSection = () => {
             </div>
           </div>
 
-          {expandedItem === index && proposal.content && (
+          {expandedItem === index && (
             <div className={styles.belowdiv}>
               {proposal.voter && (
                 <div className={styles.voter}>
@@ -272,9 +297,17 @@ const VoteSection = () => {
                     </div>
                   </div>
 
-                  <p className={styles.comment}>
-                    {proposal.content} {proposal.commentLink}
-                  </p>
+                  <div className={styles.comment}>
+                    {proposal.forumContent ? (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: proposal.forumContent,
+                        }}
+                      />
+                    ) : (
+                      <p>{proposal.commentLink}</p>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
