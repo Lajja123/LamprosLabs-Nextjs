@@ -29,7 +29,6 @@ export async function GET(request) {
     }
 
     const data = await response.json();
-    console.log("Fetched forum data:", data);
     
     // Find the specific post with the matching post_number
     const targetPost = data.post_stream?.posts?.find(
@@ -43,8 +42,6 @@ export async function GET(request) {
         { status: 404 }
       );
     }
-
-    console.log("Target Post:", targetPost);
 
     // Assuming 'cooked' is a field in targetPost
     if (!targetPost.cooked) {
