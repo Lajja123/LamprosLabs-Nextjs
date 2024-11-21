@@ -56,6 +56,14 @@ async function extractTableData(blocks) {
               monthData.proposals.push(rowData);
             }
           }
+
+          // Sort proposals by Sr. No. in descending order
+          monthData.proposals.sort((a, b) => {
+            // Convert Sr. No. to numbers for comparison
+            const srNoA = parseInt(a['Sr. No.'] || '0', 10);
+            const srNoB = parseInt(b['Sr. No.'] || '0', 10);
+            return srNoB - srNoA; // Descending order
+          });
         }
         
         monthTables.push(monthData);
@@ -104,29 +112,44 @@ export async function GET() {
   }
 
   try {
-    const page_id = process.env.NEXT_PUBLIC_NOTION_PAGE_ID?.replace(/-/g, "");
+    const page_id1 = process.env.NEXT_PUBLIC_NOTION_PAGE_ID?.replace(/-/g, "");
+    const page_id2 = process.env.NEXT_PUBLIC_NOTION_PAGE_ID2?.replace(/-/g, "");
 
-    if (!page_id) {
+    if (!page_id1 || !page_id2) {
       return new Response(
-        JSON.stringify({ error: "Page ID or Database ID is not configured" }),
+        JSON.stringify({ error: "One or both Page IDs are not configured" }),
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
 
-    const blocks = await getAllBlocksRecursively(page_id);
-    const monthlyData = await extractTableData(blocks);
+    // Fetch data from both pages in parallel
+    const [blocks1, blocks2] = await Promise.all([
+      getAllBlocksRecursively(page_id1),
+      getAllBlocksRecursively(page_id2)
+    ]);
 
-    // Sort by date (newest first)
-    monthlyData.sort((a, b) => {
-      const dateA = new Date(`${a.month} 1, ${a.year}`);
-      const dateB = new Date(`${b.month} 1, ${b.year}`);
-      return dateB - dateA;
-    });
+    // Process both sets of data in parallel
+    const [monthlyData1, monthlyData2] = await Promise.all([
+      extractTableData(blocks1),
+      extractTableData(blocks2)
+    ]);
+
+    // Sort both sets of data
+    for (const monthlyData of [monthlyData1, monthlyData2]) {
+      monthlyData.sort((a, b) => {
+        const dateA = new Date(`${a.month} 1, ${a.year}`);
+        const dateB = new Date(`${b.month} 1, ${b.year}`);
+        return dateB - dateA;
+      });
+    }
 
     return new Response(
       JSON.stringify({
         success: true,
-        data: monthlyData
+        data: {
+          page1: monthlyData1,
+          page2: monthlyData2
+        }
       }),
       { headers: { "Content-Type": "application/json" } }
     );
