@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
 import styles from "../../styles/vote.module.scss";
 import Image from "next/image";
@@ -24,10 +24,48 @@ const VoteSection = () => {
       icon: "/governance/uniswap.svg",
     },
     {
-      name: "gnosis",
+      name: "ens",
       icon: "/governance/gnosis.svg",
     },
   ];
+
+  // Function to parse forum URL and extract post ID and post number
+  const parseForumUrl = (url) => {
+    try {
+      const urlWithoutQuery = url.split("?")[0];
+      const matches = urlWithoutQuery.match(/\/(\d+)\/(\d+)$/);
+      if (!matches) return null;
+
+      return {
+        postId: matches[1],
+        postNumber: matches[2],
+      };
+    } catch (error) {
+      console.error("Error parsing forum URL:", error);
+      return null;
+    }
+  };
+
+  // Update the fetchForumPost function
+  const fetchForumPost = async (url) => {
+    try {
+      const parsed = parseForumUrl(url);
+      if (!parsed) return null;
+
+      const { postId, postNumber } = parsed;
+
+      // Use the new route handler
+      const response = await fetch(
+        `/api/fetch-forum-post?postId=${postId}&postNumber=${postNumber}`
+      );
+      const data = await response.json();
+      // Return the content of the specific post
+      return data?.cooked || null;
+    } catch (error) {
+      console.error("Error fetching forum post:", error);
+      return null;
+    }
+  };
 
   const determineProtocol = (forumLink, proposalName) => {
     const link = forumLink.toLowerCase();
@@ -47,141 +85,136 @@ const VoteSection = () => {
     return `/governance/${protocol}.svg`;
   };
 
-  useEffect(() => {
-    const fetchProposals = async () => {
-      try {
-        const response = await fetch("/api/notion-proposals");
-        const data = await response.json();
+  const fetchProposals = useCallback(async () => {
+    try {
+      const response = await fetch("/api/notion-proposals");
+      const data = await response.json();
 
-        if (data.success) {
-          const transformedProposals = await Promise.all(
-            data.data.flatMap((monthData) =>
-              monthData.proposals.map(async (proposal, index) => {
-                const protocol = determineProtocol(
-                  proposal["Forum Post Link"],
-                  proposal["Proposal Name"]
-                );
+      if (data.success && data.data) {
+        // Flatten proposals from all months and limit to 5
+        const allProposals = data.data.reduce((acc, monthData) => {
+          if (monthData && Array.isArray(monthData.proposals)) {
+            return [...acc, ...monthData.proposals];
+          }
+          return acc;
+        }, []);
 
-                const [day, month, year] = proposal["End Date"].split("/");
-                const date = new Date(year, month - 1, day); // month is 0-indexed in JavaScript
-                console.log("comment", proposal["Our Comment's Link"]);
-                return {
-                  id: index + 1,
-                  protocol: protocol,
-                  icon: getProtocolIcon(protocol),
-                  title: proposal["Proposal Name"],
-                  tag: "Governance", // You might want to extract this from the proposal data
-                  result:
-                    proposal["Voting Done (Yes/No)"] === "Yes"
-                      ? "For"
-                      : "Against",
-                  content: proposal["Comment Draft"],
-                  commentLink: proposal["Our Comment's Link"], // Using escaped apostrophe
-                  voter: {
-                    icon: "🌐",
-                    name: `${proposal["Commented By"]}` || "helloo",
-                    date: `On ${date.toLocaleDateString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}`,
-                  },
-                };
-              })
-            )
-          );
+        const transformedProposals = await Promise.allSettled(
+          allProposals
+            .filter(
+              (proposal) =>
+                proposal["Our Comments Link"] && proposal["Commented By"]
+            ) // Strict filtering
+            .map(async (proposal, index) => {
+              const protocol = determineProtocol(
+                proposal["Forum Post Link"] || "",
+                proposal["Proposal Name"] || ""
+              );
 
-          setProposals(transformedProposals);
-        }
-      } catch (error) {
-        console.error("Failed to fetch proposals:", error);
-      } finally {
-        setLoading(false);
+              let date = new Date();
+              if (proposal["Start Date"]) {
+                const [day, month, year] = proposal["Start Date"].split("/");
+                date = new Date(year, month - 1, day);
+              }
+
+              // Process forum content
+              let forumContent = null;
+              if (proposal["Our Comments Link"]) {
+                try {
+                  const rawContent = await fetchForumPost(
+                    proposal["Our Comments Link"]
+                  );
+                  forumContent = processForumContent(rawContent);
+                } catch (error) {
+                  console.error("Failed to fetch forum content:", error);
+                }
+              }
+
+              let snapshotLink = null;
+              let tallyLink = null;
+              if (proposal["Snapshot Link"]) {
+                snapshotLink = `snapshot - offchain`;
+              }
+              if (proposal["Tally Link"]) {
+                tallyLink = `tally - onchain`;
+              }
+
+              return {
+                id: index + 1,
+                protocol: protocol,
+                icon: getProtocolIcon(protocol),
+                title: proposal["Proposal Name"] || "Untitled Proposal",
+                tag: "Governance",
+                result:
+                  proposal["Voting Done (Yes/No)"]?.toLowerCase?.() === "yes"
+                    ? "For"
+                    : "Against",
+                content: proposal["Comment Draft"] || "",
+                commentLink: proposal["Our Comments Link"] || "",
+                forumContent: forumContent,
+                voter: {
+                  icon: "🌐",
+                  name: proposal["Commented By"] || "helloo",
+                  date: `On ${date.toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}`,
+                },
+              };
+            })
+            // .slice(0, 5)
+        );
+
+        const successfulProposals = transformedProposals
+          .filter((result) => result.status === "fulfilled")
+          .map((result) => result.value);
+
+        setProposals(successfulProposals);
+      } else {
+        console.error("Invalid data structure:", data);
+        throw new Error("Invalid data structure received from API");
       }
-    };
+    } catch (error) {
+      console.error("Failed to fetch proposals:", error);
+    } finally {
+      setLoading(false);
+    }
+  }, []); // Empty dependency array for memoization
 
+  // Content processing function
+  const processForumContent = (content) => {
+    const baseUrl = "https://forum.arbitrum.foundation";
+
+    // Replace relative URLs with absolute URLs
+    const updatedContent = content.replace(
+      /href="\/(?!\/)/g, // Match hrefs that start with a single "/"
+      `href="${baseUrl}/`
+    );
+
+    // Ensure all anchor tags open in a new tab with security attributes
+    const updatedLinks = updatedContent.replace(
+      /<a\b([^>]*?)>/g, // Match all anchor tags
+      '<a target="_blank" rel="noopener noreferrer" $1>'
+    );
+
+    // Remove HTML tags for images
+    const contentWithoutImages = updatedLinks.replace(/<img[^>]*>/g, "");
+
+    // Wrap blockquotes with a special class
+    const processedContent = contentWithoutImages
+      .replace(
+        /<blockquote>/g,
+        `<div class="${styles.quotedText}"><blockquote>`
+      )
+      .replace(/<\/blockquote>/g, "</blockquote></div>");
+
+    return processedContent;
+  };
+
+  useEffect(() => {
     fetchProposals();
   }, []);
-
-  // const proposals = [
-  //   {
-  //     id: 1,
-  //     protocol: "arbitrum",
-  //     icon: "/governance/arbitrum.svg",
-  //     title: "ARB Staking: Unlock ARB Utility and Align Governance",
-  //     tag: "Grants",
-  //     result: "For",
-  //     content:
-  //       "We vote 'yes' to support activating the additional bps fee tiers as a time-bound experiment. By implementing these for a defined period, we can gather valuable data on their impact on trading volume, revenue, and market share. If successful, this experiment could inform future strategies not just on Base, but potentially on other chains as well. However, our support for this snapshot does not automatically extend to an on-chain vote. We expect to see more comprehensive research conducted and clear answers about the plan and details of community remaining questions.",
-  //     voter: {
-  //       icon: "🌐",
-  //       name: "Curia - curia-delegate.eth",
-  //       date: "On Aug 9, 2024",
-  //     },
-  //   },
-  //   {
-  //     id: 2,
-  //     protocol: "optimism",
-  //     icon: "/governance/optimism.svg",
-  //     title: "Upgrade Proposal #10: Granite Network Upgrade",
-  //     tag: "Network Upgrade",
-  //     result: "For",
-  //     content:
-  //       "We vote 'yes' to support activating the additional bps fee tiers as a time-bound experiment. By implementing these for a defined period, we can gather valuable data on their impact on trading volume, revenue, and market share. If successful, this experiment could inform future strategies not just on Base, but potentially on other chains as well. However, our support for this snapshot does not automatically extend to an on-chain vote. We expect to see more comprehensive research conducted and clear answers about the plan and details of community remaining questions.",
-  //     voter: {
-  //       icon: "🌐",
-  //       name: "Curia - curia-delegate.eth",
-  //       date: "On Aug 23, 2024",
-  //     },
-  //   },
-  //   {
-  //     id: 3,
-  //     protocol: "uniswap",
-  //     icon: "/governance/uniswap.svg",
-  //     title:
-  //       "[Temp Check] Activate 2, 3, 4 bps fee tiers on Uniswap v3 on Base",
-  //     tag: "Protocol Upgrade",
-  //     result: "For",
-  //     content:
-  //       "We vote 'yes' to support activating the additional bps fee tiers as a time-bound experiment. By implementing these for a defined period, we can gather valuable data on their impact on trading volume, revenue, and market share. If successful, this experiment could inform future strategies not just on Base, but potentially on other chains as well. However, our support for this snapshot does not automatically extend to an on-chain vote. We expect to see more comprehensive research conducted and clear answers about the plan and details of community remaining questions.",
-  //     voter: {
-  //       icon: "🌐",
-  //       name: "Curia - curia-delegate.eth",
-  //       date: "On Aug 19, 2024",
-  //     },
-  //   },
-  //   {
-  //     id: 4,
-  //     protocol: "gnosis",
-  //     icon: "/governance/gnosis.svg",
-  //     title:
-  //       "GIP-110: Should the Gnosis DAO create and fund a Gnosis Pay rewards program with 10k GNO?",
-  //     tag: "Grant",
-  //     result: "For",
-  //     content:
-  //       "We vote 'yes' to support activating the additional bps fee tiers as a time-bound experiment. By implementing these for a defined period, we can gather valuable data on their impact on trading volume, revenue, and market share. If successful, this experiment could inform future strategies not just on Base, but potentially on other chains as well. However, our support for this snapshot does not automatically extend to an on-chain vote. We expect to see more comprehensive research conducted and clear answers about the plan and details of community remaining questions.",
-  //     voter: {
-  //       icon: "🌐",
-  //       name: "Curia - curia-delegate.eth",
-  //       date: "On Aug 9, 2024",
-  //     },
-  //   },
-  //   {
-  //     id: 5,
-  //     protocol: "arbitrum",
-  //     icon: "/governance/arbitrum.svg",
-  //     title: "Should the DAO Create COI & Self Voting Policies?",
-  //     tag: "Policy Update",
-  //     result: "For",
-  //     content:
-  //       "We vote 'yes' to support activating the additional bps fee tiers as a time-bound experiment. By implementing these for a defined period, we can gather valuable data on their impact on trading volume, revenue, and market share. If successful, this experiment could inform future strategies not just on Base, but potentially on other chains as well. However, our support for this snapshot does not automatically extend to an on-chain vote. We expect to see more comprehensive research conducted and clear answers about the plan and details of community remaining questions.",
-  //     voter: {
-  //       icon: "🌐",
-  //       name: "Curia - curia-delegate.eth",
-  //       date: "On Aug 16, 2024",
-  //     },
-  //   },
-  // ];
 
   const filteredProposals = selectedProtocol
     ? proposals.filter((proposal) => proposal.protocol === selectedProtocol)
@@ -243,7 +276,7 @@ const VoteSection = () => {
             </div>
             <div className={styles.right}>
               <div className={styles.result}>
-                <span className={styles.r1}>Result</span>
+                <span className={styles.r1}>Voted</span>
                 <span className={styles.r2}>{proposal.result}</span>
               </div>
               {expandedItem === index ? (
@@ -254,7 +287,7 @@ const VoteSection = () => {
             </div>
           </div>
 
-          {expandedItem === index && proposal.content && (
+          {expandedItem === index && (
             <div className={styles.belowdiv}>
               {proposal.voter && (
                 <div className={styles.voter}>
@@ -272,15 +305,34 @@ const VoteSection = () => {
                     </div>
                   </div>
 
-                  <p className={styles.comment}>
-                    {proposal.content} {proposal.commentLink}
-                  </p>
+                  <div className={styles.comment}>
+                    {proposal.forumContent ? (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: proposal.forumContent,
+                        }}
+                      />
+                    ) : (
+                      <p>{proposal.commentLink}</p>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
           )}
         </div>
       ))}
+
+      <div className={styles.btnGovernanceDiv}>
+        <a
+          href="https://lamprosdao.notion.site/governance"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.btnGovernance}
+        >
+          See more
+        </a>
+      </div>
     </div>
   );
 };
