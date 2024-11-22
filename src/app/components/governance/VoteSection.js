@@ -4,6 +4,7 @@ import { MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
 import styles from "../../styles/vote.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { RiArrowRightUpLine } from "react-icons/ri";
 
 const VoteSection = () => {
   const [expandedItem, setExpandedItem] = useState(0);
@@ -152,7 +153,7 @@ const VoteSection = () => {
                 forumContent: forumContent,
                 forumCreatedAt: forumCreatedAt,
                 voter: {
-                  icon: "🌐",
+                  icon: "/governance/voter.svg",
                   name: proposal["Commented By"] || "helloo",
                   date: `On ${date.toLocaleDateString("en-US", {
                     month: "short",
@@ -248,7 +249,6 @@ const VoteSection = () => {
             <div
               key={index}
               className={styles.delegationCard}
-              onClick={() => setSelectedProtocol(protocol.name)}
             >
               <Image
                 src={protocol.icon}
@@ -313,31 +313,35 @@ const VoteSection = () => {
                   <h3 className={styles.contentTitle}>{proposal.title}</h3>
                   <p>
                     {proposal.type === "Onchain" && (
-                    <span className={styles.contentTag}>onchain-tally</span>
+                      <span className={styles.contentTag}>onchain-tally</span>
                     )}
-                  {proposal.type === "Offchain" && (
-                    <span className={styles.contentTag}>offchain-snapshot</span>
+                    {proposal.type === "Offchain" && (
+                      <span className={styles.contentTag}>
+                        offchain-snapshot
+                      </span>
                     )}
-                </p>
-                  <span className={styles.arbitrumTag}>{proposal.protocol}</span>
+                  </p>
+                  <span className={styles.arbitrumTag}>
+                    {proposal.protocol}
+                  </span>
                 </div>
               </div>
               <div className={styles.right}>
                 <div className={styles.result}>
                   <span className={styles.r1}>Voted</span>
                   <span
-                  className={`${styles.r2} ${
-                    proposal.result === "For"
-                      ? styles.for
-                      : proposal.result === "Against"
-                      ? styles.against
-                      : proposal.result === "Abstain"
-                      ? styles.abstain
-                      : styles.for
-                  }`}
-                >
-                  {proposal.result}
-                </span>
+                    className={`${styles.r2} ${
+                      proposal.result === "For"
+                        ? styles.for
+                        : proposal.result === "Against"
+                        ? styles.against
+                        : proposal.result === "Abstain"
+                        ? styles.abstain
+                        : styles.for
+                    }`}
+                  >
+                    {proposal.result}
+                  </span>
                 </div>
                 {expandedItem === index ? (
                   <MdExpandLess className={styles.arrowyellow} />
@@ -347,65 +351,73 @@ const VoteSection = () => {
               </div>
             </div>
 
-          {expandedItem === index && (
-            <div className={styles.belowdiv}>
-              {proposal.voter && (
-                <div className={styles.voter}>
-                  <div className={styles.profile}>
-                    <div className={styles.profileicon}>
-                      {proposal.voter.icon}
-                    </div>
-                    <div className={styles.profilecontent}>
-                      <div>{proposal.voter.name}</div>
-                      <div className={styles.dateline}>
-                        Vote{" "}
-                        <span
-                          className={`${styles.r2} ${
-                            proposal.result === "For"
-                              ? styles.for
-                              : proposal.result === "Against"
-                              ? styles.against
-                              : proposal.result === "Abstain"
-                              ? styles.abstain
-                              : styles.for
-                          }`}
-                        >
-                          {proposal.result}
-                        </span>{" "}
-                        on{" "}
-                        {proposal.forumCreatedAt && (
-                          <span>
-                            {new Date(
-                              proposal.forumCreatedAt
-                            ).toLocaleDateString("en-US", {
-                              month: "short",
-                              day: "numeric",
-                              year: "numeric",
-                            })}
-                          </span>
-                        )}
+            {expandedItem === index && (
+              <div className={styles.belowdiv}>
+                {proposal.voter && (
+                  <div className={styles.voter}>
+                    <div className={styles.profile}>
+                      <div className={styles.profileicon}>
+                        <Image
+                          src={proposal.voter.icon}
+                          alt={`${proposal.voter.name} icon`}
+                          width={32} // Adjust dimensions as needed
+                          height={32}
+                        />
+                      </div>
+                      <div className={styles.profilecontent}>
+                        <div>{proposal.voter.name}</div>
+                        <div className={styles.dateline}>
+                          Vote{" "}
+                          <span
+                            className={`${styles.r2} ${
+                              proposal.result === "For"
+                                ? styles.for
+                                : proposal.result === "Against"
+                                ? styles.against
+                                : proposal.result === "Abstain"
+                                ? styles.abstain
+                                : styles.for
+                            }`}
+                          >
+                            {proposal.result}
+                          </span>{" "}
+                          on{" "}
+                          {proposal.forumCreatedAt && (
+                            <span>
+                              {new Date(
+                                proposal.forumCreatedAt
+                              ).toLocaleDateString("en-US", {
+                                month: "short",
+                                day: "numeric",
+                                year: "numeric",
+                              })}
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className={styles.comment}>
-                    <div className={styles.rationaleDiv}><span className={styles.rationale}>Rationale</span></div>
-                    {proposal.forumContent ? (
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: proposal.forumContent,
-                        }}
-                      />
-                    ) : (
-                      <p>{proposal.commentLink}</p>
-                    )}
+                    <div className={styles.comment}>
+                      <div className={styles.rationaleDiv}>
+                        <span className={styles.rationale}>Rationale</span>
+                      </div>
+                      {proposal.forumContent ? (
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: proposal.forumContent,
+                          }}
+                        />
+                      ) : (
+                        <p>{proposal.commentLink}</p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      )))}
+                )}
+              </div>
+            )}
+          </div>
+        ))
+      )}
 
       <div className={styles.btnGovernanceDiv}>
         <a
@@ -423,9 +435,9 @@ const VoteSection = () => {
         <p className={styles.delegateNowPara}>
           Your delegation matters. By delegating your tokens to our team, you
           enable us to represent your interests and drive meaningful governance
-          decisions. With a focus on transparency, accountability, and
-          innovation, we work to ensure every vote contributes to a thriving,
-          decentralized ecosystem. Empower effective governance in Web3.
+          decisions. Empower effective governance in Web3.
+          <br />
+          <br />
           Delegate your tokens to our team and become a part of shaping the
           future of decentralized ecosystems.
         </p>
@@ -433,9 +445,10 @@ const VoteSection = () => {
           href="https://app.chora.club/arbitrum/0xa2d590fee197c0b614fe7c3e10303327f38c0dc3?active=info"
           target="_blank"
           rel="noopener noreferrer"
+          className={styles.link}
         >
           <button className={styles.delegateNowButton}>
-            Delegate
+            Delegate <RiArrowRightUpLine className={styles.upErrow} />
           </button>
         </Link>
       </div>

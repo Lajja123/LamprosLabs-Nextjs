@@ -25,66 +25,63 @@ function GovernanceSection() {
           inclusive, and resilient web3 landscape
         </p>
         <div className={styles.cards}>
-          <div className={styles.card}>
-            <div className={styles.icon}>
-              {/* <FaFire /> */}
-              <Image src={profile1} alt="" width={40} height={40}></Image>
-            </div>
-            <div className={styles.sideDiv}>
-              <h3 className={styles.heading2}>EUPHORIA</h3>
-              <h4 className={styles.subheading}>
-                <Link
-                  href="https://x.com/Euphoria_0077"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.link}
-
-                >
+          <Link
+            href="https://x.com/Euphoria_0077"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.link}
+          >
+            <div className={styles.card}>
+              <div className={styles.icon}>
+                {/* <FaFire /> */}
+                <Image src={profile1} alt="" width={40} height={40}></Image>
+              </div>
+              <div className={styles.sideDiv}>
+                <h3 className={styles.heading2}>EUPHORIA</h3>
+                <h4 className={styles.subheading}>
                   Check Twitter Profile <FaLongArrowAltRight />
-                </Link>
-              </h4>
+                </h4>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className={styles.card}>
-            <p className={styles.icon}>
-              <Image src={profile2} alt="" width={40} height={40}></Image>
-            </p>
-            <div className={styles.sideDiv}>
-              <h3 className={styles.heading2}>CHAIN_L</h3>
-              <h4 className={styles.subheading}>
-                <Link
-                  href="https://x.com/chain_haya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.link}
-
-                >
+          <Link
+            href="https://x.com/chain_haya"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.link}
+          >
+            <div className={styles.card}>
+              <p className={styles.icon}>
+                <Image src={profile2} alt="" width={40} height={40}></Image>
+              </p>
+              <div className={styles.sideDiv}>
+                <h3 className={styles.heading2}>CHAIN_L</h3>
+                <h4 className={styles.subheading}>
                   Check Twitter Profile <FaLongArrowAltRight />
-                </Link>
-              </h4>
+                </h4>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className={styles.card}>
-            <p className={styles.icon}>
-              <Image src={profile3} alt="" width={40} height={40}></Image>
-            </p>
-            <div className={styles.sideDiv}>
-              <h3 className={styles.heading2}>HIRANGI</h3>
-              <h4 className={styles.subheading}>
-                <Link
-                  href="https://x.com/HirangiPandya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.link}
-
-                >
+          <Link
+            href="https://x.com/HirangiPandya"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.link}
+          >
+            <div className={styles.card}>
+              <p className={styles.icon}>
+                <Image src={profile3} alt="" width={40} height={40}></Image>
+              </p>
+              <div className={styles.sideDiv}>
+                <h3 className={styles.heading2}>HIRANGI</h3>
+                <h4 className={styles.subheading}>
                   Check Twitter Profile <FaLongArrowAltRight />
-                </Link>
-              </h4>
+                </h4>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 

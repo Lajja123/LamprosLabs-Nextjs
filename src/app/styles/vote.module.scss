@@ -33,7 +33,7 @@
 }
 
 .delegationsSection {
-  margin: 20px auto 80px;
+  margin: 60px auto 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -54,7 +54,7 @@
   flex-wrap: wrap;
   width: 100%;
   border: 2px solid rgba(0, 255, 255, 0.215);
-  padding: 60px;
+  padding: 40px 90px;
   border-radius: 15px;
 }
 
@@ -380,7 +380,13 @@
 }
 
 .profileicon {
-  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
 }
 
 .profilecontent {
@@ -408,9 +414,9 @@
     rgba(22, 14, 71, 0.85) 12.27%,
     #0008ce 96.93%
   );
-  margin: 100px auto 40px;
+  margin: 40px auto 40px;
   box-shadow: 0px 4px 201px 0px rgba(13, 6, 57, 0.75) inset;
-  padding: 40px 80px;
+  padding: 30px 40px;
   flex-shrink: 0;
   width: 80%;
 }
@@ -433,6 +439,8 @@
   font-weight: 400;
   line-height: 150.023%;
   letter-spacing: 1px;
+  width: 90%;
+  margin: auto;
 }
 
 .delegateNowButton {
@@ -442,13 +450,27 @@
   margin: 40px auto;
   padding: 20px 30px;
   border: none;
-  width: 40%;
+  width: 25%;
   font-size: 14px;
   font-weight: 700;
   line-height: 174.523%;
   letter-spacing: 2.4px;
   text-transform: uppercase;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link{
+  text-decoration: none;
+}
+
+.upErrow{
+  font-size: 22px;
+  font-weight: 900;
+  margin-top: -5px;
+  margin-left: 10px;
 }
 
 .delegateNowButton:hover {
