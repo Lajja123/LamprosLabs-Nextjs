@@ -15,22 +15,22 @@ const VoteSection = () => {
   const protocols = [
     {
       name: "Arbitrum",
-      icon: "/governance/Arbitrum.svg",
+      icon: "/governance/arbitrum.svg",
       link: "https://forum.arbitrum.foundation/t/lampros-dao-delegate-communication-thread/26642",
     },
     {
       name: "Optimism",
-      icon: "/governance/Optimism.svg",
+      icon: "/governance/optimism.svg",
       link: "",
     },
     {
       name: "Uniswap",
-      icon: "/governance/Uniswap.svg",
+      icon: "/governance/uniswap.svg",
       link: "",
     },
     {
       name: "ENS",
-      icon: "/governance/ENS.svg",
+      icon: "/governance/ens.svg",
       link: "",
     },
   ];
@@ -82,13 +82,13 @@ const VoteSection = () => {
     const comment = commentlink.toLowerCase();
 
     if (link.includes("arbitrum") || comment.includes("arbitrum"))
-      return "Arbitrum";
+      return "arbitrum";
     if (link.includes("optimism") || comment.includes("optimism"))
-      return "Optimism";
+      return "optimism";
     if (link.includes("uniswap") || comment.includes("uniswap"))
-      return "Uniswap";
+      return "uniswap";
     if (link.includes("ens") || comment.includes("ens")) return "ENS";
-    return "Arbitrum"; // default fallback
+    return "arbitrum"; // default fallback
   };
 
   // Function to determine icon based on protocol
@@ -233,14 +233,6 @@ const VoteSection = () => {
     );
   };
 
-  // if (loading) {
-  //   return (
-  //     <div className={styles.outerdiv}>
-  //       <SkeletonLoader />
-  //     </div>
-  //   );
-  // }
-
   return (
     <div className={styles.outerdiv}>
       {/* Our Delegations Section */}
@@ -330,8 +322,8 @@ const VoteSection = () => {
                   <h3 className={styles.contentTitle}>{proposal.title}</h3>
                   <div className={styles.chainDiv}>
                     <span className={styles.arbitrumTag}>
-                      {proposal.protocol}
-                    </span>
+                      {proposal.protocol.charAt(0).toUpperCase() + proposal.protocol.slice(1)}
+                      </span>
                     <span
                       className={` ${
                         proposal.type === "Offchain Voting"
