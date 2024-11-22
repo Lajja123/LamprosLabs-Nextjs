@@ -59,6 +59,7 @@
 }
 
 .delegationCard {
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,28 +139,28 @@
 
 .for {
   background-color: #11cf56; /* Green background */
-  border: 2px solid #00b894; /* Green border */
+  border: 1.5px solid white; /* Green border */
   box-shadow: 4px 6px 20px rgba(0, 184, 148, 0.3); /* Green shadow */
   color: #ffffff; /* White text */
 }
 
 .against {
   background-color: #d63031; /* Red background */
-  border: 2px solid #d63031; /* Red border */
+  border: 1.5px solid white; /* Red border */
   box-shadow: 0 4px 6px rgba(214, 48, 49, 0.3); /* Red shadow */
   color: #ffffff; /* White text */
 }
 
 .abstain {
   background-color: #636e72; /* Grey background */
-  border: 2px solid #636e72; /* Grey border */
+  border: 1.5px solid white; /* Grey border */
   box-shadow: 0 4px 6px rgba(99, 110, 114, 0.3); /* Grey shadow */
   color: #ffffff; /* White text */
 }
 
 .default {
   background-color: #2d3436; /* Default dark grey background */
-  border: 2px solid #2d3436; /* Default dark grey border */
+  border: 1.5px solid white; /* Default dark grey border */
   box-shadow: 0 4px 6px rgba(45, 52, 54, 0.3); /* Default shadow */
   color: #ffffff; /* White text */
 }
@@ -275,7 +276,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 8px;
 }
 
 .content p {
@@ -301,9 +302,31 @@
 .arbitrumTag {
   padding: 4px 12px;
   color: #a6ff35;
-  border: 1px solid #a6ff35;
+  border: 1.3px solid #a6ff35;
   border-radius: 15px;
-  font-size: 11px;
+  font-size: 13px;
+}
+
+.offchain {
+  padding: 4px 12px;
+  color: yellow;
+  border: 1.3px solid yellow;
+  border-radius: 15px;
+  font-size: 13px;
+}
+
+.onchain {
+  padding: 4px 12px;
+  color: pink;
+  border: 1.3px solid pink;
+  border-radius: 15px;
+  font-size: 13px;
+}
+
+.chainDiv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .right {
@@ -397,7 +420,11 @@
 }
 
 .dateline {
-  color: rgba(255, 255, 255, 0.445);
+  color: whitesmoke;
+}
+
+.dateVote {
+  color: rgb(44, 234, 234);
 }
 
 .comment {
