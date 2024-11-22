@@ -25,7 +25,7 @@ function GovernanceSection() {
           inclusive, and resilient web3 landscape
         </p>
 
-        <h4 className={styles.teamHeading}>Our Team Members</h4>
+        <div className={styles.teamHeading}>Our Team Members</div>
         <div className={styles.cards}>
           <Link
             href="https://x.com/Euphoria_0077"
@@ -39,7 +39,7 @@ function GovernanceSection() {
                 <Image src={profile1} alt="" width={40} height={40}></Image>
               </div>
               <div className={styles.sideDiv}>
-                <h3 className={styles.heading2}>EUPHORIA</h3>
+                <h3 className={styles.heading2}>Euphoria</h3>
                 <h4 className={styles.subheading}>
                   Check Twitter Profile <FaLongArrowAltRight />
                 </h4>
@@ -58,7 +58,7 @@ function GovernanceSection() {
                 <Image src={profile2} alt="" width={40} height={40}></Image>
               </p>
               <div className={styles.sideDiv}>
-                <h3 className={styles.heading2}>CHAIN_L</h3>
+                <h3 className={styles.heading2}>Chain_L</h3>
                 <h4 className={styles.subheading}>
                   Check Twitter Profile <FaLongArrowAltRight />
                 </h4>
@@ -77,7 +77,7 @@ function GovernanceSection() {
                 <Image src={profile3} alt="" width={40} height={40}></Image>
               </p>
               <div className={styles.sideDiv}>
-                <h3 className={styles.heading2}>HIRANGI</h3>
+                <h3 className={styles.heading2}>Hirangi</h3>
                 <h4 className={styles.subheading}>
                   Check Twitter Profile <FaLongArrowAltRight />
                 </h4>

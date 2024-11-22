@@ -47,7 +47,7 @@
   text-shadow: 0px 4px 36px rgba(0, 0, 0, 0.53);
   font-size: 3.1rem;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 500;
   letter-spacing: 12px;
   text-transform: uppercase;
   margin: 30px auto;
@@ -65,14 +65,12 @@
   padding-left: 30px;
 }
 
-
-
 .cards {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin: 30px auto;
+  margin: 7px auto;
   width: 100%;
   // flex-wrap: wrap;
   box-sizing: border-box !important;
@@ -209,5 +207,30 @@ width: 32.5%;
   }
   50% {
     transform: translate(-5px, -5px);
+  }
+}
+
+.teamHeading {
+  font-size: 26px;
+  font-weight: 300;
+  color: #a6ff35;
+  text-align: center;
+  margin-top: 40px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  
+  &::before,
+  &::after {
+    content: '';
+    height: 3px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8));
+  }
+  
+  &::after {
+    background: linear-gradient(-90deg, transparent, rgba(255, 255, 255, 0.8));
   }
 }
