@@ -15,22 +15,22 @@ const VoteSection = () => {
   const protocols = [
     {
       name: "Arbitrum",
-      icon: "/governance/arbitrum.svg",
+      icon: "/governance/Arbitrum.svg",
       link: "https://forum.arbitrum.foundation/t/lampros-dao-delegate-communication-thread/26642",
     },
     {
       name: "Optimism",
-      icon: "/governance/optimism.svg",
+      icon: "/governance/Optimism.svg",
       link: "",
     },
     {
       name: "Uniswap",
-      icon: "/governance/uniswap.svg",
+      icon: "/governance/Uniswap.svg",
       link: "",
     },
     {
       name: "ENS",
-      icon: "/governance/ens.svg",
+      icon: "/governance/ENS.svg",
       link: "",
     },
   ];
@@ -280,7 +280,7 @@ const VoteSection = () => {
       </div>
 
       <div className={styles.upperpart}>
-        <h1 className={styles.heading}>Recent Voted</h1>
+        <h1 className={styles.heading}>Recent Votes</h1>
         <div className={styles.filter}>
           {protocols.map((protocol) => (
             <button
