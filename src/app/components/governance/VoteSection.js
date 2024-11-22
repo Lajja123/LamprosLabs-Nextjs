@@ -14,22 +14,22 @@ const VoteSection = () => {
 
   const protocols = [
     {
-      name: "Arbitrum",
+      name: "arbitrum",
       icon: "/governance/arbitrum.svg",
       link: "https://forum.arbitrum.foundation/t/lampros-dao-delegate-communication-thread/26642",
     },
     {
-      name: "Optimism",
+      name: "optimism",
       icon: "/governance/optimism.svg",
       link: "",
     },
     {
-      name: "Uniswap",
+      name: "uniswap",
       icon: "/governance/uniswap.svg",
       link: "",
     },
     {
-      name: "ENS",
+      name: "ens",
       icon: "/governance/ens.svg",
       link: "",
     },
@@ -264,7 +264,11 @@ const VoteSection = () => {
                   width={50}
                   height={50}
                 />
-                <p>{protocol.name}</p>
+                <p>
+                  {" "}
+                  {protocol.name.charAt(0).toUpperCase() +
+                    protocol.name.slice(1)}
+                </p>
               </div>
             )
           )}
@@ -292,7 +296,9 @@ const VoteSection = () => {
                 width={24}
                 height={24}
               />
-              <p>{protocol.name}</p>
+              <p>
+                {protocol.name.charAt(0).toUpperCase() + protocol.name.slice(1)}
+              </p>
             </button>
           ))}
         </div>
@@ -322,8 +328,9 @@ const VoteSection = () => {
                   <h3 className={styles.contentTitle}>{proposal.title}</h3>
                   <div className={styles.chainDiv}>
                     <span className={styles.arbitrumTag}>
-                      {proposal.protocol.charAt(0).toUpperCase() + proposal.protocol.slice(1)}
-                      </span>
+                      {proposal.protocol.charAt(0).toUpperCase() +
+                        proposal.protocol.slice(1)}
+                    </span>
                     <span
                       className={` ${
                         proposal.type === "Offchain Voting"
