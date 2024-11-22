@@ -24,6 +24,8 @@ function GovernanceSection() {
           collaborative efforts, we strive to create a more transparent,
           inclusive, and resilient web3 landscape
         </p>
+
+        <h4 className={styles.teamHeading}>Our Team Members</h4>
         <div className={styles.cards}>
           <Link
             href="https://x.com/Euphoria_0077"
