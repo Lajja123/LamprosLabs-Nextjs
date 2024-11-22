@@ -93,7 +93,7 @@ const VoteSection = () => {
 
   // Function to determine icon based on protocol
   const getProtocolIcon = (protocol) => {
-    return `/governance/${protocol}.svg`;
+    return `/governance/Arbitrum.svg`;
   };
 
   const fetchProposals = useCallback(async () => {
