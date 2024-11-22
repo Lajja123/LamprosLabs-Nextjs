@@ -5,7 +5,7 @@ import Image from "next/image";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import VoteSection from "./VoteSection";
 import profile1 from "../../../../public/governance/euphoria.webp";
-import profile2 from "../../../../public/governance/chain_l.webp";
+import profile2 from "../../../../public/governance/Chain_l.webp";
 import profile3 from "../../../../public/governance/hirangi.webp";
 import Link from "next/link";
 
