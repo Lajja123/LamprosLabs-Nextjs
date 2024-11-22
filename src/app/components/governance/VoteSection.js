@@ -14,7 +14,7 @@ const VoteSection = () => {
 
   const protocols = [
     {
-      name: "arbitrum",
+      name: "Arbitrum",
       icon: "/governance/arbitrum.svg",
       link: "https://forum.arbitrum.foundation/t/lampros-dao-delegate-communication-thread/26642",
     },
@@ -29,7 +29,7 @@ const VoteSection = () => {
       link: "",
     },
     {
-      name: "ens",
+      name: "ENS",
       icon: "/governance/ens.svg",
       link: "",
     },
