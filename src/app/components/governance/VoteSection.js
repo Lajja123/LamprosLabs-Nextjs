@@ -16,18 +16,22 @@ const VoteSection = () => {
     {
       name: "Arbitrum",
       icon: "/governance/arbitrum.svg",
+      link: "https://forum.arbitrum.foundation/t/lampros-dao-delegate-communication-thread/26642",
     },
     {
       name: "Optimism",
       icon: "/governance/optimism.svg",
+      link: "",
     },
     {
       name: "Uniswap",
       icon: "/governance/uniswap.svg",
+      link: "",
     },
     {
       name: "ENS",
       icon: "/governance/ens.svg",
+      link: "",
     },
   ];
 
@@ -73,16 +77,17 @@ const VoteSection = () => {
     }
   };
 
-  const determineProtocol = (forumLink, proposalName) => {
+  const determineProtocol = (forumLink, commentlink) => {
     const link = forumLink.toLowerCase();
-    const name = proposalName.toLowerCase();
+    const comment = commentlink.toLowerCase();
 
-    if (link.includes("arbitrum") || name.includes("arbitrum"))
+    if (link.includes("arbitrum") || comment.includes("arbitrum"))
       return "Arbitrum";
-    if (link.includes("optimism") || name.includes("optimism"))
+    if (link.includes("optimism") || comment.includes("optimism"))
       return "Optimism";
-    if (link.includes("uniswap") || name.includes("uniswap")) return "Uniswap";
-    if (link.includes("ens") || name.includes("gnosis")) return "ENS";
+    if (link.includes("uniswap") || comment.includes("uniswap"))
+      return "Uniswap";
+    if (link.includes("ens") || comment.includes("ens")) return "ENS";
     return "Arbitrum"; // default fallback
   };
 
@@ -114,7 +119,7 @@ const VoteSection = () => {
             .map(async (proposal, index) => {
               const protocol = determineProtocol(
                 proposal["Forum Post Link"] || "",
-                proposal["Proposal Name"] || ""
+                proposal["Our Comments Link"] || ""
               );
 
               let date = new Date();
@@ -138,9 +143,6 @@ const VoteSection = () => {
                 }
               }
 
-              const isOffchain = proposal["Snapshot Link"];
-              const isOnchain = proposal["Tally Link"];
-
               return {
                 id: index + 1,
                 protocol: protocol,
@@ -161,7 +163,7 @@ const VoteSection = () => {
                     year: "numeric",
                   })}`,
                 },
-                type: isOnchain ? "Onchain" : isOffchain ? "Offchain" : null,
+                type: proposal["Type"],
               };
             })
             .slice(0, 5)
@@ -245,20 +247,35 @@ const VoteSection = () => {
       <div className={styles.delegationsSection}>
         <h2 className={styles.delegationsHeading}>Our Delegations</h2>
         <div className={styles.delegationsContainer}>
-          {protocols.map((protocol, index) => (
-            <div
-              key={index}
-              className={styles.delegationCard}
-            >
-              <Image
-                src={protocol.icon}
-                alt={`${protocol.name} Icon`}
-                width={50}
-                height={50}
-              />
-              <p>{protocol.name}</p>
-            </div>
-          ))}
+          {protocols.map((protocol, index) =>
+            protocol.link ? (
+              <a
+                key={index}
+                href={protocol.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.delegationCard}
+              >
+                <Image
+                  src={protocol.icon}
+                  alt={`${protocol.name} Icon`}
+                  width={50}
+                  height={50}
+                />
+                <p>{protocol.name}</p>
+              </a>
+            ) : (
+              <div key={index} className={styles.delegationCard}>
+                <Image
+                  src={protocol.icon}
+                  alt={`${protocol.name} Icon`}
+                  width={50}
+                  height={50}
+                />
+                <p>{protocol.name}</p>
+              </div>
+            )
+          )}
         </div>
       </div>
 
@@ -311,19 +328,20 @@ const VoteSection = () => {
                 </span>
                 <div className={styles.content}>
                   <h3 className={styles.contentTitle}>{proposal.title}</h3>
-                  <p>
-                    {proposal.type === "Onchain" && (
-                      <span className={styles.contentTag}>onchain-tally</span>
-                    )}
-                    {proposal.type === "Offchain" && (
-                      <span className={styles.contentTag}>
-                        offchain-snapshot
-                      </span>
-                    )}
-                  </p>
-                  <span className={styles.arbitrumTag}>
-                    {proposal.protocol}
-                  </span>
+                  <div className={styles.chainDiv}>
+                    <span className={styles.arbitrumTag}>
+                      {proposal.protocol}
+                    </span>
+                    <span
+                      className={` ${
+                        proposal.type === "Offchain Voting"
+                          ? styles.offchain
+                          : styles.onchain
+                      }`}
+                    >
+                      {proposal.type}
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className={styles.right}>
@@ -383,7 +401,7 @@ const VoteSection = () => {
                           </span>{" "}
                           on{" "}
                           {proposal.forumCreatedAt && (
-                            <span>
+                            <span className={styles.dateVote}>
                               {new Date(
                                 proposal.forumCreatedAt
                               ).toLocaleDateString("en-US", {

@@ -9,7 +9,7 @@ function extractCellContent(cell) {
   return cell[0].plain_text || '';
 }
 
-async function extractTableData(blocks) {
+async function extractTableData(blocks, label) {
   const monthTables = [];
   
   for (const block of blocks) {
@@ -48,13 +48,14 @@ async function extractTableData(blocks) {
                 rowData[headerKey] = extractCellContent(cell);
               });
               
+              // Add the label to the row data
+              rowData["Type"] = label;
               monthData.proposals.push(rowData);
             }
           }
 
           // Sort proposals by Sr. No. in descending order
           monthData.proposals.sort((a, b) => {
-            // Convert Sr. No. to numbers for comparison
             const srNoA = parseInt(a['Sr. No.'] || '0', 10);
             const srNoB = parseInt(b['Sr. No.'] || '0', 10);
             return srNoB - srNoA; // Descending order
@@ -181,10 +182,10 @@ export async function GET() {
       getAllBlocksRecursively(page_id2)
     ]);
 
-    // Process both sets of data in parallel
+    // Process both sets of data in parallel with respective labels
     const [monthlyData1, monthlyData2] = await Promise.all([
-      extractTableData(blocks1),
-      extractTableData(blocks2)
+      extractTableData(blocks1, "Offchain Voting"),
+      extractTableData(blocks2, "Onchain Voting")
     ]);
 
     // Combine and sort the data from both pages
