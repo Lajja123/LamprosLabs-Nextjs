@@ -14,22 +14,26 @@ const VoteSection = () => {
 
   const protocols = [
     {
-      name: "Arbitrum",
+      name: "Arbitrum", // Changed to proper display name
+      value: "arbitrum", // Added value for internal handling
       icon: "/governance/arbitrum.svg",
       link: "https://forum.arbitrum.foundation/t/lampros-dao-delegate-communication-thread/26642",
     },
     {
-      name: "optimism",
+      name: "Optimism", // Changed to proper display name
+      value: "optimism",
       icon: "/governance/optimism.svg",
       link: "",
     },
     {
-      name: "uniswap",
+      name: "Uniswap", // Changed to proper display name
+      value: "uniswap",
       icon: "/governance/uniswap.svg",
       link: "",
     },
     {
-      name: "ENS",
+      name: "ENS", // Changed to proper display name
+      value: "ens",
       icon: "/governance/ens.svg",
       link: "",
     },
@@ -79,16 +83,13 @@ const VoteSection = () => {
 
   const determineProtocol = (forumLink, commentlink) => {
     const link = forumLink.toLowerCase();
-    const comment = commentlink.toLowerCase();
+    // const comment = commentlink.toLowerCase();
 
-    if (link.includes("arbitrum") || comment.includes("arbitrum"))
-      return "arbitrum";
-    if (link.includes("optimism") || comment.includes("optimism"))
-      return "optimism";
-    if (link.includes("uniswap") || comment.includes("uniswap"))
-      return "uniswap";
-    if (link.includes("ens") || comment.includes("ens")) return "ENS";
-    return "arbitrum"; // default fallback
+    if (link.includes("arbitrum")) return "Arbitrum";
+    if (link.includes("optimism")) return "Optimism";
+    if (link.includes("uniswap")) return "Uniswap";
+    if (link.includes("ens")) return "ENS";
+    return "Arbitrum"; // default fallback
   };
 
   // Function to determine icon based on protocol
@@ -98,11 +99,16 @@ const VoteSection = () => {
 
   const fetchProposals = useCallback(async () => {
     try {
-      const response = await fetch("/api/notion-proposals");
+      setLoading(true);
+      // Find the protocol object from the protocols array
+      const protocolObj = protocols.find((p) => p.name === selectedProtocol);
+      // Use the value (lowercase) for API calls
+      const queryString = protocolObj ? `?protocol=${protocolObj.value}` : "";
+      const response = await fetch(`/api/notion-proposals${queryString}`);
       const data = await response.json();
 
       if (data.success && data.data) {
-        // Flatten proposals from all months and limit to 5
+        // Flatten proposals from all months
         const allProposals = data.data.reduce((acc, monthData) => {
           if (monthData && Array.isArray(monthData.proposals)) {
             return [...acc, ...monthData.proposals];
@@ -110,63 +116,63 @@ const VoteSection = () => {
           return acc;
         }, []);
 
+        const validProposals = allProposals.filter(
+          (proposal) =>
+            proposal["Our Comments Link"] && proposal["Commented By"]
+        );
+
         const transformedProposals = await Promise.allSettled(
-          allProposals
-            .filter(
-              (proposal) =>
-                proposal["Our Comments Link"] && proposal["Commented By"]
-            ) // Strict filtering
-            .map(async (proposal, index) => {
-              const protocol = determineProtocol(
-                proposal["Forum Post Link"] || "",
-                proposal["Our Comments Link"] || ""
-              );
+          validProposals.slice(0, 5).map(async (proposal, index) => {
+            // Get the display name for the protocol
+            const protocol = determineProtocol(
+              proposal["Forum Post Link"] || "",
+              proposal["Our Comments Link"] || ""
+            );
 
-              let date = new Date();
-              if (proposal["Start Date"]) {
-                const [day, month, year] = proposal["Start Date"].split("/");
-                date = new Date(year, month - 1, day);
+            // Rest of your transformation code...
+            let date = new Date();
+            if (proposal["Start Date"]) {
+              const [day, month, year] = proposal["Start Date"].split("/");
+              date = new Date(year, month - 1, day);
+            }
+
+            let forumContent = null;
+            let forumCreatedAt = null;
+            if (proposal["Our Comments Link"]) {
+              try {
+                const rawContent = await fetchForumPost(
+                  proposal["Our Comments Link"]
+                );
+                forumContent = processForumContent(rawContent.content);
+                forumCreatedAt = rawContent?.createdAt || null;
+              } catch (error) {
+                console.error("Failed to fetch forum content:", error);
               }
+            }
 
-              // Process forum content
-              let forumContent = null;
-              let forumCreatedAt = null;
-              if (proposal["Our Comments Link"]) {
-                try {
-                  const rawContent = await fetchForumPost(
-                    proposal["Our Comments Link"]
-                  );
-                  forumContent = processForumContent(rawContent.content);
-                  forumCreatedAt = rawContent?.createdAt || null;
-                } catch (error) {
-                  console.error("Failed to fetch forum content:", error);
-                }
-              }
-
-              return {
-                id: index + 1,
-                protocol: protocol,
-                icon: getProtocolIcon(protocol),
-                title: proposal["Proposal Name"] || "Untitled Proposal",
-                tag: "Governance",
-                result: proposal["Voted"],
-                content: proposal["Comment Draft"] || "",
-                commentLink: proposal["Our Comments Link"] || "",
-                forumContent: forumContent,
-                forumCreatedAt: forumCreatedAt,
-                voter: {
-                  icon: "/governance/voter.svg",
-                  name: proposal["Commented By"] || "helloo",
-                  date: `On ${date.toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })}`,
-                },
-                type: proposal["Type"],
-              };
-            })
-            .slice(0, 5)
+            return {
+              id: index + 1,
+              protocol: protocol, // This will now be properly capitalized
+              icon: getProtocolIcon(protocol.toLowerCase()),
+              title: proposal["Proposal Name"] || "Untitled Proposal",
+              tag: "Governance",
+              result: proposal["Voted"],
+              content: proposal["Comment Draft"] || "",
+              commentLink: proposal["Our Comments Link"] || "",
+              forumContent: forumContent,
+              forumCreatedAt: forumCreatedAt,
+              voter: {
+                icon: "/governance/voter.svg",
+                name: proposal["Commented By"] || "Anonymous",
+                date: `On ${date.toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}`,
+              },
+              type: proposal["Type"],
+            };
+          })
         );
 
         const successfulProposals = transformedProposals
@@ -174,16 +180,19 @@ const VoteSection = () => {
           .map((result) => result.value);
 
         setProposals(successfulProposals);
-      } else {
-        console.error("Invalid data structure:", data);
-        throw new Error("Invalid data structure received from API");
       }
     } catch (error) {
       console.error("Failed to fetch proposals:", error);
     } finally {
       setLoading(false);
     }
-  }, []); // Empty dependency array for memoization
+  }, [selectedProtocol]);
+
+  // Update useEffect to reset the expanded item when protocol changes
+  useEffect(() => {
+    setExpandedItem(null); // Reset expanded item when protocol changes
+    fetchProposals();
+  }, [fetchProposals, selectedProtocol]);
 
   // Content processing function
   const processForumContent = (content) => {
@@ -215,12 +224,19 @@ const VoteSection = () => {
     return processedContent;
   };
 
-  useEffect(() => {
-    fetchProposals();
-  }, []);
+  // const filteredProposals =
+  //   selectedProtocol === null
+  //     ? proposals // Show all proposals when no protocol is selected
+  //     : proposals.filter(
+  //         (proposal) =>
+  //           proposal.protocol.toLowerCase() === selectedProtocol.toLowerCase()
+  //       );
 
   const filteredProposals = selectedProtocol
-    ? proposals.filter((proposal) => proposal.protocol === selectedProtocol)
+    ? proposals.filter(
+        (proposal) =>
+          proposal.protocol.toLowerCase() === selectedProtocol.toLowerCase()
+      )
     : proposals;
 
   const SkeletonLoader = () => {
@@ -296,9 +312,7 @@ const VoteSection = () => {
                 width={24}
                 height={24}
               />
-              <p>
-                {protocol.name.charAt(0).toUpperCase() + protocol.name.slice(1)}
-              </p>
+              <p>{protocol.name}</p>
             </button>
           ))}
         </div>
@@ -307,7 +321,7 @@ const VoteSection = () => {
       {loading ? (
         <SkeletonLoader /> // Render SkeletonLoader while loading is true
       ) : (
-        filteredProposals.map((proposal, index) => (
+        proposals.map((proposal, index) => (
           <div key={proposal.id} className={styles.votelist}>
             <div
               className={styles.votes}
@@ -327,12 +341,16 @@ const VoteSection = () => {
                 <div className={styles.content}>
                   <h3 className={styles.contentTitle}>{proposal.title}</h3>
                   <div className={styles.chainDiv}>
-                    <span className={styles.arbitrumTag}>
+                    <span
+                      className={`${styles.arbitrumTag} ${
+                        styles[`${proposal.protocol.toLowerCase()}-tag`]
+                      }`}
+                    >
                       {proposal.protocol.charAt(0).toUpperCase() +
                         proposal.protocol.slice(1)}
                     </span>
                     <span
-                      className={` ${
+                      className={` ${styles.votingCommon} ${
                         proposal.type === "Offchain Voting"
                           ? styles.offchain
                           : styles.onchain

@@ -13,14 +13,12 @@
   animation: skeleton-loading 1.5s infinite ease-in-out;
 }
 
-/* Skeleton Animation */
 @keyframes skeleton-loading {
-  0%,
-  100% {
-    background-color: rgba(255, 255, 255, 0.04);
+  0%, 100% {
+    background-color: rgba(127, 255, 212, 0.15);
   }
   50% {
-    background-color: rgba(255, 255, 255, 0.066);
+    background-color: rgba(0, 191, 255, 0.3);
   }
 }
 
@@ -148,7 +146,7 @@
 }
 
 .against {
-  background-color: #d63031; /* Red background */
+  background-color: #f32e2e; /* Red background */
   border: 1.5px solid white; /* Red border */
   box-shadow: 0 4px 6px rgba(214, 48, 49, 0.3); /* Red shadow */
   color: #ffffff; /* White text */
@@ -229,10 +227,10 @@
 }
 
 .active {
-  box-shadow: 0px 8px 20px rgba(0, 255, 208, 0.208);
+  box-shadow: 0px 8px 20px rgba(0, 255, 208, 0.300);
   background: linear-gradient(
     180deg,
-    rgba(0, 255, 208, 0.3),
+    rgba(0, 255, 208, 0.4),
     rgba(0, 255, 208, 0.1)
   );
 }
@@ -254,7 +252,7 @@
 .votelist:hover {
   transform: scale(1.01);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-  border-left: 6px solid white;
+  border-left: 4px solid white;
 }
 
 .votes {
@@ -303,11 +301,39 @@
 }
 
 .arbitrumTag {
+  width: 100px;
   padding: 4px 12px;
-  color: #a6ff35;
-  border: 1.3px solid #a6ff35;
+  // color: #a6ff35;
+  // border: 1.3px solid #a6ff35;
   border-radius: 15px;
-  font-size: 13px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Specific styles for each protocol */
+.ens-tag {
+  color: #5AD0F5;
+  border: 1.3px solid #5AD0F5;
+}
+
+.arbitrum-tag {
+  color: #9DCCED;
+  border: 1.3px solid #9DCCED;
+}
+
+.optimism-tag {
+  color: #FF0420;
+  border: 1.3px solid #FF0420;
+}
+
+.uniswap-tag {
+  color: #f42187;
+  border: 1.3px solid #f42187;
+}
+
+.votingCommon {
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .offchain {
@@ -320,8 +346,8 @@
 
 .onchain {
   padding: 4px 12px;
-  color: pink;
-  border: 1.3px solid pink;
+  color: rgb(245, 175, 45);
+  border: 1.3px solid rgb(251, 173, 28);
   border-radius: 15px;
   font-size: 13px;
 }
@@ -393,7 +419,7 @@
 .voter {
   border-radius: 20px;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.057);
+  background-color: rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -434,6 +460,9 @@
   font-size: 14px;
   text-align: justify;
   margin-top: 15px;
+  border: 1.19px solid white;
+  padding: 16px;
+  border-radius: 9px;
 }
 
 .delegateNow {
