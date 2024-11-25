@@ -197,31 +197,35 @@ const VoteSection = () => {
   // Content processing function
   const processForumContent = (content) => {
     const baseUrl = "https://forum.arbitrum.foundation";
-
+  
     // Replace relative URLs with absolute URLs
     const updatedContent = content.replace(
       /href="\/(?!\/)/g, // Match hrefs that start with a single "/"
       `href="${baseUrl}/`
     );
-
+  
     // Ensure all anchor tags open in a new tab with security attributes
     const updatedLinks = updatedContent.replace(
       /<a\b([^>]*?)>/g, // Match all anchor tags
       '<a target="_blank" rel="noopener noreferrer" $1>'
     );
-
+  
     // Remove HTML tags for images
     const contentWithoutImages = updatedLinks.replace(/<img[^>]*>/g, "");
-
-    // Wrap blockquotes with a special class
-    const processedContent = contentWithoutImages
-      .replace(
-        /<blockquote>/g,
-        `<div class="${styles.quotedText}"><blockquote>`
-      )
-      .replace(/<\/blockquote>/g, "</blockquote></div>");
-
-    return processedContent;
+  
+    // Process blockquotes with username
+    const processedContent = contentWithoutImages.replace(
+      /<aside[^>]*data-username="([^"]*)"[^>]*>.*?<blockquote>/gs,
+      (match, username) => `<div class="${styles.quotedText}"><blockquote><span class="${styles.quoteUsername}">${username}:</span><br/>`
+    );
+  
+    // Clean up closing tags
+    const finalContent = processedContent.replace(
+      /<\/blockquote><\/aside>/g,
+      '</blockquote></div>'
+    );
+  
+    return finalContent;
   };
 
   // const filteredProposals =
@@ -402,7 +406,7 @@ const VoteSection = () => {
                       <div className={styles.profilecontent}>
                         <div>{proposal.voter.name}</div>
                         <div className={styles.dateline}>
-                          Vote{" "}
+                          Voted{" "}
                           <span
                             className={`${styles.r2} ${
                               proposal.result === "For"
