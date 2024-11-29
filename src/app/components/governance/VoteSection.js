@@ -355,9 +355,9 @@ const VoteSection = () => {
                     </span>
                     <span
                       className={` ${styles.votingCommon} ${
-                        proposal.type === "Offchain Voting"
-                          ? styles.offchain
-                          : styles.onchain
+                        proposal.type === "On-chain Voting"
+                          ? styles.onchain
+                          : styles.offchain
                       }`}
                     >
                       {proposal.type}

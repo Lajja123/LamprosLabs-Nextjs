@@ -222,7 +222,7 @@ export async function GET(request) {
       return {
         id: id.replace(/-/g, ""),
         votingType:
-          originalIndex % 2 === 0 ? "Offchain Voting" : "Onchain Voting",
+          originalIndex % 2 === 0 ? "On-chain Voting" : "Off-chain Voting",
       };
     });
 
