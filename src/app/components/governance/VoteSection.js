@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState, useCallback, useMemo } from "react";
-import { MdExpandLess, MdOutlineExpandMore } from "react-icons/md";
+import React, { useEffect, useState, useCallback } from "react";
+import { MdExpandLess, MdOutlineExpandMore, FaExclamationCircle } from "react-icons/md";
 import { ExternalLink } from "lucide-react";
 import styles from "../../styles/vote.module.scss";
 import Image from "next/image";
@@ -12,6 +12,8 @@ const VoteSection = () => {
   const [selectedProtocol, setSelectedProtocol] = useState(null);
   const [proposals, setProposals] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [noData, setNoData] = useState(false);
+  const [error, setError] = useState(null);
 
   const protocols = [
     {
@@ -25,6 +27,12 @@ const VoteSection = () => {
       value: "optimism",
       icon: "/governance/optimism.svg",
       link: "https://vote.optimism.io/delegates/lamprosdao.eth",
+    },
+    {
+      name: "Superfluid", // Changed to proper display name
+      value: "superfluid",
+      icon: "/governance/superfluid_green.svg",
+      link: "https://forum.superfluid.org/t/lampros-dao-delegate-thread/266",
     },
     // {
     //   name: "Uniswap", // Changed to proper display name
@@ -101,6 +109,8 @@ const VoteSection = () => {
   const fetchProposals = useCallback(async () => {
     try {
       setLoading(true);
+      setNoData(false); // Reset noData state
+      setError(null); // Reset error state
       // Find the protocol object from the protocols array
       const protocolObj = protocols.find((p) => p.name === selectedProtocol);
       // Use the value (lowercase) for API calls
@@ -112,6 +122,10 @@ const VoteSection = () => {
         const validProposals = data.data.filter(
           (proposal) => proposal["Commented By"]
         );
+
+        if (validProposals.length === 0) {
+          setNoData(true); // Set noData if no valid proposals
+        }
 
         const transformedProposals = await Promise.allSettled(
           validProposals.slice(0, 5).map(async (proposal, index) => {
@@ -180,9 +194,15 @@ const VoteSection = () => {
           .map((result) => result.value);
 
         setProposals(successfulProposals);
+      } else {
+        setNoData(true);
       }
     } catch (error) {
       console.error("Failed to fetch proposals:", error);
+      setError(
+        "Something went wrong while fetching proposals. Please try again later."
+      );
+      setProposals([]);
     } finally {
       setLoading(false);
     }
@@ -356,6 +376,36 @@ const VoteSection = () => {
 
       {loading ? (
         <SkeletonLoader /> // Render SkeletonLoader while loading is true
+      ) : error ? (
+        <div className={styles.messageContainer}>
+          {/* <Image
+            src="/governance/error-icon.svg" // Add an error icon to your public folder
+            alt="Error Icon"
+            width={50}
+            height={50}
+            color="#ffffff"
+          /> */}
+          <h3 className={styles.messageTitle}>Oops! Something Went Wrong</h3>
+          <p className={styles.messageText}>{error}</p>
+        </div>
+      ) : noData ? (
+        <div className={styles.messageContainer}>
+          {/* <Image
+            src="/governance/no-data.png" // Add a no-data icon to your public folder
+            alt="No Data Icon"
+            width={40}
+            height={40}
+            color="white"
+          /> */}
+          {/* <FaExclamationCircle className={styles.arrowyellow} /> */}
+
+          <h3 className={styles.messageTitle}>No Votes Available</h3>
+          <p className={styles.messageText}>
+            There are no recent votes to display for{" "}
+            <span className={styles.selectedProtocolName}>{selectedProtocol ?  selectedProtocol : "this selection"}</span> at the
+            moment. Please check back later!
+          </p>
+        </div>
       ) : (
         proposals.map((proposal, index) => (
           <div key={proposal.id} className={styles.votelist}>
@@ -494,8 +544,8 @@ const VoteSection = () => {
           className={styles.btnGovernance}
         >
           <div className={styles.btnSeeMore}>
-          <span>See more</span>
-          <ExternalLink className={styles.linkIcon} />
+            <span>See more</span>
+            <ExternalLink className={styles.linkIcon} />
           </div>
         </a>
       </div>
@@ -519,7 +569,7 @@ const VoteSection = () => {
         </div>
         <div className={styles.btnGovernanceContainer}>
           <Link
-            href="https://app.chora.club/arbitrum/0xa2d590fee197c0b614fe7c3e10303327f38c0dc3?active=info"
+            href="https://app.chora.club/arbitrum/0xf070cd4b5ba73a6b6a939dde513f79862bffcd25?active=info"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
@@ -531,7 +581,10 @@ const VoteSection = () => {
                 width={30}
                 height={40}
               />
-             <span className={styles.textBtn}>Delegate on Arbitrum <ExternalLink className={styles.linkIcon} /></span> 
+              <span className={styles.textBtn}>
+                Delegate on Arbitrum{" "}
+                <ExternalLink className={styles.linkIcon} />
+              </span>
             </button>
           </Link>
           <Link
@@ -543,11 +596,33 @@ const VoteSection = () => {
             <button className={styles.delegateNowButton}>
               <Image
                 src="/governance/optimism.svg"
-                alt="arbitrum logo"
+                alt="optimism logo"
                 width={30}
                 height={40}
               />
-              <span className={styles.textBtn}>Delegate on Optimism <ExternalLink className={styles.linkIcon} /></span>
+              <span className={styles.textBtn}>
+                Delegate on Optimism{" "}
+                <ExternalLink className={styles.linkIcon} />
+              </span>
+            </button>
+          </Link>
+          <Link
+            href="https://claim.superfluid.org/governance"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.link}
+          >
+            <button className={styles.delegateNowButton}>
+              <Image
+                src="/governance/superfluid.svg"
+                alt="superfluid logo"
+                width={30}
+                height={40}
+              />
+              <span className={styles.textBtn}>
+                Delegate on Superfluid{" "}
+                <ExternalLink className={styles.linkIcon} />
+              </span>
             </button>
           </Link>
         </div>

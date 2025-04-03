@@ -45,7 +45,8 @@ const PROTOCOL_PAGE_MAPPING = {
   ens: [
     { id: "NEXT_PUBLIC_NOTION_PAGE_ID7", votingType: "Off-chain Voting" },
     { id: "NEXT_PUBLIC_NOTION_PAGE_ID8", votingType: "On-chain Voting" }
-  ]
+  ],
+  superfluid: []
 };
 
 export async function GET(request) {
