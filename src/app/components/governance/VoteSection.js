@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import { MdExpandLess, MdOutlineExpandMore, FaExclamationCircle } from "react-icons/md";
 import { ExternalLink } from "lucide-react";
 import styles from "../../styles/vote.module.scss";
@@ -14,6 +14,10 @@ const VoteSection = () => {
   const [loading, setLoading] = useState(true);
   const [noData, setNoData] = useState(false);
   const [error, setError] = useState(null);
+
+  // Add a ref to track the latest request ID
+  const latestRequestIdRef = useRef(0);
+  const currentRequestId = useRef(0);
 
   const protocols = [
     {
@@ -107,6 +111,11 @@ const VoteSection = () => {
   };
 
   const fetchProposals = useCallback(async () => {
+    // Increment and capture the current request ID
+    currentRequestId.current += 1;
+    const thisRequestId = currentRequestId.current;
+    latestRequestIdRef.current = thisRequestId;
+
     try {
       setLoading(true);
       setNoData(false); // Reset noData state
@@ -115,8 +124,16 @@ const VoteSection = () => {
       const protocolObj = protocols.find((p) => p.name === selectedProtocol);
       // Use the value (lowercase) for API calls
       const queryString = protocolObj ? `?protocol=${protocolObj.value}` : "";
+      console.log(`Fetching data for ${selectedProtocol || 'all protocols'}, request ID: ${thisRequestId}`);
       const response = await fetch(`/api/notion-proposals${queryString}`);
+      
       const data = await response.json();
+
+      // Check if this is still the latest request
+      if (thisRequestId !== latestRequestIdRef.current) {
+        console.log(`Ignoring stale request ${thisRequestId}, latest is ${latestRequestIdRef.current}`);
+        return; // Discard this response if a newer request has been made
+      }
 
       if (data.success && data.data) {
         const validProposals = data.data.filter(
@@ -162,6 +179,11 @@ const VoteSection = () => {
               }
             }
 
+            // Check again before completing the transformation
+            if (thisRequestId !== latestRequestIdRef.current) {
+              return { cancelled: true }; // Mark as cancelled
+            }
+
             return {
               id: index + 1,
               protocol: protocol, // This will now be properly capitalized
@@ -189,30 +211,51 @@ const VoteSection = () => {
           })
         );
 
-        const successfulProposals = transformedProposals
-          .filter((result) => result.status === "fulfilled")
-          .map((result) => result.value);
+        // Check one final time before updating state
+        if (thisRequestId !== latestRequestIdRef.current) {
+          console.log(`Aborting state update for request ${thisRequestId}`);
+          return;
+        }
 
-        setProposals(successfulProposals);
+        const successfulProposals = transformedProposals
+        .filter((result) => result.status === "fulfilled" && !result.value.cancelled)
+        .map((result) => result.value);
+
+      setProposals(successfulProposals);
       } else {
         setNoData(true);
       }
     } catch (error) {
-      console.error("Failed to fetch proposals:", error);
-      setError(
-        "Something went wrong while fetching proposals. Please try again later."
-      );
-      setProposals([]);
+      console.error(`Error in request ${thisRequestId}:`, error);
+      
+      // Only update error state if this is still the latest request
+      if (thisRequestId === latestRequestIdRef.current) {
+        setError(
+          "Something went wrong while fetching proposals. Please try again later."
+        );
+        setProposals([]);
+      }
     } finally {
-      setLoading(false);
+      // Only update loading state if this is still the latest request
+      if (thisRequestId === latestRequestIdRef.current) {
+        setLoading(false);
+      }
     }
-  }, [selectedProtocol]);
+  }, [selectedProtocol]); 
+
+  // Update the protocol selection handler
+  const handleProtocolSelection = (protocol) => {
+    setExpandedItem(null);
+    const newSelection = selectedProtocol === protocol.name ? null : protocol.name;
+    console.log(`Protocol selected: ${newSelection || 'none'}`);
+    setSelectedProtocol(newSelection);
+  };
 
   // Update useEffect to reset the expanded item when protocol changes
   useEffect(() => {
     setExpandedItem(null); // Reset expanded item when protocol changes
     fetchProposals();
-  }, [fetchProposals, selectedProtocol]);
+  }, [fetchProposals]);
 
   // Content processing function
   const processForumContent = (content) => {
@@ -353,11 +396,7 @@ const VoteSection = () => {
           {protocols.map((protocol) => (
             <button
               key={protocol.name}
-              onClick={() =>
-                setSelectedProtocol(
-                  selectedProtocol === protocol.name ? null : protocol.name
-                )
-              }
+              onClick={() => handleProtocolSelection(protocol)}
               className={`${styles.protocolButton} ${
                 selectedProtocol === protocol.name ? styles.active : ""
               }`}

@@ -60,7 +60,7 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     let selectedProtocol = searchParams.get("protocol")?.toLowerCase(); // Convert to lowercase
-    console.log(selectedProtocol);
+    console.log("selected protocol is:::", selectedProtocol);
 
     // Validate the protocol
     if (selectedProtocol && !PROTOCOL_PAGE_MAPPING[selectedProtocol]) {
@@ -84,7 +84,8 @@ export async function GET(request) {
         ...PROTOCOL_PAGE_MAPPING.arbitrum.map((item) => process.env[item.id]),
         ...PROTOCOL_PAGE_MAPPING.optimism.map((item) => process.env[item.id]),
         ...PROTOCOL_PAGE_MAPPING.uniswap.map((item) => process.env[item.id]),
-        ...PROTOCOL_PAGE_MAPPING.ens.map((item) => process.env[item.id])
+        ...PROTOCOL_PAGE_MAPPING.ens.map((item) => process.env[item.id]),
+        // ...PROTOCOL_PAGE_MAPPING.superfluid.map((item) => process.env[item.id])
       ];
     }
 
@@ -114,10 +115,14 @@ export async function GET(request) {
       const protocol = Object.keys(PROTOCOL_PAGE_MAPPING).find(proto => 
         PROTOCOL_PAGE_MAPPING[proto].some(item => process.env[item.id] === id)
       );
+
+      // console.log("inside fPI", protocol);
     
       const votingType = protocol 
         ? PROTOCOL_PAGE_MAPPING[protocol].find(item => process.env[item.id] === id).votingType
         : (index % 2 === 0 ? "Off-chain Voting" : "On-chain Voting");
+
+      // console.log("voting type", votingType);
     
       return {
         id: id.replace(/-/g, ""),
@@ -134,10 +139,10 @@ export async function GET(request) {
           database_id: id,
         });
 
-        // console.log(`Debug - Database ${id} (${votingType}):`, {
-        //   resultsCount: results.length,
-        //   firstResult: results[0] // Log the first result if exists
-        // });
+        console.log(`Debug - Database ${id} (${votingType}):`, {
+          resultsCount: results.length,
+          firstResult: results[0] // Log the first result if exists
+        });
 
         // Transform each result to extract plain text and add voting type
         return results.map((result) => {
@@ -177,7 +182,7 @@ export async function GET(request) {
       return dateB - dateA;
     });
 
-    // console.log(sortedRecords);
+    // console.log("sortedData", sortedRecords);
 
     return new Response(
       JSON.stringify({
