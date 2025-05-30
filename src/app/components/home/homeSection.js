@@ -40,11 +40,11 @@ function homeSection() {
 
   return (
     <div>
-      <ScrollBtn
+      {/* <ScrollBtn
         section1Ref={section1Ref}
         section2Ref={section2Ref}
         section3Ref={section3Ref}
-      />
+      /> */}
 
       <section
         className={homeStyle.homepageSecion1Main}
@@ -69,7 +69,7 @@ function homeSection() {
           </div>
         </div>
       </section>
-      <section
+      {/* <section
         className={homeStyle.homepageSecion2Main}
         ref={section2Ref}
         smooth={true}
@@ -132,8 +132,8 @@ function homeSection() {
             </Link>
           </Fade>
         </div>
-      </section>
-      <section
+      </section> */}
+      {/* <section
         className={homeStyle.homepageSecion3MainTemplate}
         ref={section3Ref}
         smooth={true}
@@ -143,11 +143,11 @@ function homeSection() {
           <div className={activeIndex === 0 ? "slick-active" : ""}>
             <div className={homeStyle.section3Card}>
               <h1 className={homeStyle.section3CardTitle}>
-              Our Journey & Impact
+                Our Journey & Impact
               </h1>
 
               <p className={homeStyle.section3CardDesc}>
-              From leading research projects to becoming an Active Delegate in DAOs, Lampros DAO has played a vital role in Web3 governance.
+                From leading research projects to becoming an Active Delegate in DAOs, Lampros DAO has played a vital role in Web3 governance.
               </p>
               <Link href="/about-us">
                 <button
@@ -167,7 +167,7 @@ function homeSection() {
               <h1 className={homeStyle.section3CardTitle}>Governance & Research</h1>
 
               <p className={homeStyle.section3CardDesc}>
-              Driving decentralized governance through research, proposal discussions, and active participation in Arbitrum DAO and Optimism Collective.
+                Driving decentralized governance through research, proposal discussions, and active participation in Arbitrum DAO and Optimism Collective.
               </p>
               <Link href="/governance">
                 <button
@@ -185,11 +185,11 @@ function homeSection() {
           <div className={activeIndex === 2 ? "slick-active" : ""}>
             <div className={homeStyle.section3Card}>
               <h1 className={homeStyle.section3CardTitle}>
-              Workshops & Education
+                Workshops & Education
               </h1>
 
               <p className={homeStyle.section3CardDesc}>
-              Empowering Web3 contributors through workshops, seminars, and hackathons. Learn, build, and engage with DAOs like Arbitrum & Optimism.
+                Empowering Web3 contributors through workshops, seminars, and hackathons. Learn, build, and engage with DAOs like Arbitrum & Optimism.
               </p>
               <Link href="/arbitrum">
                 <button
@@ -205,16 +205,16 @@ function homeSection() {
             </div>
           </div>
         </Slider>
-      </section>
-      <section className={homeStyle.homepageSecion4Main}>
+      </section> */}
+      {/* <section className={homeStyle.homepageSecion4Main}>
         <Fade bottom duration={1000} distance="2px">
           <h1 className={homeStyle.sectio4Title}>FAQS</h1>
         </Fade>
         <div className={homeStyle.faqAccordionMain}>
-          
+
           <FAQs />
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

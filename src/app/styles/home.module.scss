@@ -18,18 +18,16 @@
   position: relative;
 }
 .section1BgImg {
-  width: 731px;
-  height: 600px;
-  transform: rotate(50deg);
-  /* Set animation properties */
+  width: 750px;
+  height: auto;
+  transform: rotate(0deg);
   animation: rotateAnimation 100s infinite linear;
 }
 @keyframes rotateAnimation {
-  /* Set the rotation angles */
-  0% {
-    transform: rotate(50deg);
+  from {
+    transform: rotate(0deg);
   }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
@@ -38,9 +36,11 @@
   width: 90%;
   min-width: 900px;
   position: absolute;
-  top: 25%;
+  top: 30%;
   right: 0;
-  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   left: 0px;
 }
 .section1Heading {
@@ -48,7 +48,6 @@
   font-weight: 400;
   //  font-family: "Josefin Sans";
   font-size: 60px;
-  line-height: 174.52%;
   margin: 0px;
   text-align: center;
   letter-spacing: 0.4em;
@@ -61,7 +60,6 @@
   font-size: 1.5rem;
   letter-spacing: 2px;
   margin: 0 auto;
-  padding: 20px 150px;
   line-height: 140%;
 }
 .colorChangeText {
@@ -380,7 +378,6 @@
     font-size: 1.3rem;
     letter-spacing: 2px;
     margin: 0 auto;
-    padding: 20px 150px;
     line-height: 140%;
   }
   #section1Button {
@@ -436,7 +433,6 @@
   }
   .section1PositionMain {
     margin: 0 auto;
-    height: 35vh;
     top: 25%;
     min-width: 800px;
   }
@@ -557,7 +553,6 @@
   .section1PositionMain {
     min-width: 500px;
     padding-left: 0px !important;
-    height: 27vh;
     top: 20%;
   }
   .homepageSecion2Main {
@@ -611,7 +606,6 @@
     font-size: 1.8rem;
     font-weight: 500;
     letter-spacing: 10px;
-    line-height: 7vh;
   }
   .section2Pera {
     font-size: 17px;
@@ -763,7 +757,6 @@
     font-size: 1.1rem;
     letter-spacing: 2px;
     margin: 0 auto;
-    padding: 20px 100px;
     line-height: 150%;
   }
   .hideForWeb {
@@ -783,7 +776,6 @@
     font-size: 1.5rem;
     font-weight: 500;
     letter-spacing: 9px;
-    line-height: 6vh;
   }
   .homepageSecion1Main {
     width: 100%;
@@ -810,7 +802,6 @@
     font-size: 15px;
     letter-spacing: 1px;
     margin: 0 auto;
-    padding: 15px 40px;
     line-height: 150%;
   }
   .section1BgImg {
@@ -836,7 +827,6 @@
   .section1PositionMain {
     min-width: 400px;
     padding-left: 0px !important;
-    height: 24vh;
     top: 20%;
   }
   .section2Img {
@@ -1033,7 +1023,6 @@
     letter-spacing: 1px;
     /* width: 200px; */
     margin: 0 auto;
-    padding: 10px 20px;
     line-height: 150%;
   }
   .homepageSecion1Main {
@@ -1055,7 +1044,6 @@
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 4px;
-    line-height: 4.5vh;
   }
   #section1Button {
     font-size: 10px;
@@ -1069,7 +1057,9 @@
   .section1PositionMain {
     min-width: 200px;
     padding-left: 0px !important;
-    height: 26vh;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
     top: 22% !important;
   }
 
