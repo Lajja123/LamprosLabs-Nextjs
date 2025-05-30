@@ -2,7 +2,6 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import "../styles/navbar.css";
-// import logo from "../assets/images/logo.png";
 import logo from "../../../public/mainLogo.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -41,7 +40,7 @@ function Navbar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg " ref={navbarRef}>
-        <a className="navbar-brand navbar-logo" href="/">
+        <a className=" navbar-logo" href="/">
           <Image src={logo} className="logo-img" alt="" />
         </a>
         <button
@@ -74,9 +73,8 @@ function Navbar() {
               </Link>
             </li>
             <li
-              className={`nav-item   ${
-                pathname == "/about-us" ? "active" : ""
-              }`}
+              className={`nav-item   ${pathname == "/about-us" ? "active" : ""
+                }`}
             >
               <Link
                 className="nav-link "
@@ -87,9 +85,8 @@ function Navbar() {
               </Link>
             </li>
             <li
-              className={`nav-item  ${
-                pathname == "/governance" ? "active" : ""
-              }`}
+              className={`nav-item  ${pathname == "/governance" ? "active" : ""
+                }`}
             >
               <Link
                 className="nav-link"
@@ -101,9 +98,8 @@ function Navbar() {
             </li>
 
             <li
-              className={`nav-item  ${
-                pathname == "/contributions" ? "active" : ""
-              }`}
+              className={`nav-item  ${pathname == "/contributions" ? "active" : ""
+                }`}
             >
               <Link
                 className="nav-link"
