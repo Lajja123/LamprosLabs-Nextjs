@@ -34,7 +34,6 @@
 .section1PositionMain {
   margin: 0 auto;
   width: 90%;
-  min-width: 900px;
   position: absolute;
   top: 30%;
   right: 0;
@@ -190,11 +189,22 @@
   padding-top: 150px;
   padding-bottom: 50px;
   overflow: hidden;
+  width: 100%;
 }
+
+.slickslider {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .section3Card {
-  width: 645px !important;
+  width: 100% !important;
+  max-width: 645px;
   padding: 50px;
-  height: 400px;
+  height: auto;
+  min-height: 400px;
   display: flex !important;
   margin: 0 auto;
   align-items: center;
@@ -203,59 +213,35 @@
   flex-shrink: 0;
   border-radius: 45px;
   background: linear-gradient(117deg, #fcffff 1.47%, #a3ffff 98.65%);
-  // box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.17);
+  transition: all 0.3s ease;
 }
 
-.homepageSecion3MainTemplate .rec .rec-pagination {
-  box-sizing: border-box;
-  padding: 0px;
-  transition: all 250ms ease 0s;
-  border: none;
-  margin: 5px;
-  background-color: rgb(255 255 255) !important;
-  font-size: 1.3em;
-  content: "";
-  display: none !important;
-  height: 10px;
-  width: 10px;
-  box-shadow: rgb(0 6 255) 0px 0px 1px 3px !important;
-  border-radius: 50%;
-  outline: none;
-}
-.homepageSecion3MainTemplate .rec.rec-arrow {
-  background-color: #00ffff !important;
-}
-.rec.rec-arrow:hover {
-  background: none !important;
-}
-.hhomepageSecion3MainTemplate .rec-carousel {
-  width: 75% !important;
-  margin: 80px 0px 50px 0px;
-}
 .section3CardTitle {
   color: #0a11b5;
   text-align: center;
-  //  font-family: "Josefin Sans";
   font-size: 36px;
   font-style: normal;
   font-weight: 600;
-  line-height: 174.523%; /* 62.828px */
+  line-height: 1.4;
   letter-spacing: 0.9px;
-  // width: 409.922px;
   flex-shrink: 0;
   text-transform: uppercase;
   margin: 0 auto;
+  width: 100%;
 }
+
 .section3CardDesc {
   color: #060028;
   text-align: center;
-  //  font-family: "Josefin Sans";
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
-  line-height: 168.023%;
+  line-height: 1.6;
   letter-spacing: 1.36px;
+  width: 100%;
+  margin: 20px 0;
 }
+
 .section3CardButton {
   border-radius: 48px;
   background: #0ff;
@@ -266,12 +252,131 @@
   border: none;
   color: #000;
   text-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
-  //  font-family: "Josefin Sans";
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
   line-height: 154.023%;
   letter-spacing: 4.72px;
+  transition: all 0.3s ease;
+  
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 1440px) {
+  .section3Card {
+    max-width: 600px;
+    padding: 40px;
+  }
+  
+  .section3CardTitle {
+    font-size: 32px;
+  }
+  
+  .section3CardDesc {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .homepageSecion3MainTemplate {
+    padding-top: 100px;
+  }
+
+  .section3Card {
+    max-width: 500px;
+    padding: 35px;
+    min-height: 350px;
+  }
+
+  .section3CardTitle {
+    font-size: 28px;
+    letter-spacing: 0.7px;
+  }
+
+  .section3CardDesc {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+  }
+
+  .section3CardButton {
+    width: 180px;
+    height: 50px;
+    font-size: 11px;
+    letter-spacing: 4px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .homepageSecion3MainTemplate {
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+
+  .section3Card {
+    max-width: 400px;
+    padding: 30px;
+    min-height: 300px;
+  }
+
+  .section3CardTitle {
+    font-size: 24px;
+    letter-spacing: 0.6px;
+    margin-bottom: 10px;
+  }
+
+  .section3CardDesc {
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 0.8px;
+    margin: 15px 0;
+  }
+
+  .section3CardButton {
+    width: 160px;
+    height: 45px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .homepageSecion3MainTemplate {
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+
+  .slickslider {
+    padding: 0 10px;
+  }
+
+  .section3Card {
+    max-width: 300px;
+    padding: 25px;
+    min-height: 250px;
+    border-radius: 30px;
+  }
+
+  .section3CardTitle {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .section3CardDesc {
+    font-size: 12px;
+    line-height: 1.3;
+    letter-spacing: 0.6px;
+    margin: 10px 0;
+  }
+
+  .section3CardButton {
+    width: 140px;
+    height: 40px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+  }
 }
 
 .homepageSecion4Main {
@@ -424,7 +529,7 @@
   }
   .section1BgImg {
     width: 500px;
-    height: 425px;
+    height: auto;
   }
   .section1Heading {
     font-size: 37px;
@@ -434,7 +539,6 @@
   .section1PositionMain {
     margin: 0 auto;
     top: 25%;
-    min-width: 800px;
   }
   .section2Img {
     width: 433px;
@@ -463,7 +567,7 @@
   }
   .section3Card {
     padding: 40px 50px;
-    width: 600px !important;
+    // width: 600px !important;
     height: 370px;
   }
   #carouselExampleControls {
@@ -475,9 +579,9 @@
     font-weight: 400;
   }
   .section3CardDesc {
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px 0px;
-    width: 80%;
+   
     line-height: 25px;
     letter-spacing: 2px;
     margin: 0;
@@ -551,7 +655,6 @@
 }
 @media only screen and (max-width: 768px) {
   .section1PositionMain {
-    min-width: 500px;
     padding-left: 0px !important;
     top: 20%;
   }
@@ -595,11 +698,10 @@
   }
   .section1BgImg {
     width: 400px;
-    height: 340px;
+    height: auto;
   }
   .section1BgImgMain {
     width: 100%;
-    min-width: 300px;
     /* position: relative; */
   }
   .section1Heading {
@@ -661,7 +763,7 @@
   }
   .section3Card {
     padding: 30px 30px;
-    width: 435px !important;
+    // width: 435px !important;
     height: 300px;
     display: flex;
     align-items: center;
@@ -698,7 +800,6 @@
     letter-spacing: 0.2rem;
     color: #1a0f5e;
     padding: 15px 20px;
-    margin-top: 20px;
     width: 165px;
     height: 45px;
   }
@@ -806,7 +907,7 @@
   }
   .section1BgImg {
     width: 320px;
-    height: 280px;
+    height: auto;
   }
   .colorChangeText {
     color: #07006a;
@@ -825,8 +926,6 @@
     align-items: center;
   }
   .section1PositionMain {
-    min-width: 400px;
-    padding-left: 0px !important;
     top: 20%;
   }
   .section2Img {
@@ -840,7 +939,7 @@
   }
   .section3Card {
     padding: 30px 30px;
-    width: 300px !important;
+    // width: 300px !important;
     height: 244px;
     display: flex;
     align-items: center;
@@ -894,7 +993,6 @@
     letter-spacing: 0.2rem;
     color: #1a0f5e;
     padding: 15px 20px;
-    margin-top: 20px;
     width: 165px;
     height: 39px;
   }
@@ -1055,7 +1153,6 @@
     height: 35px;
   }
   .section1PositionMain {
-    min-width: 200px;
     padding-left: 0px !important;
     display: flex;
     flex-direction: column;
@@ -1082,7 +1179,7 @@
   }
   .section2Pera1 {
     font-size: 13px;
-    line-height: 3vh;
+    line-height: 150%;
     width: 100%;
     color: #fff;
     text-align: left;
@@ -1090,7 +1187,7 @@
   }
   .homeMlPera1 {
     font-size: 13px;
-    line-height: 3vh;
+    line-height: 150%;
     text-align: left;
     margin: 20px 0px;
     width: 100%;
@@ -1191,7 +1288,7 @@
   }
   .section3Card {
     padding: 30px 30px;
-    width: 300px !important;
+    // width: 300px !important;
     height: 250px;
     display: flex;
     align-items: center;
@@ -1268,8 +1365,8 @@
     margin-bottom: 0;
   }
   .section1BgImg {
-    width: 300px;
-    height: 255px;
+    width: 250px;
+    height: auto;
   }
   .homepageSecion3MainTemplateMobile {
     width: 100%;
@@ -1296,5 +1393,11 @@
   }
   .lmplabHomepageMainBg{
     padding: 50px 0px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .section1BgImgMain {
+    width: 100%;
+    min-width: 200px;
   }
 }

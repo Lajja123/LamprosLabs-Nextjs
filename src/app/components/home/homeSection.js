@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 import FAQ from "../faq/faq";
 import FAQs from "../faqApi/faqApi";
 import Slider from "react-slick";
+import HomeSlider from "./HomeSlider";
 
 function homeSection() {
   const section1Ref = useRef(null);
@@ -69,7 +70,7 @@ function homeSection() {
           </div>
         </div>
       </section>
-      {/* <section
+      <section
         className={homeStyle.homepageSecion2Main}
         ref={section2Ref}
         smooth={true}
@@ -132,80 +133,15 @@ function homeSection() {
             </Link>
           </Fade>
         </div>
-      </section> */}
-      {/* <section
+      </section>
+      <section
         className={homeStyle.homepageSecion3MainTemplate}
         ref={section3Ref}
         smooth={true}
         duration={600}
       >
-        <Slider {...slickSettings} className={homeStyle.slickslider}>
-          <div className={activeIndex === 0 ? "slick-active" : ""}>
-            <div className={homeStyle.section3Card}>
-              <h1 className={homeStyle.section3CardTitle}>
-                Our Journey & Impact
-              </h1>
-
-              <p className={homeStyle.section3CardDesc}>
-                From leading research projects to becoming an Active Delegate in DAOs, Lampros DAO has played a vital role in Web3 governance.
-              </p>
-              <Link href="/about-us">
-                <button
-                  className={homeStyle.section3CardButton}
-                  id={homeStyle.button7}
-                >
-                  <div id={homeStyle.dubArrow}>
-                    <Image src={arrow} />
-                  </div>
-                  Know more
-                </button>
-              </Link>
-            </div>
-          </div>
-          <div className={activeIndex === 1 ? "slick-active" : ""}>
-            <div className={homeStyle.section3Card}>
-              <h1 className={homeStyle.section3CardTitle}>Governance & Research</h1>
-
-              <p className={homeStyle.section3CardDesc}>
-                Driving decentralized governance through research, proposal discussions, and active participation in Arbitrum DAO and Optimism Collective.
-              </p>
-              <Link href="/governance">
-                <button
-                  className={homeStyle.section3CardButton}
-                  id={homeStyle.button7}
-                >
-                  <div id={homeStyle.dubArrow}>
-                    <Image src={arrow} alt="" />
-                  </div>
-                  Join Us
-                </button>
-              </Link>
-            </div>
-          </div>
-          <div className={activeIndex === 2 ? "slick-active" : ""}>
-            <div className={homeStyle.section3Card}>
-              <h1 className={homeStyle.section3CardTitle}>
-                Workshops & Education
-              </h1>
-
-              <p className={homeStyle.section3CardDesc}>
-                Empowering Web3 contributors through workshops, seminars, and hackathons. Learn, build, and engage with DAOs like Arbitrum & Optimism.
-              </p>
-              <Link href="/arbitrum">
-                <button
-                  className={homeStyle.section3CardButton}
-                  id={homeStyle.button7}
-                >
-                  <div id={homeStyle.dubArrow}>
-                    <Image src={arrow} alt="" />
-                  </div>
-                  Know more
-                </button>
-              </Link>
-            </div>
-          </div>
-        </Slider>
-      </section> */}
+        <HomeSlider />
+      </section>
       {/* <section className={homeStyle.homepageSecion4Main}>
         <Fade bottom duration={1000} distance="2px">
           <h1 className={homeStyle.sectio4Title}>FAQS</h1>
