@@ -142,7 +142,7 @@ function homeSection() {
       >
         <HomeSlider />
       </section>
-      {/* <section className={homeStyle.homepageSecion4Main}>
+      <section className={homeStyle.homepageSecion4Main}>
         <Fade bottom duration={1000} distance="2px">
           <h1 className={homeStyle.sectio4Title}>FAQS</h1>
         </Fade>
@@ -150,7 +150,7 @@ function homeSection() {
 
           <FAQs />
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }
