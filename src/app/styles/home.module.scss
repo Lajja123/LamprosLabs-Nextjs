@@ -672,7 +672,7 @@
     position: absolute;
     left: 55%;
     height: fit-content;
-    top: -10%;
+    top: 0;
     min-width: 250px;
   }
   .homepageSecion1Main {
@@ -681,7 +681,7 @@
   }
   .homeMlPera {
     font-size: 17px;
-    line-height: 4vh;
+    line-height: 3vh;
     text-align: left;
     width: 100%;
     margin: 10px 0px;
@@ -711,7 +711,7 @@
   }
   .section2Pera {
     font-size: 17px;
-    line-height: 4vh;
+    line-height: 3vh;
     width: 55%;
     margin: 0px;
     text-align: left;
@@ -964,7 +964,7 @@
     flex-shrink: 0;
   }
   .section2Pera1 {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 130%;
     width: 100%;
     color: #fff;
@@ -980,7 +980,7 @@
     letter-spacing: 1px;
   }
   .homeMlPera1 {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 130%;
     width: 100%;
     color: #fff;
@@ -1021,7 +1021,7 @@
   .accordionQue {
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+ 
     line-height: 130.02%;
     color: #1a0f5e;
 
@@ -1066,7 +1066,7 @@
     display: block !important;
   }
   .section3CardDesc {
-    font-size: 10px;
+    font-size: 13px;
     padding: 6px 0px;
     width: 100%;
     letter-spacing: 1px;
@@ -1074,12 +1074,12 @@
   }
   .section3CardTitle {
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 600;
     width: 100%;
   }
   .section3CardButton {
-    margin: 0px;
+    margin-top: 10px;
   }
 
   .cursor {
@@ -1262,7 +1262,7 @@
   }
 
   .section3CardDesc {
-    font-size: 10px;
+    font-size: 13px;
     text-align: center;
     padding: 0px 0px;
     width: 100%;
@@ -1271,7 +1271,7 @@
   }
   .section3CardTitle {
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 15px;
     text-align: center;
     font-weight: 600;
     line-height: 20px;
