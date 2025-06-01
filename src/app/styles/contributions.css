@@ -3,6 +3,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   padding-top: 100px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .bgimage {
@@ -12,9 +14,8 @@
   z-index: 1;
   width: 40%;
   max-width: 580px;
-  height: max-content;
+  height: auto;
   animation: bounce 4s infinite ease-in-out;
-  z-index: 1;
 }
 
 .img {
@@ -33,7 +34,6 @@
 }
 
 .content-wrapper-contribution {
-  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,17 +50,10 @@
   box-shadow: 0px 4px 178px 0px rgba(255, 255, 255, 0.09) inset;
   backdrop-filter: blur(16px);
   width: 70%;
+  margin: 0 auto;
+  padding: 3rem;
   position: relative;
   z-index: 40;
-  flex-shrink: 0;
-  margin: auto;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  height: fit-content;
 }
 
 .contriHeading {
@@ -68,13 +61,23 @@
   text-align: center;
   text-shadow: 0px 4px 36px rgba(0, 0, 0, 0.53);
   font-size: 3.3rem;
-  font-style: normal;
   font-weight: 500;
   letter-spacing: 12px;
   text-transform: uppercase;
   margin: 30px auto;
   animation: slideIn 1.2s ease-in-out;
-  position: relative;
+}
+
+.contributions-description {
+  max-width: 800px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 4rem;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0 20px;
+  animation: fadeIn 1s ease-in-out;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .tab-container {
@@ -132,10 +135,6 @@
   z-index: 2;
 }
 
-/* .tab-button:hover:not(.active) {
-  background: rgba(0, 0, 0, 0.5);
-} */
-
 .tab-button::before {
   content: "";
   position: absolute;
@@ -150,10 +149,6 @@
   border-radius: 8px;
 }
 
-.tab-button.active::before {
-  opacity: 1;
-}
-
 .tab-button.active {
   color: black; /* Ensures text remains visible */
   font-weight: 500;
@@ -161,56 +156,66 @@
 
 .btnText {
   /* font-size: 18px;
-  margin-top: 2.5px; */
+       margin-top: 2.5px; */
   margin-top: 3px;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
-.contriHeading::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 3px;
-  background: linear-gradient(90deg, #a6ff35 0%, #00ffff 100%);
-  border-radius: 2px;
+@media (max-width: 1200px) {
+  .content-wrapper-contribution {
+    width: 85%;
+    padding: 2.5rem;
+  }
 }
 
-.contributions-description {
-  max-width: 800px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 4rem;
-  font-size: 1.2rem;
-  text-align: center;
-  padding: 0 20px;
-  animation: fadeIn 1s ease-in-out;
-  position: relative;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-  .contributions-heading {
+  .content-wrapper-contribution {
+    width: 90%;
+    padding: 2rem;
+  }
+
+  .contriHeading {
     font-size: 2.5rem;
+    letter-spacing: 8px;
   }
 
   .contributions-description {
     font-size: 1rem;
     padding: 0 1rem;
   }
+
+  .bgimage {
+    width: 30%;
+    max-width: 400px;
+  }
 }
 
 @media (max-width: 480px) {
-  .contributions-heading {
-    font-size: 2rem;
+  .content-wrapper-contribution {
+    width: 100%;
+    padding: 1.5rem;
   }
 
-  .tab-button {
-    padding: 0.5rem 1.5rem;
+  .contriHeading {
+    font-size: 2rem;
+    letter-spacing: 6px;
+  }
+
+  .contributions-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .bgimage {
+    display: none; /* Hide decorative image on small screens */
+  }
+}
+
+/* For very large screens */
+@media (min-width: 1400px) {
+  .content-wrapper-contribution {
+    max-width: 1200px;
   }
 }
 
@@ -242,40 +247,5 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-/* Enhanced responsive design */
-@media (max-width: 768px) {
-  .contriHeading {
-    font-size: 3rem;
-    letter-spacing: 8px;
-  }
-
-  .contributions-description {
-    font-size: 1.1rem;
-    padding: 0 1.5rem;
-  }
-
-  .tab-container {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .tab-button {
-    padding: 0.8rem 2rem;
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .contriHeading {
-    font-size: 2.5rem;
-    letter-spacing: 6px;
-  }
-
-  .contributions-description {
-    font-size: 1rem;
-    line-height: 1.6;
   }
 }
