@@ -1,6 +1,7 @@
 .footerMain {
   padding: 30px 10px;
   background-color: #181443;
+  width: 100%;
 }
 .footerLink {
   text-align: center;
@@ -13,22 +14,30 @@
   text-decoration: none !important;
   letter-spacing: 1px;
   text-transform: uppercase;
-}
-.footerLink :hover {
-  color: #ffffff !important;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: #A6FF55 !important;
+  }
 }
 .footerFlex1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  width: 75%;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .footerLogo {
   width: 240px;
   height: auto;
   cursor: pointer;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 .footerCopyright {
   margin: 0 auto;
@@ -38,36 +47,45 @@
   line-height: 154.02%;
   letter-spacing: 1px;
   color: #ffffff;
+  text-align: center;
+  padding: 0 15px;
 }
 .footerIcon {
   width: 60px;
   height: 60px;
   padding: 10px;
   cursor: pointer;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 .footerIconMain {
-  width: 25%;
+  width: 100%;
+  max-width: 800px;
   display: flex;
-  margin: 0px auto;
+  margin: 0 auto;
   align-items: center;
-  padding: 20px 0px;
+  padding: 20px 0;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .footerNavbar {
-  // width: 50%;
-  gap: 50px;
-  text-align: end;
   display: flex;
   align-items: center;
+  gap: 30px;
   background: none !important;
   box-shadow: none !important;
-  border-radius: 0px 0px 0px 85px;
-  justify-content: space-between;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 .footerBorder {
   border-bottom: 1px solid #63beca;
-  width: 75%;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .footerLogoMain {
@@ -76,62 +94,49 @@
 /* ......................responsive design ..................... */
 @media only screen and (max-width: 1024px) {
   .footerFlex1 {
-    display: flex;
-    height: 80px;
-    width: 75%;
-    margin: 0 auto;
-    flex-direction: row;
-    align-items: center;
+    height: auto;
+    padding-bottom: 10px;
+    flex-direction: column;
+    gap: 20px;
   }
   .footerNavbar {
-    // width: 51%;
-    text-align: center;
-    margin-left: 0px;
-    padding-bottom: 0px;
+    justify-content: center;
+    gap: 20px;
   }
   .footerIcon {
     width: 50px;
     height: 50px;
-    max-width: 900px;
-    padding: 10px;
   }
   .footerLink {
-    font-size: 12px;
-    letter-spacing: 1px;
+    font-size: 14px;
   }
   .footerLogo {
     width: 200px;
-    height: 65px;
-    margin-right: 0px;
   }
   .footerCopyright {
-    color: #ffffff !important;
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
-  .footerIconMain {
-    width: 25%;
-    display: flex;
-    margin: 0px auto;
-    align-items: center;
-    padding: 20px 0px;
-    flex-direction: row;
-    justify-content: space-around;
+    font-size: 15px;
   }
 }
 @media only screen and (max-width: 768px) {
   .footerMain {
-    padding: 50px 10px;
-    padding: 50px;
-    background-color: #181443;
+    padding: 30px 15px;
   }
   .footerFlex1 {
-    display: flex;
-    width: 90%;
-    margin: 0 auto;
-    flex-direction: row;
-    align-items: center;
-    height: 70px;
+    width: 100%;
+  }
+  .footerIconMain {
+    gap: 15px;
+  }
+  .footerIcon {
+    width: 45px;
+    height: 45px;
+    padding: 8px;
+  }
+  .footerLink {
+    font-size: 12px;
+  }
+  .footerCopyright {
+    font-size: 12px;
   }
 }
 @media only screen and (max-width: 576px) {
@@ -139,107 +144,48 @@
     font-size: 12px;
   }
   .footerIconMain {
-    width: 50%;
-    display: flex;
-    margin: 0px auto;
-    align-items: center;
-    padding: 12px 0px;
-    flex-direction: row;
-    justify-content: space-around;
+    gap: 10px;
   }
   .footerNavbar {
-    // width: 100%;
-    text-align: center;
-    // margin-left: 0px;
-    padding-bottom: 0px;
-    display: flex;
-    flex-direction: row;
+    gap: 15px;
   }
   .footerLogo {
-    width: 200px;
-    height: 65px;
-    margin-right: 0px;
+    width: 180px;
   }
   .footerIcon {
-    width: 25px;
-    height: 25px;
-    max-width: 900px;
-    padding: 10px;
-  }
-  .footerFlex1 {
-    display: flex;
-    width: 75%;
-    margin: 0 auto;
-    flex-direction: column;
-    align-items: center;
-    height: 95px;
-  }
-  .footerIcon {
-    width: 50px;
-    height: 50px;
-    max-width: 900px;
-    padding: 10px;
-  }
-  .footerCopyright {
-    color: #ffffff !important;
-    font-size: 12px;
-    letter-spacing: 0px;
-  }
-
-  .footerMain {
-    padding: 30px 10px;
-    padding-top: 40px;
-    background-color: #181443;
-  }
-}
-
-@media only screen and (max-width: 425px) {
-  .footerLink {
-    font-size: 10px;
-  }
-  .footerIconMain {
-    width: 70%;
-    display: flex;
-    margin: 0px auto;
-    align-items: center;
-    padding: 10px 0px;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  .footerLogo {
-    width: 200px;
-    height: 65px;
-    margin-right: 0px;
-  }
-  .footerIcon {
-    width: 25px;
-    height: 25px;
-    max-width: 900px;
-    padding: 10px;
-  }
-  .footerFlex1 {
-    display: flex;
-    width: 75%;
-    margin: 0 auto;
-    flex-direction: column;
-    align-items: center;
-    height: 100px;
-  }
-  .footerIcon {
-    width: 40px;
-    height: 40px;
-    max-width: 900px;
+    width: 35px;
+    height: 35px;
     padding: 5px;
   }
   .footerCopyright {
-    color: #ffffff !important;
-    font-size: 10px;
-    letter-spacing: 0px;
+    font-size: 12px;
   }
-
+}
+@media only screen and (max-width: 425px) {
   .footerMain {
-    padding: 30px 10px;
-    padding-top: 20px;
-    background-color: #181443;
+    padding: 20px 10px;
+  }
+  .footerLink {
+    font-size: 11px;
+  }
+  .footerIconMain {
+    gap: 8px;
+  }
+  .footerNavbar {
+    gap: 12px;
+  }
+  .footerLogo {
+    width: 160px;
+  }
+  .footerIcon {
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+  }
+  .footerCopyright {
+    font-size: 11px;
+  }
+  .footerCopyright{
+    padding: 0px 10px;
   }
 }
