@@ -1,3 +1,49 @@
+/* Global heading styles */
+ h3 {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin: 0 auto;
+  line-height: 140%;  
+}
+
+/* Large screens (1024px and above) */
+@media only screen and (min-width: 1024px) {
+ h3 {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  line-height: 140%;  }
+}
+
+
+
+/* Small screens (576px to 767px) */
+@media only screen and (max-width: 767px) {
+   h3 {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin: 0 auto;
+    line-height: 150%; 
+    
+     }
+}
+
+/* Extra small screens (below 576px) */
+@media only screen and (max-width: 575px) {
+ h3 {
+  font-size: 15px;
+  letter-spacing: 1px;
+  line-height: 150%;
+
+  }
+}
+
+@media only screen and (max-width: 425) {
+  h3{
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 150%; 
+  }
+}
 
 body {
   margin: 0;

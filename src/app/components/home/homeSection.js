@@ -62,10 +62,10 @@ function homeSection() {
                 of
                 <span className={homeStyle.colorChangeText}>Blockchain </span>
               </h1>
-              <div className={homeStyle.homeSubtitle}>
+              <h3 className={homeStyle.homeSubtitle}>
                 Driving Mainstream Adoption, Empowering Developers, and
                 Cultivating the Future of Web3
-              </div>
+              </h3>
             </Fade>
           </div>
         </div>
@@ -85,38 +85,38 @@ function homeSection() {
         <div className={homeStyle.section2Flex}>
           <div className={homeStyle.hideForMobile}>
             <Fade bottom duration={3000} distance="30px">
-              <p className={homeStyle.section2Pera}>
+              <h3 className={homeStyle.section2Pera}>
                 In the vibrant world of blockchain, Lampros DAO stands as a
                 beacon, illuminating the path for innovators, dreamers, and
                 builders. Founded with a profound vision to seamlessly merge
                 blockchain technology with mainstream applications, we've
                 steadily grown into a robust community hub.
-              </p>
-              <p className={homeStyle.homeMlPera}>
+              </h3>
+              <h3 className={homeStyle.homeMlPera}>
                 Our ethos is rooted in fostering growth - both of the individual
                 and the collective. With each project we support, every
                 developer we guide, and each event we host, we inch closer to a
                 future where blockchain isn't just a buzzword, but an integral
                 part of our digital tapestry.
-              </p>
+              </h3>
             </Fade>
           </div>
           <div className={homeStyle.hideForWeb}>
             <Fade bottom duration={3000} distance="30px">
-              <p className={homeStyle.section2Pera1}>
+              <h3 className={homeStyle.section2Pera1}>
                 In the vibrant world of blockchain, Lampros DAO stands as a
                 beacon, illuminating the path for innovators, dreamers, and
                 builders. Founded with a profound vision to seamlessly merge
                 blockchain technology with mainstream applications, we've
                 steadily grown into a robust community hub.
-              </p>
-              <p className={homeStyle.homeMlPera1}>
+              </h3>
+              <h3 className={homeStyle.homeMlPera1}>
                 Our ethos is rooted in fostering growth - both of the individual
                 and the collective. With each project we support, every
                 developer we guide, and each event we host, we inch closer to a
                 future where blockchain isn't just a buzzword, but an integral
                 part of our digital tapestry.
-              </p>
+              </h3>
             </Fade>
           </div>
           <Fade bottom duration={1000} distance="20px">

@@ -58,7 +58,7 @@ const HomeSlider = () => {
                     <div key={index} className={activeIndex === index ? "slick-active" : ""}>
                         <div className={homeStyle.section3Card}>
                             <h1 className={homeStyle.section3CardTitle}>{slide.title}</h1>
-                            <p className={homeStyle.section3CardDesc}>{slide.description}</p>
+                            <h3 className={homeStyle.section3CardDesc}>{slide.description}</h3>
                             <Link href={slide.link}>
                                 <button className={homeStyle.section3CardButton} id={homeStyle.button7}>
                                     <div id={homeStyle.dubArrow}>
