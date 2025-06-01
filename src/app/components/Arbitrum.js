@@ -2,16 +2,11 @@
 import React from "react";
 import "../styles/arbitrum.css";
 import { ExternalLink } from "lucide-react";
-import arbitrumImg from "../../../public/governance/171.svg";
 import Image from "next/image";
-import aboutStyle from "../styles/aboutUs.module.scss";
 
 const Arbitrum = () => {
   return (
     <div className="arbitrumMainBg">
-      <div className={aboutStyle.arbitrumImgMainDiv}>
-        <Image src={arbitrumImg} alt="" className={aboutStyle.arbitrumImg} />
-      </div>
       <div className="arbitrum-container">
         <div className="content-wrapper">
           <div className="arbMain">

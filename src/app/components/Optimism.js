@@ -3,12 +3,7 @@ import React from "react";
 import { useState } from "react";
 import "../styles/optimism.css";
 import { ExternalLink } from "lucide-react";
-import aboutImg from "../../../public/governance/175.svg";
 import Image from "next/image";
-import aboutStyle from "../styles/aboutUs.module.scss";
-import homeStyle from "../styles/home.module.scss";
-import Link from "next/link";
-import arrow from "../assets/images/right-arrow.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -35,9 +30,6 @@ const Optimism = () => {
     
   return (
     <div className="optimismMainBg">
-      <div className={aboutStyle.aboutImgMainDiv}>
-        <Image src={aboutImg} alt="" className={aboutStyle.aboutImg} />
-      </div>
       <div className="optimism-container">
         <div className="content-wrapper">
           <div className="opMain">
