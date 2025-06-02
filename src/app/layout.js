@@ -40,7 +40,9 @@ export default function RootLayout({ children }) {
         </div>
         <div className="layout-children">{children}</div>
         <BootstrapClient />
-        <Footer />
+        <div className="layout-footer">
+          <Footer />
+        </div>
       </body>
     </html>
   );

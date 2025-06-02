@@ -85,7 +85,7 @@ function homeSection() {
         <div className={homeStyle.section2Flex}>
           <div className={homeStyle.hideForMobile}>
             <Fade bottom duration={3000} distance="30px">
-              <h3 className={homeStyle.section2Pera}>
+              <h3 className={homeStyle.section2Pera} style={{paddingBottom: "20px"}}>
                 In the vibrant world of blockchain, Lampros DAO stands as a
                 beacon, illuminating the path for innovators, dreamers, and
                 builders. Founded with a profound vision to seamlessly merge
@@ -103,7 +103,7 @@ function homeSection() {
           </div>
           <div className={homeStyle.hideForWeb}>
             <Fade bottom duration={3000} distance="30px">
-              <h3 className={homeStyle.section2Pera1}>
+              <h3 className={homeStyle.section2Pera1} style={{paddingBottom: "20px"}}>
                 In the vibrant world of blockchain, Lampros DAO stands as a
                 beacon, illuminating the path for innovators, dreamers, and
                 builders. Founded with a profound vision to seamlessly merge
@@ -142,7 +142,7 @@ function homeSection() {
       >
         <HomeSlider />
       </section>
-      {/* <section className={homeStyle.homepageSecion4Main}>
+      <section className={homeStyle.homepageSecion4Main}>
         <Fade bottom duration={1000} distance="2px">
           <h1 className={homeStyle.sectio4Title}>FAQS</h1>
         </Fade>
@@ -150,7 +150,7 @@ function homeSection() {
 
           <FAQs />
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }

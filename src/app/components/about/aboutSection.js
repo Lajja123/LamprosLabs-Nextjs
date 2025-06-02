@@ -72,11 +72,11 @@ export default function aboutPage() {
 
   return (
     <div>
-      <ScrollBtn
+      {/* <ScrollBtn
         section1Ref={section1Ref}
         section2Ref={section2Ref}
         section3Ref={section3Ref}
-      />
+      /> */}
       <div className={aboutStyle.aboutUsMainBg}>
         <div className={aboutStyle.aboutUsMain} smooth={true} duration={600}>
           <section className={`${aboutStyle.section1AboutUs} py-sm-5 py-3`}>
@@ -101,7 +101,7 @@ export default function aboutPage() {
                     like Arbitrum and Optimism.
                   </p>
                   <p className={aboutStyle.aboutUsSection1CardDesc}>
-                    We believe blockchain is not just about technology—it’s
+                    We believe blockchain is not just about technology—it's
                     about the people, communities, and ideas that drive it
                     forward. Our ethos is rooted in fostering growth, both for
                     individuals and the ecosystem, ensuring that governance,
@@ -120,7 +120,7 @@ export default function aboutPage() {
                   </p>
                   <p className={aboutStyle.aboutUsSection1CardDesc}>
                     We are building on this foundation—join us as we shape the
-                    future of decentralized governance and Ethereum’s Layer 2
+                    future of decentralized governance and Ethereum's Layer 2
                     ecosystems.
                   </p>
                 </div>
@@ -185,7 +185,7 @@ export default function aboutPage() {
           </section>
 
           <section
-            className={`${aboutStyle["section3AboutUs"]} pb-5 d-none d-lg-block`}
+            className={`${aboutStyle["section3AboutUs"]} d-none d-lg-block`}
             ref={section2Ref}
             smooth={true}
             duration={600}
@@ -257,7 +257,7 @@ export default function aboutPage() {
                       Public Goods for a Shared Future
                     </div>
                     <p className={aboutStyle.sec3Aboutpera}>
-                      We are committed to advancing Ethereum’s vision by
+                      We are committed to advancing Ethereum's vision by
                       supporting public goods, open-source development, and
                       governance initiatives across Layer 2 solutions.
                     </p>
@@ -300,7 +300,7 @@ export default function aboutPage() {
                   Your Web3 Journey, Amplified
                 </div>
                 <p className={aboutStyle.sec3Aboutpera}>
-                  Web3 can be uncharted territory for many. That’s why we
+                  Web3 can be uncharted territory for many. That's why we
                   empower developers, governance contributors, and researchers
                   with the knowledge and resources they need to shape the future
                   of decentralized networks.
@@ -337,7 +337,7 @@ export default function aboutPage() {
                     ></Image>
                   </div>
 
-                  <div className="px-4">
+                  <div className="">
                     <div className={aboutStyle.sec3Aboutheading}>
                       Strengthening Decentralized Governance
                     </div>
@@ -362,7 +362,7 @@ export default function aboutPage() {
                     ></Image>
                   </div>
 
-                  <div className="px-4">
+                  <div className="">
                     <div className={aboutStyle.sec3Aboutheading}>
                       Opportunities Await
                     </div>
@@ -385,12 +385,12 @@ export default function aboutPage() {
                     ></Image>
                   </div>
 
-                  <div className="px-4">
+                  <div className="">
                     <div className={aboutStyle.sec3Aboutheading}>
                       Public Goods for a Shared Future
                     </div>
                     <div className={aboutStyle.sec3Aboutpera}>
-                      We are committed to advancing Ethereum’s vision by
+                      We are committed to advancing Ethereum's vision by
                       supporting public goods, open-source development, and
                       governance initiatives across Layer 2 solutions.
                     </div>
@@ -408,7 +408,7 @@ export default function aboutPage() {
                     ></Image>
                   </div>
 
-                  <div className="px-4">
+                  <div className="">
                     <div className={aboutStyle.sec3Aboutheading}>
                       Sustainability Meets Innovation
                     </div>
@@ -431,12 +431,12 @@ export default function aboutPage() {
                     ></Image>
                   </div>
 
-                  <div className="px-4">
+                  <div className="">
                     <div className={aboutStyle.sec3Aboutheading}>
                       Your Web3 Journey, Amplified
                     </div>
                     <div className={aboutStyle.sec3Aboutpera}>
-                      Web3 can be uncharted territory for many. That’s why we
+                      Web3 can be uncharted territory for many. That's why we
                       empower developers, governance contributors, and
                       researchers with the knowledge and resources they need to
                       shape the future of decentralized networks.
@@ -446,86 +446,6 @@ export default function aboutPage() {
               </div>
             </div>
           </section>
-
-          {/* <section
-            className={`${aboutStyle["section4aboutUs"]} pb-sm-5`}
-            ref={section3Ref}
-            smooth={true}
-            duration={600}
-          >
-            <Fade bottom duration={2000} distance="20px">
-              <h1 className={`${aboutStyle["sec4aboutheading"]} pb-4`}>
-                Our Web3 Journey
-              </h1>
-            </Fade>
-
-            <div className="d-flex d-lg-inline">
-              <div className="d-none d-lg-inline">
-                <Image
-                  className={`${aboutStyle["union"]} hackathon`}
-                  src={journey}
-                  alt=""
-                ></Image>
-              </div>
-
-              <div
-                className={`${aboutStyle["journeyimagediv"]} col-2 d-lg-none`}
-              >
-                <Image
-                  className={`${aboutStyle["union1"]} hackathon`}
-                  src={journey1}
-                  alt=""
-                ></Image>
-              </div>
-
-              <div className={aboutStyle.aboutsec4mainboxflex}>
-                <Fade duration={2000} delay={500}>
-                  <div className={aboutStyle.aboutboxsec4}>
-                    <div className={aboutStyle.aboutsec4boxheading}>
-                      Hackathon Highlights
-                    </div>
-                    <div className={aboutStyle.aboutsec4boxpera}>
-                      Lampros DAO stands tall in global hackathons, leaving
-                      imprints across diverse blockchains.
-                    </div>
-                  </div>
-                </Fade>
-                <Fade duration={2000} delay={600}>
-                  <div className={aboutStyle.aboutboxsec4}>
-                    <div className={aboutStyle.aboutsec4boxheading}>
-                      Journey from Web2 to Web3
-                    </div>
-                    <div className={aboutStyle.aboutsec4boxpera}>
-                      We've guided 30+ developers through the transformation,
-                      turning passion into web3 expertise.
-                    </div>
-                  </div>
-                </Fade>
-                <Fade duration={2000} delay={800}>
-                  <div className={aboutStyle.aboutboxsec4}>
-                    <div className={aboutStyle.aboutsec4boxheading}>
-                      Opportunities at Lampros
-                    </div>
-                    <div className={aboutStyle.aboutsec4boxpera}>
-                      For the new and the curious, Lampros is a beacon. Learn
-                      and earn in the world of web3.
-                    </div>
-                  </div>
-                </Fade>
-                <Fade duration={2000} delay={900}>
-                  <div className={aboutStyle.aboutboxsec4}>
-                    <div className={aboutStyle.aboutsec4boxheading}>
-                      Global Workshops
-                    </div>
-                    <div className={aboutStyle.aboutsec4boxpera}>
-                      Broaden your horizons. Our sessions offer both global
-                      exposure and skill refinement.
-                    </div>
-                  </div>
-                </Fade>
-              </div>
-            </div>
-          </section> */}
 
           <section className={aboutStyle.timelineContainer}>
             <Fade bottom duration={1000} distance="20px">
@@ -546,15 +466,18 @@ export default function aboutPage() {
                     delay={500 + index * 100}
                     className={aboutStyle.fadeClass}
                   >
-                      <div className={aboutStyle.timelineItem} onClick={() => item.link && window.open(item.link, "_blank", "noopener,noreferrer")}
-                        style={{ cursor: item.link ? "pointer" : "default" }}>
-                        <div className={aboutStyle.heading}>{item.date}</div>
-                        <div className={aboutStyle.description}>
-                          {item.title}
-                        </div>
-                        <div className={aboutStyle.connector}></div>
-                        <div className={aboutStyle.dot}></div>
+                    <div
+                      className={aboutStyle.timelineItem}
+                      onClick={() => item.link && window.open(item.link, "_blank", "noopener,noreferrer")}
+                      style={{ cursor: item.link ? "pointer" : "default" }}
+                    >
+                      <div className={aboutStyle.heading}>{item.date}</div>
+                      <div className={aboutStyle.description}>
+                        {item.title}
                       </div>
+                      <div className={aboutStyle.connector}></div>
+                      <div className={aboutStyle.dot}></div>
+                    </div>
                   </Fade>
                 ))}
               </div>

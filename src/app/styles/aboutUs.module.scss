@@ -154,6 +154,7 @@
   align-items: center;
   flex-wrap: nowrap;
   justify-content: space-around;
+  padding: 20px 0px;
 }
 .aboutsecPeraBox {
   border-radius: 2rem;
@@ -165,7 +166,7 @@
   );
   box-shadow: 0px 4px 78px 0px rgba(0, 0, 0, 0.25) inset;
   color: #fff;
-  margin-top: 2rem;
+margin-top: 20px;
   font-size: 17px;
   padding: 3rem;
   font-style: normal;
@@ -187,10 +188,10 @@
   box-shadow: 0px 4px 172px 0px rgba(29, 5, 151, 0.31) inset;
   flex-shrink: 0;
   transition: all 0.15s ease-in-out;
-  width: 100%;
-  height: 355px;
+  height: auto;
   flex-shrink: 0;
   cursor: pointer;
+  width: 100%;
 }
 .visionimg img:hover {
   transform: scale(1.1);
@@ -283,7 +284,6 @@
   font-style: normal;
   font-weight: 700;
   text-align: left;
-  // width: 413px;
   margin: 10px 0px;
   line-height: 154.023%;
   letter-spacing: 4.4px;
@@ -293,7 +293,6 @@
   color: #fff;
   font-size: 18px;
   font-style: normal;
-
   font-weight: 400;
   text-align: left;
   line-height: 150%;
@@ -307,7 +306,6 @@
   text-shadow: 0px 4px 38px rgba(0, 0, 0, 0.48);
   font-size: 64px;
   font-weight: 700;
-  // top: 17rem;
   letter-spacing: 18px;
   padding-left: 1rem;
   text-transform: uppercase;
@@ -317,7 +315,6 @@
   width: 650px;
   transform: rotate(-30deg);
   position: relative;
-  // right: 125px;
   height: auto;
 }
 .aboutImg2 {
@@ -413,11 +410,10 @@
   position: relative;
   width: 100%;
   padding: 40px 20px;
-  margin-top: 4rem;
 }
 
 .headingAboutTimeline {
-  margin-bottom: 3rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .timelineItem {
@@ -428,12 +424,13 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 255, 255, 0.1);
-  height: 180px; /* Adjust to maintain uniform height */
+  height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
 .timeLine {
@@ -449,9 +446,8 @@
 .timelineContent {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  // gap: 30px;
   position: relative;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
@@ -506,11 +502,12 @@
   color: rgb(0, 255, 255);
   font-size: 1rem;
   font-weight: 600;
-  min-height: 40px; /* Ensure consistent title placement */
+  min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  transition: all 0.3s ease-in-out;
 }
 
 .description {
@@ -518,38 +515,38 @@
   font-size: 0.9rem;
   line-height: 1.6;
   text-align: center;
-  min-height: 60px; /* Adjust to match longest content */
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease-in-out;
 }
-  
+
 .timelineItem:hover {
-    background: rgba(0, 40, 80, 0.7);
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    // cursor: pointer;
-    box-shadow: 
-      10px 10px 30px rgba(0, 255, 255, 0.3),
-      10px 10px 20px rgba(0, 255, 255, 0.2) inset;
-    
-    .heading {
-      color: rgb(0, 255, 255);
-      transform: scale(1.1);
-    }
-    
-    .description {
-      color: white;
-      transform: scale(1.05);
-    }
-    
-    .connector {
-      background: rgba(0, 255, 255, 0.8);
-    }
-    
-    .dot {
-      transform: translateX(-50%) scale(1.5);
-      box-shadow: 3px 3px 15px rgba(0, 255, 255, 0.5);
-    }
+  background: rgba(0, 40, 80, 0.7);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 
+    10px 10px 30px rgba(0, 255, 255, 0.3),
+    10px 10px 20px rgba(0, 255, 255, 0.2) inset;
+  
+  .heading {
+    color: rgb(0, 255, 255);
+    transform: scale(1.1);
+  }
+  
+  .description {
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  .connector {
+    background: rgba(0, 255, 255, 0.8);
+  }
+  
+  .dot {
+    transform: translateX(-50%) scale(1.5);
+    box-shadow: 3px 3px 15px rgba(0, 255, 255, 0.5);
+  }
 }
 
 /* ,...........responsive design................ */
@@ -601,13 +598,12 @@
     text-shadow: 0px 4px 38px rgba(0, 0, 0, 0.48);
     font-size: 50px;
     font-weight: 700;
-    // top: 17rem;
     letter-spacing: 18px;
     padding-left: 1rem;
     text-transform: uppercase;
   }
   .sec3Aboutpera {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .sec3Aboutheading {
@@ -620,7 +616,7 @@
     font-size: 1.2rem;
   }
   .aboutsec3flex4 {
-    margin-left: -10rem;
+    margin-left: 3rem;
   }
   .aboutsec3flex3 {
     margin-left: 3rem;
@@ -631,6 +627,45 @@
 
   .union1 {
     height: 90%;
+  }
+.aboutsecPeraBox{
+  padding: 2rem !important;
+}
+  .timelineContent {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .timelineItem:nth-child(odd),
+  .timelineItem:nth-child(even) {
+    margin: 0 0 40px 0;
+  }
+
+  .timelineItem {
+    height: auto;
+    min-height: 160px;
+  }
+  .aboutsecVision{
+    padding: 1rem !important;
+  }
+  .aboutsecMission{
+    padding: 1rem !important;
+  }
+  .timelineItem:nth-child(odd) .dot,
+  .timelineItem:nth-child(even) .dot {
+    top: 50%;
+    display: none;
+    transform: translateY(-50%);
+  }
+
+  .timelineItem:nth-child(odd) .connector,
+  .timelineItem:nth-child(even) .connector {
+    top: 0;
+    bottom: 0;
+    display: none;
+  }
+  .timeLine{
+    display: none;
   }
 }
 
@@ -652,7 +687,11 @@
   }
 
   /* Section 2 */
-
+.aboutsecVisionDiv{
+  z-index: 1;
+  position: relative;
+  top: 20px;
+}
   .section2-aboutUs {
     padding-top: 5rem;
     padding-bottom: 0rem;
@@ -667,7 +706,8 @@
     align-items: center;
     background-size: auto;
     border-radius: 5rem;
-    z-index: 2;
+   padding: 1rem !important;
+   
   }
 
   .aboutsecVisionDiv {
@@ -676,15 +716,14 @@
   }
 
   .aboutsecPeraBox {
-    position: relative;
-    bottom: 10rem;
-    z-index: 0;
+    margin-top: 0px;
     border-radius: 5rem;
+    padding: 2rem !important;
   }
 
   .sec2AboutPeraVision {
     text-align: center;
-    margin-top: 7rem;
+    // margin-top: 7rem;
   }
 
   .aboutsecMission {
@@ -702,9 +741,11 @@
 
   .sec2AboutPeraMission {
     text-align: center;
-    margin-top: 7rem;
+    // margin-top: 7rem;
   }
-
+.timeLine{
+  display: none;
+}
   /* Section 3 */
 
   .sec3Imgheading {
@@ -717,7 +758,7 @@
     position: absolute;
     z-index: 0;
     left: -180px;
-    top: -120px;
+    top: -60px;
   }
 
   .aboutsec3flex1Res {
@@ -740,13 +781,30 @@
     position: absolute;
     top: 34%;
     left: -2.5rem; /* -7% */
+    height: 3rem;
+    width: 3rem;
+  }
+  .sec3AboutImg1 {
+    padding: 10px;
   }
 
   .sec3Aboutheading {
     color: #a6ff35;
     padding-bottom: 1rem;
   }
+  .timelineItem:nth-child(odd) .dot,
+  .timelineItem:nth-child(even) .dot {
+    top: 50%;
+    display: none;
+    transform: translateY(-50%);
+  }
 
+  .timelineItem:nth-child(odd) .connector,
+  .timelineItem:nth-child(even) .connector {
+    top: 0;
+    bottom: 0;
+    display: none;
+  }
   /* Section4 */
 
   .aboutsec4mainboxflex {
@@ -774,382 +832,384 @@
     color: #fff;
     font-size: 2.8rem;
   }
+  
+.aboutSec1Box {
+  border-radius: 172px;
+  border: 1px solid rgba(115, 88, 255, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 10, 255, 0.51) 0%,
+    rgba(14, 0, 99, 0.1) 100%,
+    rgba(14, 0, 99, 0.1) 100%
+  );
+  box-shadow: 0px 4px 178px 0px rgba(255, 255, 255, 0.09) inset;
+  backdrop-filter: blur(16px);
+  width: 100%;
+  flex-shrink: 0;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+
+  .timelineContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media only screen and (max-width: 768px) {
-  /* Section1 */
   .aboutUsTitle {
     font-size: 2.5rem;
     letter-spacing: 19px;
   }
-  .aboutSec1Box {
-    padding: 4rem;
-    border-radius: 4rem;
-    width: 100%;
-    border-radius: 47px;
-    border: 1px solid rgba(115, 88, 255, 0);
-    background: linear-gradient(
-      180deg,
-      rgba(0, 10, 255, 0.51) 0%,
-      rgba(14, 0, 99, 0.1) 100%,
-      rgba(14, 0, 99, 0.1) 100%
-    );
-    box-shadow: 0px 4px 178px 0px rgba(255, 255, 255, 0.09) inset;
-    backdrop-filter: blur(16px);
-  }
+
   .aboutSec1Box {
     padding: 3rem 2rem;
+    border-radius: 47px;
+    width: 100%;
   }
-  .aboutUsSection1Card {
-    position: relative;
-    padding-top: 2rem;
-    z-index: 0;
-  }
-
-  /* Section 2 */
-  .section2-aboutUs {
-    padding-top: 8rem;
-  }
-  .aboutsecVision {
-    width: 70%;
-    height: 12rem;
-    border-radius: 3rem;
-  }
-  .aboutsecMission {
-    width: 70%;
-    height: 12rem;
-    border-radius: 3rem;
-  }
-  .aboutsecPeraBox {
-    bottom: 5rem;
-    padding: 3rem;
-    border-radius: 3rem;
-  }
-  .sec2AboutPeraVision {
-    margin-top: 2rem;
-  }
-  .sec2AboutPeraMission {
-    margin-top: 2rem;
-  }
-  .sec3Aboutpera {
-    font-size: 16px;
-    line-height: 130%;
-    letter-spacing: 2px;
+.sec4aboutheading{
+  font-size: 2.5rem;
+}
+  .aboutUsSection1CardDesc {
+    font-size: 1rem;
+    line-height: 140%;
+    letter-spacing: 1.5px;
   }
 
-  /* Section 3 */
-  .sec3AboutImg1div {
-    top: 38%;
-  }
-  .sec3Imgheading {
-    letter-spacing: 15px;
-    font-size: 2.2rem;
-  }
-  .section3AboutUs {
-    padding-top: 2rem;
-  }
-
-  /* Section 4 */
-  .aboutboxsec4 {
-    width: 85%;
-    margin-bottom: 3rem;
-    height: 160px;
-  }
   .aboutImg {
     width: 80%;
     right: 0;
     position: relative;
     transform: rotate(-53.738deg);
   }
-  .aboutsec4boxheading {
-    text-align: left;
-    font-size: 25px;
+
+  .aboutsecVision, .aboutsecMission {
+    width: 70%;
+    height: 12rem;
+    border-radius: 3rem;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    letter-spacing: 5px;
+  }
+
+  .aboutsecPeraBox {
+    bottom: 5rem;
+    padding: 2rem !important;
+    border-radius: 3rem;
+    font-size: 0.9rem;
+    line-height: 140%;
+  }
+
+  .sec2AboutPeraVision, .sec2AboutPeraMission {
+    // margin-top: 2rem;
+    text-align: center;
+  }
+
+  .sec3Aboutpera {
+    font-size: 0.9rem;
+    line-height: 140%;
+    letter-spacing: 1.5px;
+  }
+
+  .sec3Aboutheading {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+  }
+
+  .sec3Imgheading {
+    letter-spacing: 15px;
+    font-size: 2.2rem;
+  }
+
+  .timelineContainer {
+    padding: 2rem 1rem;
+  }
+
+  .timelineWrapper {
     padding: 0;
   }
-  .aboutsec4boxpera {
-    text-align: left;
-    font-size: 20px;
-    letter-spacing: 1px;
+
+  .timeLine {
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 2px;
+    transform: none;
+    display: none;
   }
-  .aboutsec4boxheading {
-    letter-spacing: 2px;
-    padding-bottom: 5px;
+
+  .timelineContent {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    // padding-left: 30px;
   }
-  .pb-sm-5 {
-    padding-bottom: 0rem !important;
+
+  .timelineItem {
+    height: auto;
+    min-height: 140px;
+    padding: 12px;
+    position: relative;
   }
-  .aboutUsSection1CardDesc {
-    font-size: 12px;
-    left: 1px;
-    line-height: 130%;
+
+  .timelineItem:hover {
+    padding: 18px;
   }
-  .section4aboutUs {
-    padding: 0px;
+
+  .heading {
+    font-size: 0.9rem;
+    min-height: 35px;
   }
-  .sec4aboutheading {
-    font-size: 2rem;
-    letter-spacing: 7px;
-    color: #0ff;
+
+  .description {
+    font-size: 0.8rem;
+    min-height: 50px;
   }
-  .union1 {
-    height: 80%;
+
+  .dot {
+    left: -30px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .connector {
+    left: -30px;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    
+  }
+
+  .timelineItem:nth-child(odd) .dot,
+  .timelineItem:nth-child(even) .dot {
+    top: 50%;
+    display: none;
+    transform: translateY(-50%);
+  }
+
+  .timelineItem:nth-child(odd) .connector,
+  .timelineItem:nth-child(even) .connector {
+    top: 0;
+    bottom: 0;
+    display: none;
   }
 }
 
 @media only screen and (max-width: 576px) {
-  .aboutUsSection1Card {
-    padding-top: 0rem;
-  }
   .aboutUsTitle {
     font-size: 2rem;
     letter-spacing: 11px;
   }
-
-  /* Section2 */
-  .section2-aboutUs {
-    padding-top: 2rem;
+  .sec4aboutheading{
+    font-size: 2rem;
   }
 
-  .aboutsecVision {
-    border-radius: 3rem;
-    font-size: 1.5rem;
+  .aboutSec1Box {
+    padding: 2rem 1.5rem;
+    border-radius: 30px;
+  }
+
+  .aboutUsSection1CardDesc {
+    font-size: 0.9rem;
+    line-height: 130%;
+    letter-spacing: 1.2px;
+  }
+
+  .aboutImg {
+    width: 90%;
+    transform: rotate(-45deg);
+  }
+
+  .aboutsecVision, .aboutsecMission {
     width: 80%;
     height: 10rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding: 1.2rem;
+    letter-spacing: 4px;
   }
 
   .aboutsecPeraBox {
-    border-radius: 3rem;
-    padding: 2rem;
-    font-size: 14px;
-  }
-
-  .aboutsecMission {
-    border-radius: 3rem;
-    font-size: 1.5rem;
-    width: 80%;
-    height: 10rem;
-  }
-
-  /* Section3 */
-
-  .sec3Imgheading {
-    letter-spacing: 10px;
-    font-size: 1.2rem;
-    position: relative;
-    top: 0;
-    z-index: 1;
-  }
-
-  .aboutImg2 {
-    width: 20rem;
-  }
-
-  .sec3Aboutblockflex {
-    width: 75%;
-    padding-right: 0rem;
-    letter-spacing: 2px;
-  }
-
-  .sec3Aboutheading {
-    font-size: 1.2rem;
+    bottom: 4rem;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
   }
 
   .sec3Aboutpera {
+    font-size: 0.85rem;
+    line-height: 130%;
+  }
+
+  .sec3Aboutheading {
     font-size: 1rem;
     letter-spacing: 2px;
   }
 
-  /* Section4 */
-
-  .aboutboxsec4 {
-    padding-right: 0rem;
-    margin-bottom: 2rem;
-  }
-  .sec4aboutheading {
+  .sec3Imgheading {
+    letter-spacing: 10px;
     font-size: 1.5rem;
   }
-  .aboutsec4boxheading {
-    font-size: 1.5rem;
-    padding-bottom: 0.5rem;
-  }
 
-  .aboutsec4boxpera {
-    font-size: 1rem;
+  .timelineItem {
+    padding: 10px;
   }
-  .union1 {
-    height: 67%;
-  }
-  .cursor {
+  
+  .timeLine {
+    left: 15px;
     display: none;
   }
-  .blob6 {
-    background: linear-gradient(180deg, #00ffd1 60.4%, #00ffff 111.51%);
-    filter: blur(145px);
-    width: 300px;
-    height: 300px;
-    filter: blur(132px);
-    z-index: -1;
-    position: absolute;
-    left: 39%;
-    top: 68%;
-    animation: liquid-gradient 3s infinite alternate;
-    transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+
+  .dot {
+    left: -25px;
+    width: 8px;
+    height: 8px;
+   
+  }
+  
+  .connector {
+    left: -25px;
+ 
+  }
+  
+  .timelineContent {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-left: 25px;
   }
 
-  .blob5 {
-    animation: liquid-gradient 3s ease-in-out infinite;
-    background: linear-gradient(180deg, #00ffb2 54.17%, #0ff);
-    filter: blur(145.5px);
-    position: absolute;
-    right: 0px;
-    top: 0%;
-    width: 300px;
-    height: 300px;
-    z-index: -1;
+  .timelineItem {
+    height: auto;
+    min-height: 120px;
+    padding: 10px;
   }
 
-  .blob9 {
-    background: #1a0f5e;
-    filter: blur(200px);
-    position: absolute;
-    z-index: -1;
-    left: -62px;
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-    animation: liquid-gradient 3s ease-in-out infinite;
-  }
-  .journeyimagediv {
-    margin-bottom: -15rem;
-  }
-}
-
-@media only screen and (max-width: 515px) {
-  /* Section 4 */
-  .aboutsec4boxheading {
-    font-size: 1.2rem;
-    letter-spacing: 2px;
+  .timelineItem:hover {
+    padding: 16px;
   }
 
-  .aboutsec4boxpera {
-    letter-spacing: 1px;
+  .heading {
+    font-size: 0.85rem;
+    min-height: 30px;
   }
-  .aboutsec4boxheading {
-    font-size: 22px;
-    padding-bottom: 0.5rem;
+
+  .description {
+    font-size: 0.75rem;
+    min-height: 45px;
   }
-  .aboutboxsec4 {
-    margin-bottom: 2rem;
-  }
-  .cursor {
+  .timeLine{
     display: none;
-  }
-  .union1 {
-    height: 67% !important;
   }
 }
 
 @media only screen and (max-width: 425px) {
-  .section1AboutUs {
-    width: 100%;
-    position: relative;
-    padding: 0px;
+  .aboutUsTitle {
+    font-size: 1.8rem;
+    letter-spacing: 8px;
   }
-  .cursor {
-    display: none;
+  .sec4aboutheading{
+    font-size: 24px;
+   
+    letter-spacing: 3px;
+
   }
-  .aboutImg2 {
-    left: -140px;
-    width: 18rem;
-  }
-  .section3AboutUs {
-    padding-bottom: 0rem !important;
-    padding-top: 2rem;
-  }
-  .sec3Aboutheading {
-    font-size: 15px;
-    letter-spacing: 2.4px;
-  }
+.sec2AboutPeraVision{
+  font-size: 13px;
+}
   .aboutSec1Box {
-    padding: 3rem 2rem;
+    padding: 1.5rem 1rem;
+    border-radius: 25px;
   }
-  .aboutsecVision {
-    width: 75%;
-    height: 9rem;
-    border-radius: 3rem;
-  }
-  .sec3Aboutpera {
-    font-size: 1rem;
-    line-height: 120%;
+
+  .aboutUsSection1CardDesc {
+    font-size: 13px;
+    line-height: 150%;
     letter-spacing: 1px;
   }
 
-  .aboutboxsec4 {
-    margin-bottom: 1.5rem;
-    padding-left: 1rem;
-    width: 100%;
+  .aboutImg {
+    width: 95%;
+    transform: rotate(-40deg);
   }
-  .sec2AboutPeraVision {
-    margin-top: 2rem;
-    font-size: 14px;
-    line-height: 140%;
-  }
-  .sec2AboutPeraMission {
-    margin-top: 2rem;
-    font-size: 14px;
-    line-height: 140%;
+.sec3Aboutblockflex{
+  width: 75%;
+}
+  .aboutsecVision, .aboutsecMission {
+    width: 85%;
+    height: 8rem;
+    border-radius: 1.5rem;
+    font-size: 0.9rem;
+    padding: 1rem;
+    letter-spacing: 3px;
   }
 
-  .aboutsecMission {
-    width: 75%;
-    height: 9rem;
-    border-radius: 3rem;
+  .aboutsecPeraBox {
+    bottom: 3rem;
+    padding: 1.2rem;
+    border-radius: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .sec3Aboutpera {
+    font-size: 13px;
+    line-height: 120%;
+  }
+.timeLine{
+  display: none;
+}
+  .sec3Aboutheading {
+    font-size: 15px;
+    letter-spacing: 1.5px;
   }
 
   .sec3Imgheading {
     letter-spacing: 8px;
-    font-size: 1.2rem;
-    padding-left: 62px;
-    position: relative;
+    font-size: 24px;
+  }
+
+  .timelineItem {
+    padding: 8px;
+  }
+  
+   .timeLine {
+    left: 10px;
+  }
+
+  .dot {
+    left: -20px;
+    width: 6px;
+    height: 6px;
+  }
+  
+  
+
+  .timelineContainer {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .timelineItem:hover {
+    padding: 14px;
+  }
+
+  .heading {
+    font-size: 15px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+  .timelineItem:nth-child(odd) .dot,
+  .timelineItem:nth-child(even) .dot {
+    top: 50%;
+    display: block;
+    transform: translateY(-50%);
+  }
+
+  .timelineItem:nth-child(odd) .connector,
+  .timelineItem:nth-child(even) .connector {
     top: 0;
-  }
-
-  .py-5 {
-    padding-bottom: 2rem !important;
-  }
-
-  .aboutsec4boxheading {
-    font-size: 20px;
-    letter-spacing: 1px;
-    padding: 10px 20px;
-  }
-  .aboutsec4boxpera {
-    padding: 0px 20px;
-    letter-spacing: 1px;
-    line-height: 130%;
-    font-size: 14px;
-  }
-  .aboutUsSection1CardDesc {
-    font-size: 13px;
-    line-height: 130%;
-  }
-  .aboutUsSection1Card {
-    font-size: 13px;
-    line-height: 130%;
-  }
-  .section4aboutUs {
-    padding: 0px;
-  }
-  .sec4aboutheading {
-    font-size: 20px;
-    width: 200px;
-    color: #00ffd1;
-    letter-spacing: 5px;
-    line-height: 150%;
-    margin: 0 auto;
-  }
-  .union1 {
-    height: 73%;
-    width: 70%;
+    bottom: 0;
+    display: block;
   }
 }

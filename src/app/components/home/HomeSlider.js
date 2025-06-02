@@ -25,7 +25,7 @@ const HomeSlider = () => {
         centerPadding: "0px",
         infinite: true,
         autoplaySpeed: 3000,
-        autoplay: false,
+        autoplay: true,
         beforeChange: handleBeforeChange,
 
     };

@@ -5,11 +5,10 @@
   background-repeat: no-repeat;
   width: 100%;
   padding: 50px 0px;
-
+  min-height: 100vh;
 }
 .homepageSecion1Main {
   width: 100%;
-  padding-top: 50px;
 }
 .section1BgImgMain {
   width: 100%;
@@ -246,114 +245,6 @@
   
 }
 
-/* Responsive styles */
-@media only screen and (max-width: 1440px) {
-  .section3Card {
-    max-width: 600px;
-    padding: 40px;
-  }
-  
-  .section3CardTitle {
-    font-size: 32px;
-  }
-  
-
-}
-
-@media only screen and (max-width: 1024px) {
-  .homepageSecion3MainTemplate {
-    padding-top: 100px;
-  }
-
-  .section3Card {
-    max-width: 500px;
-    padding: 35px;
-    min-height: 350px;
-  }
-
-  .section3CardTitle {
-    font-size: 28px;
-    letter-spacing: 0.7px;
-  }
-
-
-
-  .section3CardButton {
-    width: 180px;
-    height: 50px;
-    font-size: 11px;
-    letter-spacing: 4px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .homepageSecion3MainTemplate {
-    padding-top: 80px;
-    padding-bottom: 30px;
-  }
-
-  .section3Card {
-    max-width: 400px;
-    padding: 30px;
-    min-height: 300px;
-  }
-
-  .section3CardTitle {
-    font-size: 24px;
-    letter-spacing: 0.6px;
-    margin-bottom: 10px;
-  }
-
-  .section3CardDesc {
-   
-    margin: 15px 0;
-  }
-
-  .section3CardButton {
-    width: 160px;
-    height: 45px;
-    font-size: 10px;
-    letter-spacing: 3px;
-    margin-top: 20px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .homepageSecion3MainTemplate {
-    padding-top: 60px;
-    padding-bottom: 20px;
-  }
-
-  .slickslider {
-    padding: 0 10px;
-  }
-
-  .section3Card {
-    max-width: 300px;
-    padding: 25px;
-    min-height: 250px;
-    border-radius: 30px;
-  }
-
-  .section3CardTitle {
-    font-size: 20px;
-    letter-spacing: 0.5px;
-  }
-
-  .section3CardDesc {
-    
-    margin: 10px 0;
-  }
-
-  .section3CardButton {
-    width: 140px;
-    height: 40px;
-    font-size: 9px;
-    letter-spacing: 2px;
-    margin-top: 15px;
-  }
-}
-
 .homepageSecion4Main {
   width: 100%;
   padding: 60px 0px;
@@ -530,8 +421,10 @@
   }
   .section2Pera {
     
+    font-size: 18px;
+    line-height: 3.5vh;
     text-align: left;
-  }
+    letter-spacing: 1px;  }
   .homepageSecion2Main {
     margin: 100px 0px;
   }
@@ -545,12 +438,12 @@
   }
   .section3CardTitle {
     letter-spacing: 3px;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 400;
   }
   .section3CardDesc {
     padding: 10px 0px;
-   
+   font-size: 18px;
         margin: 0;
   }
 
@@ -577,7 +470,6 @@
   .sectio4Title {
     font-size: 3rem;
     letter-spacing: 10px;
-    margin: 30px 0px;
   }
   .faqQueMain {
     padding: 10px;
@@ -639,7 +531,7 @@
     position: absolute;
     left: 55%;
     height: fit-content;
-    top: -10%;
+    top: 0;
     min-width: 250px;
   }
   .homepageSecion1Main {
@@ -648,7 +540,7 @@
   }
   .homeMlPera {
     font-size: 17px;
-    line-height: 4vh;
+    line-height: 3vh;
     text-align: left;
     width: 100%;
     margin: 10px 0px;
@@ -677,7 +569,8 @@
     letter-spacing: 10px;
   }
   .section2Pera {
-  
+    font-size: 17px;
+    line-height: 3vh;
     width: 55%;
     margin: 0px;
     text-align: left;
@@ -738,7 +631,6 @@
   .sectio4Title {
     font-size: 2rem;
     letter-spacing: 10px;
-    margin: 30px 0px;
   }
   .section3CardTitle {
     letter-spacing: 4px;
@@ -755,6 +647,7 @@
   .section3CardDesc {
     padding: 6px 0px;
     width: 100%;
+    font-size: 17px !important;
    
   }
   .section3CardButton {
@@ -923,7 +816,8 @@
     flex-shrink: 0;
   }
   .section2Pera1 {
-    
+    font-size: 13px;
+    line-height: 130%;
     width: 100%;
     color: #fff;
     text-align: justify;
@@ -935,7 +829,8 @@
     text-align: justify;
   }
   .homeMlPera1 {
-    
+    font-size: 15px;
+    line-height: 130%;
     width: 100%;
     color: #fff;
     text-align: justify;
@@ -974,7 +869,7 @@
   .accordionQue {
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+ 
     line-height: 130.02%;
     color: #1a0f5e;
 
@@ -1019,18 +914,19 @@
     display: block !important;
   }
   .section3CardDesc {
+    font-size: 13px;
     padding: 6px 0px;
     width: 100%;
    
   }
   .section3CardTitle {
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 600;
     width: 100%;
   }
   .section3CardButton {
-    margin: 0px;
+    margin-top: 10px;
   }
 
   .cursor {
@@ -1040,6 +936,80 @@
     padding: 50px 0px;
   }
 }
+
+/* Responsive styles */
+@media only screen and (max-width: 1440px) {
+  .section3Card {
+    max-width: 600px;
+    padding: 40px;
+  }
+  
+  .section3CardTitle {
+    font-size: 32px;
+  }
+  
+
+}
+
+@media only screen and (max-width: 1024px) {
+  .homepageSecion3MainTemplate {
+    padding-top: 100px;
+  }
+
+  .section3Card {
+    max-width: 500px;
+    padding: 35px;
+  }
+
+  .section3CardTitle {
+    font-size: 28px;
+    letter-spacing: 0.7px;
+  }
+
+
+
+  .section3CardButton {
+    width: 180px;
+    height: 50px;
+    font-size: 11px;
+    letter-spacing: 4px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .homepageSecion3MainTemplate {
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+
+  .section3Card {
+    max-width: 400px;
+    padding: 30px;
+    min-height: 300px !important;
+  }
+
+  .section3CardTitle {
+    font-size: 15px;
+    letter-spacing: 0.6px;
+    margin-bottom: 10px;
+  }
+
+  .section3CardDesc {
+   font-size: 13px !important;
+    margin: 15px 0;
+  }
+
+  .section3CardButton {
+    width: 160px;
+    height: 45px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 20px;
+  }
+}
+
+
+
 
 @media only screen and (max-width: 425px) {
   .cursor {
@@ -1068,8 +1038,7 @@
   }
   .homeSubtitle {
     color: #ffffff;
-    
-    margin: 0 auto;
+    font-size: 13px;    margin: 0 auto;
    
   }
   .homepageSecion1Main {
@@ -1105,8 +1074,8 @@
     padding-left: 0px !important;
     display: flex;
     flex-direction: column;
-    gap: 18px;
-    top: 22% !important;
+    gap: 17px !important;
+    top: 23% !important;
   }
 
   .iconStyle {
@@ -1127,15 +1096,14 @@
     display: none;
   }
   .section2Pera1 {
-   
+   font-size: 13px;
     width: 100%;
     color: #fff;
     text-align: left;
   }
   .homeMlPera1 {
-   
+   font-size: 13px;
     text-align: left;
-    margin: 20px 0px;
     width: 100%;
     color: #fff;
   }
@@ -1205,6 +1173,7 @@
   }
 
   .section3CardDesc {
+    font-size: 13px !important;
     text-align: center;
     padding: 0px 0px;
     width: 100%;
@@ -1212,7 +1181,7 @@
   }
   .section3CardTitle {
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 15px !important;
     text-align: center;
     font-weight: 600;
     line-height: 20px;
@@ -1230,11 +1199,10 @@
   .section3Card {
     padding: 30px 30px;
     // width: 300px !important;
-    height: 250px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    // min-height: 40vh;
+    min-height: 300px !important;
     justify-content: space-evenly;
   }
   .slick-list {
@@ -1258,7 +1226,7 @@
     width: 8%;
   }
   .sectio4Title {
-    font-size: 2.5rem;
+    font-size: 28px;
     color: #a6ff35;
     text-align: center;
     // font-family: Josefin Sans;
@@ -1268,7 +1236,6 @@
     line-height: 154.023%;
     letter-spacing: 8.9px;
     letter-spacing: 10px;
-    margin: 30px 0px;
   }
   .homepageSecion4Main {
     width: 100%;
@@ -1306,7 +1273,7 @@
     margin-bottom: 0;
   }
   .section1BgImg {
-    width: 250px;
+    width: 230px;
     height: auto;
   }
   .homepageSecion3MainTemplateMobile {
