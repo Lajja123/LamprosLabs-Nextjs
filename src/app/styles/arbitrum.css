@@ -1,19 +1,14 @@
 .arbitrumMainBg {
   width: 100%;
   box-sizing: border-box;
-  /* position: relative; */
-  width: 100%;
-  z-index: -1;
-  padding: 50px 0px;
+  padding: 50px 0;
   padding-top: 0;
-  /* background: url("../assets/images/about-bg.webp");
-  background-size: cover;
-  background-repeat: no-repeat; */
 }
 
 .arbitrum-container {
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 8rem 2rem;
+  padding-bottom: 0rem;
   width: 100%;
   color: white;
 }
@@ -23,56 +18,18 @@
   margin: 0 auto;
 }
 
-.main-heading {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  font-weight: 400;
-}
-
-.main-description {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto 3rem;
-  color: #e5e7eb;
+.arbContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Vertically aligns items */
+  gap: 1.4rem; /* Space between flex items */
 }
 
 .pointer-text {
   font-size: 1.2rem;
-  margin-top: 3rem;
+  margin: 3rem 0;
   text-align: center;
-  margin-bottom: 3rem;
   color: #00f0ff;
-}
-
-.textArb {
-  margin-bottom: 0;
-}
-
-.mainheading {
-  color: #a6ff35;
-  text-align: center;
-  text-shadow: 0px 4px 36px rgba(0, 0, 0, 0.53);
-  font-size: 3.1rem;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: 12px;
-  text-transform: uppercase;
-  margin: 30px auto;
-  animation: slideIn 1.2s ease-in-out;
-}
-
-.info {
-  text-align: left;
-  font-size: 1.1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150.023%;
-  letter-spacing: 1px;
-  border-left: 4px solid white;
-  padding-left: 20px;
 }
 
 .contributions-grid {
@@ -81,22 +38,22 @@
   justify-content: center;
   gap: 2rem;
   margin-bottom: 3rem;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
   padding: 0 1rem;
 }
 
 .contribution-card {
-  flex: 0 1 calc(50% - 1rem); /* Take up roughly half the container width minus gap */
-  background: linear-gradient(180deg, rgba(0, 10, 255, 0.51) 0%, rgba(14, 0, 99, 0.1) 100%, rgba(14, 0, 99, 0.1) 100%) !important;
+  flex: 0 1 calc(50% - 1rem);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 10, 255, 0.51) 0%,
+    rgba(14, 0, 99, 0.1) 100%
+  );
   backdrop-filter: blur(10px);
-  border: 1px solid #a6ff35 !important;
+  border: 1px solid #a6ff35;
   border-radius: 16px;
   padding: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
 .contribution-card:hover {
@@ -140,118 +97,202 @@
 }
 
 .action-button:hover {
-  background: #A6FF35 !important;
+  background: #a6ff35;
   color: black;
-}
-
-.link-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.see-more-container {
-  text-align: center;
 }
 
 .see-more-button {
   border-radius: 15px;
-  text-decoration: none;
   background: #a6ff35;
+  padding: 1rem 2rem;
+  margin: 40px auto;
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
-  margin: 40px auto;
-  padding: 1rem 2rem;
-  border: none;
-  width: fit-content;
+  color: black;
+  text-decoration: none;
   font-size: 14px;
   font-weight: 700;
-  line-height: 174.523%;
   letter-spacing: 2.4px;
   text-transform: uppercase;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
+  transition: transform 0.3s ease;
 }
 
 .see-more-button:hover {
   transform: translateY(-2px);
 }
 
-.arbitrumImg {
-  width: 50px;
-  height: auto;
-  margin-top: -10px;
-}
-
-.arbContainer {
-    display: flex;
-    justify-content: center;
-    gap: 1.4rem;
-}
-
+/* Base styles for all screen sizes - KEEPING LATER DEFINITIONS */
 .arbMain {
-    border-radius: 100px;
-    border: 1px solid rgba(115, 88, 255, 0);
-    background: linear-gradient(
-      180deg,
-      rgba(0, 10, 255, 0.51) 0%,
-      rgba(14, 0, 99, 0.1) 100%,
-      rgba(14, 0, 99, 0.1) 100%
-    );
-    box-shadow: 0px 4px 178px 0px rgba(255, 255, 255, 0.09) inset;
-    backdrop-filter: blur(16px);
-    width: 75%;
-    position: relative;
-    flex-shrink: 0;
-    margin: 0 auto;
-    padding: 6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    height: fit-content;
+  border-radius: 100px;
+  border: 1px solid rgba(115, 88, 255, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 10, 255, 0.51) 0%,
+    rgba(14, 0, 99, 0.1) 100%,
+    rgba(14, 0, 99, 0.1) 100%
+  );
+  box-shadow: 0px 4px 178px 0px rgba(255, 255, 255, 0.09) inset;
+  backdrop-filter: blur(16px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem;
+  margin: 0 auto;
+  max-width: 1200px; /* Prevents excessive stretching on large screens */
 }
 
+.mainheading {
+  color: #a6ff35;
+  text-align: center;
+  text-shadow: 0px 4px 36px rgba(0, 0, 0, 0.53);
+  font-size: clamp(2rem, 4vw, 2rem); /* Scales between 2rem and 2.5rem */
+  font-weight: 700;
+  letter-spacing: clamp(6px, 1vw, 12px); /* Scales spacing for readability */
+  text-transform: uppercase;
+  animation: slideIn 1.2s ease-in-out;
+}
+
+.main-heading {
+  font-size: clamp(1.25rem, 3vw, 2rem); /* Scales between 1.25rem and 2rem */
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.info {
+  text-align: left;
+  font-size: clamp(0.9rem, 2vw, 1.1rem); /* Scales between 0.9rem and 1.1rem */
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  border-left: 4px solid white;
+  padding-left: clamp(10px, 2vw, 20px); /* Scales padding for smaller screens */
+}
+
+.arbitrumImg {
+  width: clamp(30px, 5vw, 50px); /* Scales between 30px and 50px */
+  height: auto; /* Maintains aspect ratio */
+}
+
+/* KEEPING LATER MEDIA QUERY DEFINITIONS */
+
+/* Large screens (min-width: 1400px) */
+@media (min-width: 1400px) {
+  .arbMain {
+    max-width: 1200px;
+  }
+  .contributions-grid {
+    max-width: 1000px;
+  }
+}
+
+/* Medium screens (up to 1200px) */
+@media (max-width: 1200px) {
+  .arbMain {
+    padding: 3rem; /* Reduces padding to fit content comfortably */
+  }
+  .contributions-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Tablets and large phones (up to 768px) */
 @media (max-width: 768px) {
   .arbitrum-container {
-    padding: 2rem 1rem;
+    padding: 6rem 1rem;
+    padding-bottom: 0rem;
   }
 
-  .main-description {
+  .arbMain {
+    padding: 2.5rem; /* Further reduces padding */
+  }
+
+  .arbContainer {
+    gap: 1rem; /* Slightly reduces gap between items */
+  }
+
+  .mainheading {
+    font-size: 2rem !important;
+    letter-spacing: clamp(4px, 1vw, 8px); /* Adjusts spacing for readability */
+  }
+
+  .main-heading {
+    font-size: 1.5rem;
+  }
+
+  .info {
     font-size: 1rem;
+  }
+
+  .contributions-grid {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .contribution-card {
+    flex: 0 1 calc(100% - 1rem); /* Single column for better readability */
+    max-width: 600px;
   }
 }
 
+/* Small screens (up to 480px) */
 @media (max-width: 480px) {
+  .arbMain {
+    width: 100%;
+    padding: 2rem; /* Minimizes padding on small screens */
+  }
+
+  .arbContainer {
+    flex-wrap: wrap; /* Allows items to wrap if needed */
+    gap: 0.75rem; /* Tightens spacing */
+  }
+
+  .mainheading {
+    font-size: 6vmax;
+    letter-spacing: clamp(3px, 1vw, 6px); /* Further adjusts spacing */
+  }
+
   .main-heading {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
+  }
+
+  .info {
+    font-size: 0.9rem;
+    padding-left: 15px; /* Fixed minimum padding for small screens */
+  }
+
+  .pointer-text {
+    font-size: 1rem;
+  }
+
+  .contribution-card {
+    padding: 1rem;
+  }
+
+  .card-number {
+    font-size: 1.25rem;
+  }
+
+  .contribution-card h3 {
+    font-size: 1.25rem;
   }
 
   .action-button {
     width: 100%;
     justify-content: center;
-  }
-}
-
-@media (max-width: 992px) {
-  .contribution-card {
-    flex: 0 1 calc(100% - 1rem);
-    max-width: 600px;
-  }
-}
-
-@media (max-width: 480px) {
-  .contributions-grid {
-    gap: 1.5rem;
-    padding: 0 0.5rem;
+    padding: 0.75rem;
   }
 
-  .contribution-card {
-    padding: 1.5rem;
+  .see-more-button {
+    width: 90%; /* Slightly wider but with centered margin */
+    padding: 0.75rem 1.5rem;
+    font-size: 12px;
+  }
+
+  .arbitrumImg {
+    width: clamp(25px, 5vw, 40px); /* Slightly smaller range for tiny screens */
   }
 }
