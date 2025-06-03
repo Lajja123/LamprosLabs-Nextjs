@@ -129,7 +129,7 @@
   cursor: pointer;
   //  font-family: "Josefin Sans";
   text-transform: uppercase;
-  margin-top: 35px;
+  margin-top: 40px;
   font-weight: 600;
 }
 #button7 {
@@ -174,7 +174,7 @@
 .homepageSecion3MainTemplate {
   margin: 0 auto;
   padding-top: 150px;
-  padding-bottom: 50px;
+  padding-bottom: 150px;
   overflow: hidden;
   width: 100%;
 }
@@ -184,6 +184,7 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
+  padding-bottom: 40px;
 }
 
 .section3Card {
@@ -247,8 +248,8 @@
 
 .homepageSecion4Main {
   width: 100%;
-  padding: 60px 0px;
-  padding-top: 100px;
+
+  // padding-top: 100px;
 }
 .sectio4Title {
   color: #a6ff35;
@@ -356,7 +357,7 @@
     line-height: 154.02%;
     letter-spacing: 0.3em;
     padding: 15px 20px;
-    margin-top: 30px;
+    margin-top: 40px;
     width: 465px;
     height: 60px;
   }
@@ -383,7 +384,7 @@
     width: 100%;
     text-align: center;
     margin-left: 0px;
-    padding-bottom: 20px;
+   
     display: flex;
     flex-direction: row;
     // margin-top: 120px;
@@ -580,13 +581,13 @@
   }
 
   .homepageSecion3MainTemplate {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 150px;
+    padding-bottom: 150px;
     // margin-top: 50px;
   }
-  .slick-dots {
-    bottom: -30px;
-  }
+  // .slick-dots {
+  //   bottom: -30px;
+  // }
   #section2Button {
     font-size: 10px;
     font-weight: 600;
@@ -641,7 +642,7 @@
     font-weight: 600;
   }
   .section2Button {
-    margin-top: 20px;
+    margin-top: 40px;
     font-size: 12px;
     line-height: 130%;
     padding: 20px 30px;
@@ -715,6 +716,7 @@
   .homeSubtitle {
     color: #ffffff;
     margin: 0 auto;
+    font-size: 15px;
 
   }
   .hideForWeb {
@@ -819,7 +821,7 @@
     flex-shrink: 0;
   }
   .section2Pera1 {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 130%;
     width: 100%;
     color: #fff;
@@ -981,14 +983,14 @@
 
 @media only screen and (max-width: 768px) {
   .homepageSecion3MainTemplate {
-    padding-top: 80px;
+    padding-top: 30px;
     padding-bottom: 30px;
   }
 
   .section3Card {
     max-width: 400px;
     padding: 30px;
-    min-height: 300px !important;
+    min-height: 350px !important;
   }
 
   .section3CardTitle {
@@ -998,7 +1000,7 @@
   }
 
   .section3CardDesc {
-   font-size: 13px !important;
+   font-size: 15px !important;
     margin: 15px 0;
   }
 
@@ -1151,7 +1153,7 @@
     line-height: 154.023%;
     letter-spacing: 5.6px;
     padding: 12px 30px;
-    margin-top: 20px;
+    margin-top: 30px;
   }
   .rec.rec-arrow {
     font-size: 1.5em !important;
@@ -1293,11 +1295,19 @@
     padding: 10px 0px;
   }
   .slick-dots {
-    bottom: -30px !important;
+    bottom: -5px !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
   }
-  .homepageSecion3MainTemplate .rec-carousel {
-    width: 95% !important;
-    margin: 80px 0px 0px 0px;
+  .slick-dots li button:before {
+    font-size: 8px;
+    opacity: 0.5;
+  }
+
+  .slick-dots li.slick-active button:before {
+    opacity: 1;
   }
   .cursor {
     display: none;

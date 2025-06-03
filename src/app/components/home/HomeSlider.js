@@ -52,7 +52,7 @@ const HomeSlider = () => {
     ];
 
     return (
-        <section className={homeStyle.homepageSecion3MainTemplate}>
+        <section >
             <Slider {...slickSettings} className={homeStyle.slickslider}>
                 {slides.map((slide, index) => (
                     <div key={index} className={activeIndex === index ? "slick-active" : ""}>
@@ -71,7 +71,7 @@ const HomeSlider = () => {
                     </div>
                 ))}
             </Slider>
-        </section>
+        </section >
     );
 };
 

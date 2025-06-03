@@ -48,18 +48,20 @@
     grid-template-columns: repeat(auto-fill, minmax(50%, 2fr));
   }
   .faqs-box {
-    min-width: 400px;
-    flex-direction: column;
+    min-width: 300px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content:center;
     border: 1px solid white;
     border-radius: 16px;
     margin: 19px;
     padding: 25px;
     transition: all 0.3s ease;
     cursor: pointer;
-    height: fit-content;
+    min-height: 100px;
+   
+    box-sizing: border-box;
     overflow: hidden;
   }
   .faqs-box.active {
