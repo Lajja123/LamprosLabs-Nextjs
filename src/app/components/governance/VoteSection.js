@@ -611,7 +611,7 @@ const VoteSection = () => {
         </div>
         <div className={styles.btnGovernanceContainer}>
           <Link
-            href="https://app.chora.club/arbitrum/0xf070cd4b5ba73a6b6a939dde513f79862bffcd25?active=info"
+            href="https://www.tally.xyz/gov/arbitrum/delegate/0xf070cd4b5ba73a6b6a939dde513f79862bffcd25"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
@@ -630,7 +630,7 @@ const VoteSection = () => {
             </button>
           </Link>
           <Link
-            href="https://app.chora.club/optimism/0xf070cd4b5ba73a6b6a939dde513f79862bffcd25?active=info"
+            href="https://vote.optimism.io/delegates/lamprosdao.eth"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
