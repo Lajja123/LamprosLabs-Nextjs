@@ -447,7 +447,10 @@ const VoteSection = () => {
         </div>
       ) : (
         proposals.map((proposal, index) => (
-          <div key={proposal.id} className={styles.votelist}>
+          <div 
+            key={proposal.id} 
+            className={`${styles.votelist} ${expandedItem === index ? 'expanded' : ''}`}
+          >
             <div
               className={styles.votes}
               onClick={() =>

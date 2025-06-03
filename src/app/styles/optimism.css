@@ -86,8 +86,7 @@
 }
 
 .contribution-card h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem); /* Scales between 1.25rem and 1.5rem */
-  margin-bottom: 0.5rem;
+  font-size: clamp(1.20rem, 2.5vw, 1.5rem); /* Scales between 1.20rem and 1.5rem */
   color: #00f0ff;
   font-weight: 600;
 }
@@ -195,12 +194,13 @@
   font-weight: 500;
   letter-spacing: clamp(6px, 1vw, 12px); /* Scales spacing for readability */
   text-transform: uppercase;
+  margin-top: 6px;
   animation: slideIn 1.2s ease-in-out;
 }
 
 /* Styling for the secondary heading */
 .main-heading {
-  font-size: clamp(1.25rem, 3vw, 2rem); /* Scales between 1.25rem and 2rem */
+  font-size: clamp(1.20rem, 3vw, 2rem); /* Scales between 1.20rem and 2rem */
   text-align: center;
   margin-bottom: 1rem;
   font-weight: 400;
@@ -277,6 +277,12 @@
 
 /* Tablets and large phones (up to 768px) */
 @media (max-width: 768px) {
+
+  .textop {
+    font-size: 1.35rem !important;
+    letter-spacing: clamp(4px, 1vw, 8px); /* Adjusts spacing for readability */
+  }
+
   .optimism-container {
     padding: 6rem 1rem;
     padding-bottom: 0rem;
@@ -304,7 +310,7 @@
 /* Small screens (up to 480px) */
 @media (max-width: 480px) {
   .main-heading {
-    font-size: 1.25rem;
+    font-size: 1.20rem;
   }
   .action-button {
     width: 100%;

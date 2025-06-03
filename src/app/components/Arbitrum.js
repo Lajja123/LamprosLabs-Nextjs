@@ -18,7 +18,7 @@ const Arbitrum = () => {
                 height={30}
                 className="arbitrumImg"
               />
-              <h1 className="textArb mainheading">Arbitrum</h1>
+              <h1 className="textArb mainHeadingArb">Arbitrum</h1>
               <Image
                 src="governance/arbitrum.svg"
                 alt=""

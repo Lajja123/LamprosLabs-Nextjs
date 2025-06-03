@@ -144,19 +144,20 @@
   max-width: 1200px; /* Prevents excessive stretching on large screens */
 }
 
-.mainheading {
+.mainHeadingArb {
   color: #a6ff35;
   text-align: center;
   text-shadow: 0px 4px 36px rgba(0, 0, 0, 0.53);
   font-size: clamp(2rem, 4vw, 2rem); /* Scales between 2rem and 2.5rem */
-  font-weight: 700;
+  font-weight: 600;
+  margin-top: 1rem;
   letter-spacing: clamp(6px, 1vw, 12px); /* Scales spacing for readability */
   text-transform: uppercase;
   animation: slideIn 1.2s ease-in-out;
 }
 
 .main-heading {
-  font-size: clamp(1.25rem, 3vw, 2rem); /* Scales between 1.25rem and 2rem */
+  font-size: clamp(1.20rem, 3vw, 2rem); /* Scales between 1.20rem and 2rem */
   text-align: center;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -214,8 +215,9 @@
     gap: 1rem; /* Slightly reduces gap between items */
   }
 
-  .mainheading {
-    font-size: 2rem !important;
+  .mainHeadingArb {
+    font-size: 1.35rem !important;
+    margin-top: 10px;
     letter-spacing: clamp(4px, 1vw, 8px); /* Adjusts spacing for readability */
   }
 
@@ -250,13 +252,13 @@
     gap: 0.75rem; /* Tightens spacing */
   }
 
-  .mainheading {
-    font-size: 6vmax;
+  .mainHeadingArb {
+    font-size: 2rem;
     letter-spacing: clamp(3px, 1vw, 6px); /* Further adjusts spacing */
   }
 
   .main-heading {
-    font-size: 1.25rem;
+    font-size: 1.20rem;
   }
 
   .info {
@@ -273,11 +275,11 @@
   }
 
   .card-number {
-    font-size: 1.25rem;
+    font-size: 1.20rem;
   }
 
   .contribution-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.10rem;
   }
 
   .action-button {

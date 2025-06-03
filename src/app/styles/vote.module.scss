@@ -220,13 +220,13 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100px;
+  max-width: fit-content;
 }
 
 @media (max-width: 768px) {
   .r2 {
     font-size: 12px;
-    max-width: 80px;
+    max-width: fit-content;
     padding: 4px 6px;
   }
 }
@@ -234,7 +234,7 @@
 @media (max-width: 576px) {
   .r2 {
     font-size: 13px;
-    max-width: 78px;
+    max-width: fit-content;
     padding: 3px 5px;
   }
 }
@@ -468,7 +468,7 @@
 
 .contentTitle {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
@@ -477,7 +477,7 @@
 
 @media (max-width: 768px) {
   .contentTitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
@@ -557,14 +557,14 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 120px;
+  max-width: fit-content;
 }
 
 @media (max-width: 768px) {
   .offchain {
     padding: 3px 8px;
     font-size: 12px;
-    max-width: 100px;
+    max-width: fit-content;
   }
 }
 
@@ -580,7 +580,7 @@
   .offchain {
     padding: 2px 6px;
     font-size: 13px;
-    max-width: 80px;
+    max-width: fit-content;
   }
 }
 
@@ -593,14 +593,14 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 120px;
+  max-width: fit-content;
 }
 
 @media (max-width: 768px) {
   .onchain {
     padding: 3px 8px;
     font-size: 12px;
-    max-width: 100px;
+    max-width: fit-content;
   }
 }
 
@@ -616,7 +616,7 @@
   .onchain {
     padding: 2px 6px;
     font-size: 13px;
-    max-width: 80px;
+    max-width: fit-content;
   }
 }
 
@@ -638,6 +638,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   border-left: 1px solid white;
   padding: 15px;
   height: 100%;
@@ -1096,5 +1097,130 @@
 @media (max-width: 576px) {
   .btnGovernanceContainer {
     gap: 0.5rem;
+  }
+}
+
+/* Base styles for larger screens */
+.contentTitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+/* Media query for mobile screens (max-width: 600px) */
+@media (max-width: 600px) {
+  /* Stack the votes container vertically */
+  .votes {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Ensure the left section takes full width */
+  .left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Ensure the right section takes full width and appears below */
+  .right {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Allow the title to wrap fully on mobile screens */
+  .contentTitle {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Allow tags to wrap within chainDiv */
+  .chainDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+}
+
+/* Base styles for all screens */
+
+.contentTitle {
+  white-space: normal; /* Changed from nowrap to allow wrapping */
+  overflow-wrap: break-word; /* Ensures words break and wrap */
+  word-break: break-word; /* Breaks long words if necessary */
+  overflow: visible; /* Prevents clipping of wrapped text */
+}
+
+.r2 {
+  white-space: normal; /* Changed from nowrap to allow wrapping */
+  overflow-wrap: break-word; /* Ensures words break and wrap */
+  word-break: break-word; /* Breaks long words if necessary */
+  overflow: visible; /* Prevents clipping of wrapped text */
+}
+
+/* Ensure voting result container supports wrapped text */
+.result {
+  display: flex;
+  flex-direction: column; /* Stack "Voted" and result vertically if needed */
+  align-items: flex-start; /* Align text to the left */
+}
+
+/* Style adjustments for r1 and r2 spans */
+.r1,
+.r2 {
+  width: 100%; /* Take full available width */
+  text-align: left; /* Align text to the left */
+}
+
+/* Media query for mobile screens (max-width: 600px) */
+@media (max-width: 600px) {
+  /* Stack the votes container vertically */
+  .votes {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Ensure the left section takes full width */
+  .left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Ensure the right section takes full width and appears below */
+  .right {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Reinforce title wrapping on mobile screens */
+  .contentTitle {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow: visible;
+  }
+
+  /* Reinforce voting result wrapping on mobile screens */
+  .r2 {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow: visible;
+  }
+
+  /* Allow tags to wrap within chainDiv */
+  .chainDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
   }
 }
