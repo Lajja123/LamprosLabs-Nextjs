@@ -106,9 +106,9 @@ body::-webkit-scrollbar-thumb {
 }
 .slick-dots {
   position: absolute;
-  bottom: -50px !important;
+
   display: block;
-  width: 100%;
+  width: 80%;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -178,9 +178,7 @@ input[name="flexRadioNoLabel"] {
   }
 }
 @media only screen and (max-width: 768px) {
-  .slick-dots {
-    bottom: -30px;
-  }
+ 
   .accordionIcon {
     width: 60px;
     height: 50px;
@@ -235,9 +233,7 @@ input[name="flexRadioNoLabel"] {
   .carousel-control-prev {
     width: 8%;
   }
-  .slick-dots {
-    bottom: -30px !important;
-  }
+
   .homepageSecion3MainTemplate .rec-carousel {
     width: 95% !important;
     margin: 80px 0px 0px 0px;
