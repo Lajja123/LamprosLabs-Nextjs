@@ -33,17 +33,17 @@ const VoteSection = () => {
       link: "https://vote.optimism.io/delegates/lamprosdao.eth",
     },
     {
+      name: "Uniswap", // Changed to proper display name
+      value: "uniswap",
+      icon: "/governance/uniswap.svg",
+      link: "",
+    },
+    {
       name: "Superfluid", // Changed to proper display name
       value: "superfluid",
       icon: "/governance/superfluid_green.svg",
       link: "https://forum.superfluid.org/t/lampros-dao-delegate-thread/266",
     },
-    // {
-    //   name: "Uniswap", // Changed to proper display name
-    //   value: "uniswap",
-    //   icon: "/governance/uniswap.svg",
-    //   link: "",
-    // },
     // {
     //   name: "ENS", // Changed to proper display name
     //   value: "ens",
@@ -107,6 +107,7 @@ const VoteSection = () => {
 
   // Function to determine icon based on protocol
   const getProtocolIcon = (protocol) => {
+    console.log("protocol is::", protocol)
     return `/governance/${protocol}.svg`;
   };
 
@@ -147,7 +148,7 @@ const VoteSection = () => {
         const transformedProposals = await Promise.allSettled(
           validProposals.slice(0, 5).map(async (proposal, index) => {
             // Get the display name for the protocol
-            const protocol = determineProtocol(
+            const protocol = selectedProtocol  || determineProtocol(
               proposal["Forum Post Link"] || "",
               proposal["Communication Rationale"] || ""
             );
@@ -644,6 +645,25 @@ const VoteSection = () => {
               />
               <span className={styles.textBtn}>
                 Delegate on Optimism{" "}
+                <ExternalLink className={styles.linkIcon} />
+              </span>
+            </button>
+          </Link>
+          <Link
+            href="https://www.tally.xyz/gov/uniswap/delegate/0xf070cd4b5ba73a6b6a939dde513f79862bffcd25"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.link}
+          >
+            <button className={styles.delegateNowButton}>
+              <Image
+                src="/governance/uniswap.svg"
+                alt="superfluid logo"
+                width={30}
+                height={40}
+              />
+              <span className={styles.textBtn}>
+                Delegate on Uniswap{" "}
                 <ExternalLink className={styles.linkIcon} />
               </span>
             </button>

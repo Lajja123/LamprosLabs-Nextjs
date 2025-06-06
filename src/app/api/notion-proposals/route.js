@@ -39,14 +39,17 @@ const PROTOCOL_PAGE_MAPPING = {
     { id: "NEXT_PUBLIC_NOTION_PAGE_ID4", votingType: "On-chain Voting" }
   ],
   uniswap: [
-    { id: "NEXT_PUBLIC_NOTION_PAGE_ID5", votingType: "Off-chain Voting" },
+    // { id: "NEXT_PUBLIC_NOTION_PAGE_ID5", votingType: "Off-chain Voting" },
     { id: "NEXT_PUBLIC_NOTION_PAGE_ID6", votingType: "On-chain Voting" }
   ],
-  ens: [
-    { id: "NEXT_PUBLIC_NOTION_PAGE_ID7", votingType: "Off-chain Voting" },
-    { id: "NEXT_PUBLIC_NOTION_PAGE_ID8", votingType: "On-chain Voting" }
-  ],
-  superfluid: []
+  // ens: [
+  //   { id: "NEXT_PUBLIC_NOTION_PAGE_ID7", votingType: "Off-chain Voting" },
+  //   { id: "NEXT_PUBLIC_NOTION_PAGE_ID8", votingType: "On-chain Voting" }
+  // ],
+  superfluid: [
+    { id: "NEXT_PUBLIC_NOTION_PAGE_ID9", votingType: "Off-chain Voting" },
+    // { id: "NEXT_PUBLIC_NOTION_PAGE_ID10", votingType: "On-chain Voting" }
+  ]
 };
 
 export async function GET(request) {
@@ -76,17 +79,19 @@ export async function GET(request) {
     let pageIdsToUse = [];
 
     if (selectedProtocol && PROTOCOL_PAGE_MAPPING[selectedProtocol]) {
+      // If a specific protocol is selected, only fetch its data
       pageIdsToUse = PROTOCOL_PAGE_MAPPING[selectedProtocol].map(
         (item) => process.env[item.id]
       );
     } else {
-      pageIdsToUse = [
-        ...PROTOCOL_PAGE_MAPPING.arbitrum.map((item) => process.env[item.id]),
-        ...PROTOCOL_PAGE_MAPPING.optimism.map((item) => process.env[item.id]),
-        ...PROTOCOL_PAGE_MAPPING.uniswap.map((item) => process.env[item.id]),
-        ...PROTOCOL_PAGE_MAPPING.ens.map((item) => process.env[item.id]),
-        // ...PROTOCOL_PAGE_MAPPING.superfluid.map((item) => process.env[item.id])
-      ];
+      // If no protocol is selected, fetch data from all protocols
+      Object.values(PROTOCOL_PAGE_MAPPING).forEach(protocolPages => {
+        protocolPages.forEach(page => {
+          if (process.env[page.id]) {
+            pageIdsToUse.push(process.env[page.id]);
+          }
+        });
+      });
     }
 
     // console.log("IdsToUse", pageIdsToUse);
