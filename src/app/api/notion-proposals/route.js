@@ -39,14 +39,17 @@ const PROTOCOL_PAGE_MAPPING = {
     { id: "NEXT_PUBLIC_NOTION_PAGE_ID4", votingType: "On-chain Voting" }
   ],
   uniswap: [
-    { id: "NEXT_PUBLIC_NOTION_PAGE_ID5", votingType: "Off-chain Voting" },
+    // { id: "NEXT_PUBLIC_NOTION_PAGE_ID5", votingType: "Off-chain Voting" },
     { id: "NEXT_PUBLIC_NOTION_PAGE_ID6", votingType: "On-chain Voting" }
   ],
-  ens: [
-    { id: "NEXT_PUBLIC_NOTION_PAGE_ID7", votingType: "Off-chain Voting" },
-    { id: "NEXT_PUBLIC_NOTION_PAGE_ID8", votingType: "On-chain Voting" }
-  ],
-  superfluid: []
+  // ens: [
+  //   { id: "NEXT_PUBLIC_NOTION_PAGE_ID7", votingType: "Off-chain Voting" },
+  //   { id: "NEXT_PUBLIC_NOTION_PAGE_ID8", votingType: "On-chain Voting" }
+  // ],
+  superfluid: [
+    { id: "NEXT_PUBLIC_NOTION_PAGE_ID9", votingType: "Off-chain Voting" },
+    // { id: "NEXT_PUBLIC_NOTION_PAGE_ID10", votingType: "On-chain Voting" }
+  ]
 };
 
 export async function GET(request) {
@@ -76,20 +79,22 @@ export async function GET(request) {
     let pageIdsToUse = [];
 
     if (selectedProtocol && PROTOCOL_PAGE_MAPPING[selectedProtocol]) {
+      // If a specific protocol is selected, only fetch its data
       pageIdsToUse = PROTOCOL_PAGE_MAPPING[selectedProtocol].map(
         (item) => process.env[item.id]
       );
     } else {
-      pageIdsToUse = [
-        ...PROTOCOL_PAGE_MAPPING.arbitrum.map((item) => process.env[item.id]),
-        ...PROTOCOL_PAGE_MAPPING.optimism.map((item) => process.env[item.id]),
-        ...PROTOCOL_PAGE_MAPPING.uniswap.map((item) => process.env[item.id]),
-        ...PROTOCOL_PAGE_MAPPING.ens.map((item) => process.env[item.id]),
-        // ...PROTOCOL_PAGE_MAPPING.superfluid.map((item) => process.env[item.id])
-      ];
+      // If no protocol is selected, fetch data from all protocols
+      Object.values(PROTOCOL_PAGE_MAPPING).forEach(protocolPages => {
+        protocolPages.forEach(page => {
+          if (process.env[page.id]) {
+            pageIdsToUse.push(process.env[page.id]);
+          }
+        });
+      });
     }
 
-    // console.log("IdsToUse", pageIdsToUse);
+    console.log("IdsToUse", pageIdsToUse);
 
     const headers = {
       "Content-Type": "application/json",
@@ -100,7 +105,7 @@ export async function GET(request) {
 
     // Filter out any undefined page IDs
     const validPageIds = pageIdsToUse.filter((id) => id);
-    // console.log("validIDs", validPageIds);
+    console.log("validIDs", validPageIds);
 
     if (validPageIds.length === 0) {
       return new Response(
@@ -116,13 +121,13 @@ export async function GET(request) {
         PROTOCOL_PAGE_MAPPING[proto].some(item => process.env[item.id] === id)
       );
 
-      // console.log("inside fPI", protocol);
+      console.log("inside fPI", protocol);
     
       const votingType = protocol 
         ? PROTOCOL_PAGE_MAPPING[protocol].find(item => process.env[item.id] === id).votingType
         : (index % 2 === 0 ? "Off-chain Voting" : "On-chain Voting");
 
-      // console.log("voting type", votingType);
+      console.log("voting type", votingType);
     
       return {
         id: id.replace(/-/g, ""),
@@ -130,7 +135,7 @@ export async function GET(request) {
       };
     });
 
-    // console.log("formattedIds", formattedPageIds);
+    console.log("formattedIds", formattedPageIds);
 
     // Fetch database records for all pages
     const databasePromises = formattedPageIds.map(
@@ -139,10 +144,10 @@ export async function GET(request) {
           database_id: id,
         });
 
-        console.log(`Debug - Database ${id} (${votingType}):`, {
-          resultsCount: results.length,
-          firstResult: results[0] // Log the first result if exists
-        });
+        // console.log(`Debug - Database ${id} (${votingType}):`, {
+        //   resultsCount: results.length,
+        //   firstResult: results[0] // Log the first result if exists
+        // });
 
         // Transform each result to extract plain text and add voting type
         return results.map((result) => {
@@ -169,7 +174,8 @@ export async function GET(request) {
       const parseDate = (dateStr) => {
         if (!dateStr) return null;
         const [day, month, year] = dateStr.split("/");
-        return new Date(`${year}-${month}-${day}`);
+        // Use explicit constructor with 0-indexed month for consistency
+        return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
       };
 
       const dateA = parseDate(a["Start Date"]);
@@ -179,7 +185,8 @@ export async function GET(request) {
       if (!dateA) return 1;
       if (!dateB) return -1;
 
-      return dateB - dateA;
+      // Sort in descending order (newest first)
+      return dateB.getTime() - dateA.getTime();
     });
 
     // console.log("sortedData", sortedRecords);

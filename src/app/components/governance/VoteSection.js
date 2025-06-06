@@ -33,17 +33,17 @@ const VoteSection = () => {
       link: "https://vote.optimism.io/delegates/lamprosdao.eth",
     },
     {
+      name: "Uniswap", // Changed to proper display name
+      value: "uniswap",
+      icon: "/governance/uniswap.svg",
+      link: "",
+    },
+    {
       name: "Superfluid", // Changed to proper display name
       value: "superfluid",
       icon: "/governance/superfluid_green.svg",
       link: "https://forum.superfluid.org/t/lampros-dao-delegate-thread/266",
     },
-    // {
-    //   name: "Uniswap", // Changed to proper display name
-    //   value: "uniswap",
-    //   icon: "/governance/uniswap.svg",
-    //   link: "",
-    // },
     // {
     //   name: "ENS", // Changed to proper display name
     //   value: "ens",
@@ -102,12 +102,24 @@ const VoteSection = () => {
     if (link.includes("optimism")) return "Optimism";
     if (link.includes("uniswap")) return "Uniswap";
     if (link.includes("ens")) return "ENS";
+    if (link.includes("superfluid")) return "Superfluid";
     return "Arbitrum"; // default fallback
   };
 
   // Function to determine icon based on protocol
   const getProtocolIcon = (protocol) => {
-    return `/governance/${protocol}.svg`;
+    console.log("protocol is::", protocol);
+    
+    // Create mapping from protocol names to their correct icon paths
+    const iconMapping = {
+      'arbitrum': '/governance/arbitrum.svg',
+      'optimism': '/governance/optimism.svg',
+      'uniswap': '/governance/uniswap.svg',
+      'superfluid': '/governance/superfluid_green.svg',
+      'ens': '/governance/ens.svg'
+    };
+    
+    return iconMapping[protocol.toLowerCase()] || `/governance/${protocol.toLowerCase()}.svg`;
   };
 
   const fetchProposals = useCallback(async () => {
@@ -128,6 +140,7 @@ const VoteSection = () => {
       const response = await fetch(`/api/notion-proposals${queryString}`);
       
       const data = await response.json();
+      console.log("data", data);
 
       // Check if this is still the latest request
       if (thisRequestId !== latestRequestIdRef.current) {
@@ -147,7 +160,7 @@ const VoteSection = () => {
         const transformedProposals = await Promise.allSettled(
           validProposals.slice(0, 5).map(async (proposal, index) => {
             // Get the display name for the protocol
-            const protocol = determineProtocol(
+            const protocol = selectedProtocol  || determineProtocol(
               proposal["Forum Post Link"] || "",
               proposal["Communication Rationale"] || ""
             );
@@ -644,6 +657,25 @@ const VoteSection = () => {
               />
               <span className={styles.textBtn}>
                 Delegate on Optimism{" "}
+                <ExternalLink className={styles.linkIcon} />
+              </span>
+            </button>
+          </Link>
+          <Link
+            href="https://www.tally.xyz/gov/uniswap/delegate/0xf070cd4b5ba73a6b6a939dde513f79862bffcd25"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.link}
+          >
+            <button className={styles.delegateNowButton}>
+              <Image
+                src="/governance/uniswap.svg"
+                alt="superfluid logo"
+                width={30}
+                height={40}
+              />
+              <span className={styles.textBtn}>
+                Delegate on Uniswap{" "}
                 <ExternalLink className={styles.linkIcon} />
               </span>
             </button>
