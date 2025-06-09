@@ -1,0 +1,176 @@
+name: Build and Deploy Next.js App
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run linting
+        run: yarn lint
+
+      - name: Build Next.js application
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NEXT_PUBLIC_NOTION_PARENT_PAGE_ID: ${{ secrets.NEXT_PUBLIC_NOTION_PARENT_PAGE_ID }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+          NEXT_PUBLIC_NOTION_PAGE_ID1: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID1 }}
+          NEXT_PUBLIC_NOTION_PAGE_ID2: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID2 }}
+          NEXT_PUBLIC_NOTION_PAGE_ID4: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID4 }}
+          NEXT_PUBLIC_NOTION_PAGE_ID5: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID5 }}
+          NEXT_PUBLIC_NOTION_PAGE_ID6: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID6 }}
+          NEXT_PUBLIC_NOTION_PAGE_ID9: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID9 }}
+          NODE_ENV: production
+        run: yarn build
+
+      - name: Create deployment package
+        run: |
+          mkdir -p deploy-package
+          cp -r .next deploy-package/
+          cp -r public deploy-package/
+          cp package.json deploy-package/
+          cp yarn.lock deploy-package/
+          cp next.config.ts deploy-package/
+
+          # Create PM2 ecosystem config
+          cat > deploy-package/ecosystem.config.js << 'EOF'
+          module.exports = {
+            apps: [{
+              name: 'lamprosdao',
+              script: 'npm',
+              args: 'start',
+              cwd: '/var/www/lamprosdao',
+              instances: 1,
+              autorestart: true,
+              watch: false,
+              max_memory_restart: '1G',
+              env: {
+                NODE_ENV: 'production',
+                PORT: 3029
+              }
+            }]
+          };
+          EOF
+
+          tar -czf lamprosdao-app.tar.gz -C deploy-package .
+
+      - name: Deploy to server
+        if: github.ref == 'refs/heads/main'
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            # Ensure /var/www exists and is accessible
+            ls -la /var/www/ || echo "/var/www doesn't exist"
+
+            # Backup current .env file if it exists
+            if [ -f "/var/www/lamprosdao/.env" ]; then
+              cp /var/www/lamprosdao/.env /tmp/lamprosdao.env.backup
+              echo "Backed up existing .env file"
+            fi
+
+            # Create backup of current deployment
+            if [ -d "/var/www/lamprosdao" ]; then
+              mv /var/www/lamprosdao /var/www/lamprosdao-backup-$(date +%Y%m%d-%H%M%S) 2>/dev/null || echo "Backup failed, continuing..."
+            fi
+
+            # Create new deployment directory with proper permissions
+            mkdir -p /var/www/lamprosdao
+
+            # Verify directory was created and check permissions
+            ls -la /var/www/
+            whoami
+            id
+
+      - name: Copy files to server
+        if: github.ref == 'refs/heads/main'
+        uses: appleboy/scp-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          source: "lamprosdao-app.tar.gz"
+          target: "/tmp/"
+
+      - name: Extract and setup application
+        if: github.ref == 'refs/heads/main'
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            # Extract application
+            cd /var/www/lamprosdao
+            tar -xzf /tmp/lamprosdao-app.tar.gz
+
+            # Create .env file from GitHub Secrets
+            cat > .env << 'EOF'
+            NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+            NEXT_PUBLIC_NOTION_PARENT_PAGE_ID: ${{ secrets.NEXT_PUBLIC_NOTION_PARENT_PAGE_ID }}
+            NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+            NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+            NEXT_PUBLIC_NOTION_PAGE_ID1: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID1 }}
+            NEXT_PUBLIC_NOTION_PAGE_ID2: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID2 }}
+            NEXT_PUBLIC_NOTION_PAGE_ID4: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID4 }}
+            NEXT_PUBLIC_NOTION_PAGE_ID5: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID5 }}
+            NEXT_PUBLIC_NOTION_PAGE_ID6: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID6 }}
+            NEXT_PUBLIC_NOTION_PAGE_ID9: ${{ secrets.NEXT_PUBLIC_NOTION_PAGE_ID9 }}
+            NODE_ENV=production
+            EOF
+
+            # Restore .env file if backup exists
+            if [ -f "/tmp/lamprosdao.env.backup" ]; then
+              mv /tmp/lamprosdao.env.backup .env
+              echo "Restored .env file from backup"
+            fi
+
+            # Install production dependencies only
+            yarn install --production --frozen-lockfile
+
+            # Set basic permissions (without sudo for now)
+            chmod -R 755 /var/www/lamprosdao || echo "Permission setting failed, continuing..."
+
+            # Start/Restart the application using PM2
+            if command -v pm2 &> /dev/null; then
+              # Stop existing PM2 process if running
+              pm2 stop lamprosdao || true
+              pm2 delete lamprosdao || true
+              
+              # Start with ecosystem config (includes port 3028)
+              pm2 start ecosystem.config.js
+              pm2 save
+            else
+              echo "PM2 not found. Please install PM2 first."
+              exit 1
+            fi
+
+            # Clean up
+            rm /tmp/lamprosdao-app.tar.gz
+
+            # Clean old backups (keep last 3) - without sudo for now
+            cd /var/www
+            ls -t lamprosdao-backup-* 2>/dev/null | tail -n +4 | xargs -r rm -rf 2>/dev/null || echo "Backup cleanup failed, continuing..."
