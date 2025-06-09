@@ -5,8 +5,9 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const postId = searchParams.get('postId');
   const postNumber = searchParams.get('postNumber');
+  const protocol = searchParams.get('protocol')?.toLowerCase();
 
-  // console.log(`Fetching forum post with postId: ${postId}, postNumber: ${postNumber}`);
+  // console.log(`Fetching forum post with postId: ${postId}, postNumber: ${postNumber}, protocol: ${protocol}`);
 
   if (!postId || !postNumber) {
     return NextResponse.json(
@@ -15,10 +16,17 @@ export async function GET(request) {
     );
   }
 
+  // Determine the forum URL based on protocol
+  let forumUrl;
+  if (protocol === 'superfluid') {
+    forumUrl = `https://forum.superfluid.org/t/${postId}/${postNumber}.json`;
+  } else {
+    // Default to Arbitrum forum for Arbitrum and other protocols
+    forumUrl = `https://forum.arbitrum.foundation/t/${postId}/${postNumber}.json`;
+  }
+
   try {
-    const response = await fetch(
-      `https://forum.arbitrum.foundation/t/${postId}/${postNumber}.json`
-    );
+    const response = await fetch(forumUrl);
     
     if (!response.ok) {
       console.error(`Failed to fetch forum post: ${response.status} ${response.statusText}`);

@@ -69,7 +69,7 @@ const VoteSection = () => {
     }
   };
 
-  const fetchForumPost = async (url) => {
+  const fetchForumPost = async (url, protocol) => {
     try {
       // Parse the forum URL to extract relevant details
       const parsed = parseForumUrl(url);
@@ -77,9 +77,9 @@ const VoteSection = () => {
 
       const { postId, postNumber } = parsed;
 
-      // Call the API route handler on your server
+      // Call the API route handler on your server with protocol parameter
       const response = await fetch(
-        `/api/fetch-forum-post?postId=${postId}&postNumber=${postNumber}`
+        `/api/fetch-forum-post?postId=${postId}&postNumber=${postNumber}&protocol=${protocol.toLowerCase()}`
       );
       const data = await response.json();
 
@@ -180,10 +180,14 @@ const VoteSection = () => {
 
             let forumContent = null;
             let forumCreatedAt = null;
-            if (proposal["Communication Rationale"]) {
+            
+            // Only fetch forum content for Arbitrum and Superfluid proposals
+            if (proposal["Communication Rationale"] && 
+                (protocol.toLowerCase() === 'arbitrum' || protocol.toLowerCase() === 'superfluid')) {
               try {
                 const rawContent = await fetchForumPost(
-                  proposal["Communication Rationale"]
+                  proposal["Communication Rationale"],
+                  protocol
                 );
                 forumContent = processForumContent(rawContent.content);
                 forumCreatedAt = rawContent?.createdAt || null;
@@ -368,7 +372,7 @@ const VoteSection = () => {
         <h2 className={styles.delegationsHeading}>Our Delegations</h2>
         <div className={styles.delegationsContainer}>
           {protocols.map((protocol, index) =>
-            protocol.link ? (
+            protocol.link && (
               <a
                 key={index}
                 href={protocol.link}
@@ -384,21 +388,7 @@ const VoteSection = () => {
                 />
                 <p>{protocol.name}</p>
               </a>
-            ) : (
-              <div key={index} className={styles.delegationCard}>
-                <Image
-                  src={protocol.icon}
-                  alt={`${protocol.name} Icon`}
-                  width={50}
-                  height={50}
-                />
-                <p>
-                  {" "}
-                  {protocol.name.charAt(0).toUpperCase() +
-                    protocol.name.slice(1)}
-                </p>
-              </div>
-            )
+            ) 
           )}
         </div>
       </div>
