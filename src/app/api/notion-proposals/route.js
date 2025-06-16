@@ -39,7 +39,7 @@ const PROTOCOL_PAGE_MAPPING = {
     { id: "NEXT_PUBLIC_NOTION_PAGE_ID4", votingType: "On-chain Voting" }
   ],
   uniswap: [
-    // { id: "NEXT_PUBLIC_NOTION_PAGE_ID5", votingType: "Off-chain Voting" },
+    { id: "NEXT_PUBLIC_NOTION_PAGE_ID5", votingType: "Off-chain Voting" },
     { id: "NEXT_PUBLIC_NOTION_PAGE_ID6", votingType: "On-chain Voting" }
   ],
   // ens: [
